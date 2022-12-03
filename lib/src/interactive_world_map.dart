@@ -1,85 +1,93 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:vector_map/vector_map.dart';
+import 'package:wt_geography_play/src/models/country.dart';
 
-class InteractiveWorldMap extends StatefulWidget {
-  final void Function(Country country) onPreview;
+// ignore: must_be_immutable
+class InteractiveWorldMap extends StatelessWidget {
+  final Map<String, Color> countryColorMap;
+  final MapDataSource mapDataSource;
 
-  const InteractiveWorldMap({
+  final void Function(Set<Country> selectedCountries)? onSelectionChange;
+  final void Function(Country country)? onSelect;
+  final void Function(Country country)? onHover;
+
+  final bool enableHover;
+
+  late VectorMapController _controller;
+
+  final Set<Country> _selected = {};
+
+  InteractiveWorldMap({
     super.key,
-  });
-
-  @override
-  State<StatefulWidget> createState() => _InteractiveWorldMapState();
-}
-
-class _InteractiveWorldMapState extends State<InteractiveWorldMap> {
-  VectorMapController? _controller;
-  MapDebugger debugger = MapDebugger();
-
-  @override
-  void initState() {
-    super.initState();
-    _loadDataSources();
-  }
-
-  void _loadDataSources() async {
-    _loadMapLayer().then((layer) {
-      setState(() {
-        _controller = VectorMapController(
-            layers: [layer],
-            delayToRefreshResolution: 0,
-            minScale: 3,
-            maxScale: 100,
-            mode: VectorMapMode.panAndZoom);
-      });
-      debugPrint('Map has been loaded ${_controller.runtimeType}');
-      setState(() {});
-    }, onError: (error) {
-      debugPrint('There was an issue loading map: ${error.toString()}');
-    });
+    required this.mapDataSource,
+    this.countryColorMap = const {},
+    this.onSelect,
+    this.onHover,
+    this.onSelectionChange,
+    this.enableHover = true,
+  }) {
+    _controller = VectorMapController(
+        layers: [
+          MapLayer(
+            dataSource: mapDataSource,
+            highlightTheme: MapHighlightTheme(color: Colors.grey.shade400),
+            theme: MapRuleTheme(
+              color: Colors.grey.shade100,
+              contourColor: Colors.grey,
+              colorRules: [
+                (feature) => _selected.contains(_featureToCountry(feature))
+                    ? Colors.grey.shade400
+                    : null,
+                (feature) => countryColorMap.containsKey(feature.label)
+                    ? countryColorMap[feature.label] ?? Colors.grey.shade600
+                    : Colors.grey.shade200,
+              ],
+            ),
+          )
+        ],
+        delayToRefreshResolution: 0,
+        minScale: 3,
+        maxScale: 100,
+        mode: VectorMapMode.panAndZoom);
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.blue[800]!),
-      home: Scaffold(
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: _controller == null
-                ? const Center(child: Text('Loading...'))
-                : VectorMap(
-                    controller: _controller,
-                    clickListener: (feature) => print(feature.id),
-                    hoverListener: (feature) => print(feature?.id ?? -1),
-                    color: Colors.lightBlue.shade300,
-                  ),
-          ),
-        ),
-      ),
+    return VectorMap(
+      controller: _controller,
+      clickListener: _onSelect,
+      hoverListener: _onHover,
+      hoverRule: (feature) => enableHover,
+      color: Colors.lightBlue.shade300,
     );
   }
 
-  Future<MapLayer> _loadMapLayer() async {
-    String geoJson = Platform.isMacOS
-        ? await File(
-                '/Users/timmcmaster/Workspace/clone/vector_map_flutter/example/assets/world_countries.json')
-            .readAsStringSync()
-        : Platform.isIOS
-            ? await rootBundle.loadString('assets/world_countries.json')
-            : await rootBundle.loadString('assets/world_countries.json');
+  void _onHover(MapFeature? feature) {
+    if (feature != null) {
+      final country = _featureToCountry(feature);
+      onHover?.call(country);
+    }
+  }
 
-    MapDataSource ds = await MapDataSource.geoJson(geoJson: geoJson);
-    return MapLayer(
-      dataSource: ds,
-      theme: MapTheme(
-        color: Colors.grey.shade100,
-      ),
+  void _onSelect(MapFeature feature) {
+    final country = _featureToCountry(feature);
+    onSelect?.call(country);
+
+    if (_selected.contains(country)) {
+      _selected.remove(country);
+    } else {
+      _selected.add(country);
+    }
+
+    // trigger the map to repaint, to reveal the change in selection
+    // _controller.notifyPanZoomMode(start: false);
+    _controller.fit();
+  }
+
+  Country _featureToCountry(MapFeature feature) {
+    return Country(
+      id: feature.id.toString(),
+      name: feature.label ?? 'Unknown',
     );
   }
 }
