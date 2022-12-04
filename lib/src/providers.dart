@@ -16,6 +16,13 @@ final countryColorMapProvider = Provider<Map<String, Color>>(
     'Australia': Colors.yellow,
     'USA': Colors.blue,
     'China': Colors.red,
+    'Libya': Colors.greenAccent,
+    'Canada': Colors.yellow,
+    'Syria': Colors.green,
+    'Russia': Colors.orangeAccent,
+    'Yemen': Colors.redAccent,
+    'Botswana': Colors.red,
+    'Greenland': Colors.green
   },
 );
 

@@ -14,20 +14,39 @@ class GeographyPlay extends ConsumerWidget {
     final dinoByCountry = ref.read(dinosaurByCountryProvider);
     final mapDataSource = ref.watch(dataSourceFutureProvider);
     final selectedNotifier = ref.watch(InteractiveWorldMap.selected.notifier);
+    final hoverNotifier = ref.watch(InteractiveWorldMap.hover.notifier);
 
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ElevatedButton(
-                  onPressed: () {
-                    selectedNotifier
-                        .select(Country(id: '9', name: 'Australia'));
-                  },
-                  child: const Text('Action'))
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      selectedNotifier
+                          .select(Country(id: '9', name: 'Australia'));
+                    },
+                    child: const Text('Select Australia'),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      selectedNotifier.clear();
+                    },
+                    child: const Text(
+                      'Clear Selection',
+                    ),
+                  ),
+                ],
+              ),
+              const HoverCountry(),
             ],
           ),
         ),
@@ -37,8 +56,12 @@ class GeographyPlay extends ConsumerWidget {
                     countryColorMap: countryColorMap,
                     mapDataSource: mapDataSource,
                     selectedNotifier: selectedNotifier,
-                    onHover: (country) =>
-                        debugPrint('Hovering over Country: $country'),
+                    onHover: (country) {
+                      if (country != null) {
+                        debugPrint('Hovering over Country: $country');
+                      }
+                      hoverNotifier.state = country;
+                    },
                     onSelect: (country) =>
                         _countrySelected(country, dinoByCountry),
                     onUnselect: (country) =>
@@ -62,5 +85,18 @@ class GeographyPlay extends ConsumerWidget {
         debugPrint(' - ${dino.name}');
       }
     }
+  }
+}
+
+class HoverCountry extends ConsumerWidget {
+  const HoverCountry({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final country = ref.watch(InteractiveWorldMap.hover);
+    return Text(
+      country?.name ?? '',
+      style: const TextStyle(fontSize: 24),
+    );
   }
 }

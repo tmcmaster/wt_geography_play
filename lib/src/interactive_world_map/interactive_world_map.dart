@@ -6,16 +6,18 @@ import 'package:wt_geography_play/src/models/country.dart';
 
 class InteractiveWorldMap extends StatefulWidget {
   static final selected =
-      StateNotifierProvider<InteractiveWorkdMaoNotifier, Set<Country>>(
-          (ref) => InteractiveWorkdMaoNotifier());
+      StateNotifierProvider<InteractiveWorldMaoNotifier, Set<Country>>(
+          (ref) => InteractiveWorldMaoNotifier());
+
+  static final hover = StateProvider<Country?>((ref) => null);
 
   final MapDataSource mapDataSource;
   final Map<String, Color> countryColorMap;
-  final void Function(Country)? onHover;
+  final void Function(Country?)? onHover;
   final void Function(Country)? onSelect;
   final void Function(Country)? onUnselect;
   final void Function(Set<Country>)? onSelectionChanged;
-  final InteractiveWorkdMaoNotifier selectedNotifier;
+  final InteractiveWorldMaoNotifier selectedNotifier;
 
   const InteractiveWorldMap({
     super.key,
@@ -31,6 +33,18 @@ class InteractiveWorldMap extends StatefulWidget {
   @override
   State<InteractiveWorldMap> createState() => _InteractiveWorldMapState();
 }
+
+final colors = [
+  Colors.red,
+  Colors.blue,
+  Colors.yellow,
+  Colors.blueGrey,
+  Colors.amberAccent,
+  Colors.deepPurple,
+  Colors.orangeAccent,
+  Colors.green,
+  Colors.amber,
+];
 
 class _InteractiveWorldMapState extends State<InteractiveWorldMap> {
   late VectorMapController controller;
@@ -54,7 +68,7 @@ class _InteractiveWorldMapState extends State<InteractiveWorldMap> {
             contourColor: Colors.grey,
             colorRules: [
               (feature) => _countrySelectColor(feature),
-              (feature) => _countryColor(feature.label),
+              // (feature) => _countryColor(feature.label),
             ],
           ),
         ),
@@ -77,14 +91,14 @@ class _InteractiveWorldMapState extends State<InteractiveWorldMap> {
   Color? _countrySelectColor(MapFeature feature) {
     final country = _featureToCountry(feature);
     return widget.selectedNotifier.isSelected(country)
-        ? Colors.grey.shade400
-        : null;
+        ? _countryColor(country)
+        : Colors.grey.shade200;
   }
 
-  Color _countryColor(String? countryName) {
-    return widget.countryColorMap.containsKey(countryName)
-        ? widget.countryColorMap[countryName] ?? Colors.grey.shade600
-        : Colors.grey.shade200;
+  Color _countryColor(Country country) {
+    return widget.countryColorMap.containsKey(country.name)
+        ? widget.countryColorMap[country.name] ?? Colors.grey.shade600
+        : colors[int.parse(country.id) % colors.length];
   }
 
   @override
@@ -102,10 +116,8 @@ class _InteractiveWorldMapState extends State<InteractiveWorldMap> {
         }
       },
       hoverListener: (feature) {
-        if (feature != null) {
-          final country = _featureToCountry(feature);
-          widget.onHover?.call(country);
-        }
+        final country = feature == null ? null : _featureToCountry(feature);
+        widget.onHover?.call(country);
       },
       hoverRule: (feature) => true,
       color: Colors.lightBlue.shade300,
