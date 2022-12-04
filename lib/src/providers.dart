@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vector_map/vector_map.dart';
-import 'package:wt_geography_play/src/models/country.dart';
 import 'package:wt_geography_play/src/models/dinosaur.dart';
 
 final dataSourceFutureProvider = FutureProvider(
   (ref) async {
     String geoJson = await rootBundle.loadString('assets/world_countries.json');
-    return MapDataSource.geoJson(geoJson: geoJson, labelKey: 'name');
+    return await MapDataSource.geoJson(geoJson: geoJson, labelKey: 'name');
   },
 );
 
@@ -38,27 +37,3 @@ final dinosaurByCountryProvider = Provider<Map<String, List<Dinosaur>>>((ref) {
   }
   return dinoByCountry;
 });
-
-final selectedCountries =
-    StateNotifierProvider<SelectedCountries, Set<Country>>(
-        (ref) => SelectedCountries());
-
-class SelectedCountries extends StateNotifier<Set<Country>> {
-  SelectedCountries() : super({});
-
-  bool isSelected(Country country) {
-    return state.contains(country);
-  }
-
-  void select(Country country) {
-    if (!state.contains(country)) {
-      state = {...state, country};
-    }
-  }
-
-  void unselect(Country country) {
-    if (state.contains(country)) {
-      state = state.where((c) => c != country).toSet();
-    }
-  }
-}

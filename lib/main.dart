@@ -14,11 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.blue[800]!),
-      home: Scaffold(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.lightBlue.shade50,
+      ),
+      home: const Scaffold(
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(8),
+            padding: EdgeInsets.all(8),
             child: GeographyPlay(),
           ),
         ),
