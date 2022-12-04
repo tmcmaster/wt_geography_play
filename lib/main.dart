@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/src/geography_play.dart';
+import 'package:wt_geography_play/apps/navigate_between.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +21,9 @@ class MyApp extends StatelessWidget {
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.all(8),
-            child: GeographyPlay(),
+            // child: GeographyPlay(),
+            // child: FindDinosaurs(),
+            child: NavigateBetween(),
           ),
         ),
       ),

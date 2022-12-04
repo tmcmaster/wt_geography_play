@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vector_map/vector_map.dart';
-import 'package:wt_geography_play/src/models/dinosaur.dart';
+import 'package:wt_geography_play/models/dinosaur.dart';
 
 final dataSourceFutureProvider = FutureProvider(
   (ref) async {
@@ -22,6 +22,11 @@ final countryColorMapProvider = Provider<Map<String, Color>>(
     'Russia': Colors.orangeAccent,
     'Yemen': Colors.redAccent,
     'Botswana': Colors.red,
+    'Uruguay': Colors.red,
+    'Vietnam': Colors.yellow,
+    'Mongolia': Colors.yellow,
+    'Bolivia': Colors.blue,
+    'Argentina': Colors.green,
     'Greenland': Colors.green
   },
 );

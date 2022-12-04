@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/src/models/country.dart';
+import 'package:wt_geography_play/models/country.dart';
 
 class InteractiveWorldMaoNotifier extends StateNotifier<Set<Country>> {
   InteractiveWorldMaoNotifier() : super({});

@@ -1,16 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vector_map/vector_map.dart';
-import 'package:wt_geography_play/src/interactive_world_map/interactive_word_map_notifier.dart';
-import 'package:wt_geography_play/src/models/country.dart';
+import 'package:wt_geography_play/interactive_world_map/interactive_word_map_notifier.dart';
+import 'package:wt_geography_play/models/country.dart';
+import 'package:wt_geography_play/providers/providers.dart';
 
-class InteractiveWorldMap extends StatefulWidget {
+class InteractiveWorldMap extends ConsumerWidget {
   static final selected =
       StateNotifierProvider<InteractiveWorldMaoNotifier, Set<Country>>(
           (ref) => InteractiveWorldMaoNotifier());
 
   static final hover = StateProvider<Country?>((ref) => null);
 
+  final void Function(Country?)? onHover;
+  final void Function(Country)? onSelect;
+  final void Function(Country)? onUnselect;
+  final void Function(Set<Country>)? onSelectionChanged;
+
+  const InteractiveWorldMap({
+    super.key,
+    this.onHover,
+    this.onSelect,
+    this.onUnselect,
+    this.onSelectionChanged,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final countryColorMap = ref.read(countryColorMapProvider);
+    final mapDataSource = ref.watch(dataSourceFutureProvider);
+    final selectedNotifier = ref.watch(InteractiveWorldMap.selected.notifier);
+    final hoverNotifier = ref.watch(InteractiveWorldMap.hover.notifier);
+
+    return mapDataSource.when(
+        data: (mapDataSource) => _InteractiveWorldMap(
+              countryColorMap: countryColorMap,
+              mapDataSource: mapDataSource,
+              selectedNotifier: selectedNotifier,
+              onHover: (country) {
+                hoverNotifier.state = country;
+                onHover?.call(country);
+              },
+              onSelect: onSelect,
+              onUnselect: onUnselect,
+              onSelectionChanged: onSelectionChanged,
+            ),
+        error: (error, _) => Center(child: Text('Error: ${error.toString()}')),
+        loading: () => const Center(child: Text('Loading...')));
+  }
+}
+
+class _InteractiveWorldMap extends StatefulWidget {
   final MapDataSource mapDataSource;
   final Map<String, Color> countryColorMap;
   final void Function(Country?)? onHover;
@@ -19,7 +59,7 @@ class InteractiveWorldMap extends StatefulWidget {
   final void Function(Set<Country>)? onSelectionChanged;
   final InteractiveWorldMaoNotifier selectedNotifier;
 
-  const InteractiveWorldMap({
+  const _InteractiveWorldMap({
     super.key,
     required this.mapDataSource,
     required this.selectedNotifier,
@@ -31,7 +71,7 @@ class InteractiveWorldMap extends StatefulWidget {
   });
 
   @override
-  State<InteractiveWorldMap> createState() => _InteractiveWorldMapState();
+  State<_InteractiveWorldMap> createState() => _InteractiveWorldMapState();
 }
 
 final colors = [
@@ -46,7 +86,7 @@ final colors = [
   Colors.amber,
 ];
 
-class _InteractiveWorldMapState extends State<InteractiveWorldMap> {
+class _InteractiveWorldMapState extends State<_InteractiveWorldMap> {
   late VectorMapController controller;
   late RemoveListener _removeListener;
 
@@ -61,7 +101,7 @@ class _InteractiveWorldMapState extends State<InteractiveWorldMap> {
         MapLayer(
           dataSource: widget.mapDataSource,
           highlightTheme: MapHighlightTheme(
-            color: Colors.grey.shade400,
+            color: Colors.white,
           ),
           theme: MapRuleTheme(
             color: Colors.grey.shade100,
