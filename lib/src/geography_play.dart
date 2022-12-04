@@ -1,50 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_geography_play/src/interactive_world_map.dart';
+import 'package:wt_geography_play/src/interactive_world_map_controller.dart';
 import 'package:wt_geography_play/src/models/country.dart';
-import 'package:wt_geography_play/src/models/dinosaur.dart';
 import 'package:wt_geography_play/src/providers.dart';
 
-// ignore: must_be_immutable
 class GeographyPlay extends ConsumerWidget {
-  const GeographyPlay({
-    super.key,
-  });
+  late InteractiveWorldMapController controller;
+  GeographyPlay({Key? key}) : super(key: key) {
+    controller = InteractiveWorldMapController(
+      selected: {
+        Country(id: '154', name: 'Chad'),
+      },
+      onSelectionChange: (selectedCountries) =>
+          debugPrint('Selected Countries: $selectedCountries'),
+      onSelect: (country) => debugPrint('Country Selected: $country'),
+      onHover: (country) => debugPrint('Hovering over Country: $country'),
+      enableHover: true,
+    );
+
+    // Timer.periodic(Duration(seconds: 5), (timer) {
+    //   final country = Country(id: '154', name: 'Chad');
+    //   if (controller.isSelected(country)) {
+    //     controller.unselect(country);
+    //   } else {
+    //     controller.select(country);
+    //   }
+    // });
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final mapDataSourceAsync = ref.read(dataSourceFutureProvider);
     final countryColorMap = ref.read(countryColorMapProvider);
     final dinoByCountry = ref.read(dinosaurByCountryProvider);
 
-    return mapDataSourceAsync.when(
-      data: (data) => InteractiveWorldMap(
-        mapDataSource: data,
-        enableHover: true,
-        countryColorMap: countryColorMap,
-        onSelect: (coutry) => _countrySelected(coutry, dinoByCountry),
-        onHover: (country) {
-          debugPrint('Hovering over Country: ${country.name}');
-        },
-      ),
-      error: (error, _) => Center(
-        child: Text(error.toString()),
-      ),
-      loading: () => const Center(
-        child: Text('Loading...'),
-      ),
+    return InteractiveWorldMap(
+      countryColorMap: countryColorMap,
+      controller: controller,
     );
-  }
-
-  void _countrySelected(
-    Country country,
-    Map<String, List<Dinosaur>> dinoByCountry,
-  ) {
-    debugPrint('Selected Country: ${country.name}');
-    if (dinoByCountry.containsKey(country.name)) {
-      for (var dino in dinoByCountry[country.name]!) {
-        debugPrint('Selected Dino: ${dino.name}');
-      }
-    }
   }
 }
