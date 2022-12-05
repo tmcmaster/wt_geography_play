@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_geography_play/interactive_world_map/interactive_world_map.dart';
+import 'package:wt_geography_play/providers/capital_cities.dart';
 import 'package:wt_geography_play/providers/navigate_between_providers.dart';
+
+const debug = false;
 
 class NavigateBetween extends ConsumerWidget {
   const NavigateBetween({super.key});
@@ -33,9 +36,34 @@ class NavigateBetween extends ConsumerWidget {
                 left: 0,
                 bottom: 10,
                 child: _CountrySelection(),
-              )
+              ),
+              Positioned(
+                left: 350,
+                bottom: 80,
+                height: 100,
+                width: 300,
+                child: _ScoresPanel(),
+              ),
             ],
           ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ScoresPanel extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final style =
+        Theme.of(context).textTheme.headline5!.copyWith(color: Colors.white);
+
+    final distance = ref.watch(distanceNotifierProvider);
+    return Column(
+      children: [
+        Text(
+          'Distance: ${(distance / 1000).toStringAsFixed(0)} km',
+          style: style,
         ),
       ],
     );
@@ -92,6 +120,41 @@ class _InfoPanel extends ConsumerWidget {
             hoverCountry?.name ?? '',
             style: style,
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HeaderPanel extends ConsumerWidget {
+  const _HeaderPanel();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final navigateBetweenNotifier = ref.read(navigateBetweenProvider.notifier);
+    final navigateBetween = ref.watch(navigateBetweenProvider);
+
+    final style =
+        Theme.of(context).textTheme.headline5!.copyWith(color: Colors.blue);
+
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              navigateBetweenNotifier.reset();
+            },
+            child: const Text('Reset'),
+          ),
+          if (debug)
+            ElevatedButton(
+              onPressed: () {
+                navigateBetweenNotifier.test();
+              },
+              child: const Text('Test'),
+            ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -106,30 +169,6 @@ class _InfoPanel extends ConsumerWidget {
                   style: style,
                 ),
             ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _HeaderPanel extends ConsumerWidget {
-  const _HeaderPanel();
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final navigateBetweenNotifier = ref.read(navigateBetweenProvider.notifier);
-
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              navigateBetweenNotifier.reset();
-            },
-            child: const Text('Reset'),
           ),
         ],
       ),

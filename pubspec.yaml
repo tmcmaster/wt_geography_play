@@ -11,11 +11,20 @@ dependencies:
   vector_map:
   cupertino_icons: ^1.0.2
   flutter_riverpod:
+  freezed: ^2.3.0
+  freezed_annotation: ^2.2.0
+  wt_models:
+    git:
+      url: https://github.com/tmcmaster/wt_models.git
+  geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  build_runner: ^2.3.2
+  freezed:
+  json_serializable:
 
 flutter:
   uses-material-design: true

@@ -1,0 +1,2207 @@
+[
+  {
+    "id": "1",
+    "name": "Afghanistan",
+    "capital": "Kabul",
+    "code": "AF",
+    "continent": "Asia",
+    "longitude": 69.183333,
+    "latitude": 34.516666666666666
+  },
+  {
+    "id": "2",
+    "name": "Aland Islands",
+    "capital": "Mariehamn",
+    "code": "AX",
+    "continent": "Europe",
+    "longitude": 19.9,
+    "latitude": 60.116667
+  },
+  {
+    "id": "3",
+    "name": "Albania",
+    "capital": "Tirana",
+    "code": "AL",
+    "continent": "Europe",
+    "longitude": 19.816667,
+    "latitude": 41.31666666666667
+  },
+  {
+    "id": "4",
+    "name": "Algeria",
+    "capital": "Algiers",
+    "code": "DZ",
+    "continent": "Africa",
+    "longitude": 3.05,
+    "latitude": 36.75
+  },
+  {
+    "id": "5",
+    "name": "American Samoa",
+    "capital": "Pago Pago",
+    "code": "AS",
+    "continent": "Australia",
+    "longitude": -170.7,
+    "latitude": -14.266666666666667
+  },
+  {
+    "id": "6",
+    "name": "Andorra",
+    "capital": "Andorra la Vella",
+    "code": "AD",
+    "continent": "Europe",
+    "longitude": 1.516667,
+    "latitude": 42.5
+  },
+  {
+    "id": "7",
+    "name": "Angola",
+    "capital": "Luanda",
+    "code": "AO",
+    "continent": "Africa",
+    "longitude": 13.216667,
+    "latitude": -8.833333333333334
+  },
+  {
+    "id": "8",
+    "name": "Anguilla",
+    "capital": "The Valley",
+    "code": "AI",
+    "continent": "North America",
+    "longitude": -63.05,
+    "latitude": 18.216666666666665
+  },
+  {
+    "id": "9",
+    "name": "Antarctica",
+    "capital": "N/A",
+    "code": "AQ",
+    "continent": "Antarctica",
+    "longitude": 0.0,
+    "latitude": 0
+  },
+  {
+    "id": "10",
+    "name": "Antigua and Barbuda",
+    "capital": "Saint John's",
+    "code": "AG",
+    "continent": "North America",
+    "longitude": -61.85,
+    "latitude": 17.116666666666667
+  },
+  {
+    "id": "11",
+    "name": "Argentina",
+    "capital": "Buenos Aires",
+    "code": "AR",
+    "continent": "South America",
+    "longitude": -58.666667,
+    "latitude": -34.583333333333336
+  },
+  {
+    "id": "12",
+    "name": "Armenia",
+    "capital": "Yerevan",
+    "code": "AM",
+    "continent": "Europe",
+    "longitude": 44.5,
+    "latitude": 40.166666666666664
+  },
+  {
+    "id": "13",
+    "name": "Aruba",
+    "capital": "Oranjestad",
+    "code": "AW",
+    "continent": "North America",
+    "longitude": -70.033333,
+    "latitude": 12.516666666666667
+  },
+  {
+    "id": "14",
+    "name": "Australia",
+    "capital": "Canberra",
+    "code": "AU",
+    "continent": "Australia",
+    "longitude": 149.133333,
+    "latitude": -35.266666666666666
+  },
+  {
+    "id": "15",
+    "name": "Austria",
+    "capital": "Vienna",
+    "code": "AT",
+    "continent": "Europe",
+    "longitude": 16.366667,
+    "latitude": 48.2
+  },
+  {
+    "id": "16",
+    "name": "Azerbaijan",
+    "capital": "Baku",
+    "code": "AZ",
+    "continent": "Europe",
+    "longitude": 49.866667,
+    "latitude": 40.38333333333333
+  },
+  {
+    "id": "17",
+    "name": "Bahamas",
+    "capital": "Nassau",
+    "code": "BS",
+    "continent": "North America",
+    "longitude": -77.35,
+    "latitude": 25.083333333333332
+  },
+  {
+    "id": "18",
+    "name": "Bahrain",
+    "capital": "Manama",
+    "code": "BH",
+    "continent": "Asia",
+    "longitude": 50.566667,
+    "latitude": 26.233333333333334
+  },
+  {
+    "id": "19",
+    "name": "Bangladesh",
+    "capital": "Dhaka",
+    "code": "BD",
+    "continent": "Asia",
+    "longitude": 90.4,
+    "latitude": 23.716666666666665
+  },
+  {
+    "id": "20",
+    "name": "Barbados",
+    "capital": "Bridgetown",
+    "code": "BB",
+    "continent": "North America",
+    "longitude": -59.616667,
+    "latitude": 13.1
+  },
+  {
+    "id": "21",
+    "name": "Belarus",
+    "capital": "Minsk",
+    "code": "BY",
+    "continent": "Europe",
+    "longitude": 27.566667,
+    "latitude": 53.9
+  },
+  {
+    "id": "22",
+    "name": "Belgium",
+    "capital": "Brussels",
+    "code": "BE",
+    "continent": "Europe",
+    "longitude": 4.333333,
+    "latitude": 50.833333333333336
+  },
+  {
+    "id": "23",
+    "name": "Belize",
+    "capital": "Belmopan",
+    "code": "BZ",
+    "continent": "Central America",
+    "longitude": -88.766667,
+    "latitude": 17.25
+  },
+  {
+    "id": "24",
+    "name": "Benin",
+    "capital": "Porto-Novo",
+    "code": "BJ",
+    "continent": "Africa",
+    "longitude": 2.616667,
+    "latitude": 6.483333333333333
+  },
+  {
+    "id": "25",
+    "name": "Bermuda",
+    "capital": "Hamilton",
+    "code": "BM",
+    "continent": "North America",
+    "longitude": -64.783333,
+    "latitude": 32.28333333333333
+  },
+  {
+    "id": "26",
+    "name": "Bhutan",
+    "capital": "Thimphu",
+    "code": "BT",
+    "continent": "Asia",
+    "longitude": 89.633333,
+    "latitude": 27.466666666666665
+  },
+  {
+    "id": "27",
+    "name": "Bolivia",
+    "capital": "La Paz",
+    "code": "BO",
+    "continent": "South America",
+    "longitude": -68.15,
+    "latitude": -16.5
+  },
+  {
+    "id": "28",
+    "name": "Bosnia and Herzegovina",
+    "capital": "Sarajevo",
+    "code": "BA",
+    "continent": "Europe",
+    "longitude": 18.416667,
+    "latitude": 43.86666666666667
+  },
+  {
+    "id": "29",
+    "name": "Botswana",
+    "capital": "Gaborone",
+    "code": "BW",
+    "continent": "Africa",
+    "longitude": 25.9,
+    "latitude": -24.633333333333333
+  },
+  {
+    "id": "30",
+    "name": "Brazil",
+    "capital": "Brasilia",
+    "code": "BR",
+    "continent": "South America",
+    "longitude": -47.916667,
+    "latitude": -15.783333333333333
+  },
+  {
+    "id": "31",
+    "name": "British Indian Ocean Territory",
+    "capital": "Diego Garcia",
+    "code": "IO",
+    "continent": "Africa",
+    "longitude": 72.4,
+    "latitude": -7.3
+  },
+  {
+    "id": "32",
+    "name": "British Virgin Islands",
+    "capital": "Road Town",
+    "code": "VG",
+    "continent": "North America",
+    "longitude": -64.616667,
+    "latitude": 18.416666666666668
+  },
+  {
+    "id": "33",
+    "name": "Brunei Darussalam",
+    "capital": "Bandar Seri Begawan",
+    "code": "BN",
+    "continent": "Asia",
+    "longitude": 114.933333,
+    "latitude": 4.883333333333333
+  },
+  {
+    "id": "34",
+    "name": "Bulgaria",
+    "capital": "Sofia",
+    "code": "BG",
+    "continent": "Europe",
+    "longitude": 23.316667,
+    "latitude": 42.68333333333333
+  },
+  {
+    "id": "35",
+    "name": "Burkina Faso",
+    "capital": "Ouagadougou",
+    "code": "BF",
+    "continent": "Africa",
+    "longitude": -1.516667,
+    "latitude": 12.366666666666667
+  },
+  {
+    "id": "36",
+    "name": "Burundi",
+    "capital": "Bujumbura",
+    "code": "BI",
+    "continent": "Africa",
+    "longitude": 29.35,
+    "latitude": -3.3666666666666667
+  },
+  {
+    "id": "37",
+    "name": "Cambodia",
+    "capital": "Phnom Penh",
+    "code": "KH",
+    "continent": "Asia",
+    "longitude": 104.916667,
+    "latitude": 11.55
+  },
+  {
+    "id": "38",
+    "name": "Cameroon",
+    "capital": "Yaounde",
+    "code": "CM",
+    "continent": "Africa",
+    "longitude": 11.516667,
+    "latitude": 3.8666666666666667
+  },
+  {
+    "id": "39",
+    "name": "Canada",
+    "capital": "Ottawa",
+    "code": "CA",
+    "continent": "Central America",
+    "longitude": -75.7,
+    "latitude": 45.416666666666664
+  },
+  {
+    "id": "40",
+    "name": "Cape Verde",
+    "capital": "Praia",
+    "code": "CV",
+    "continent": "Africa",
+    "longitude": -23.516667,
+    "latitude": 14.916666666666666
+  },
+  {
+    "id": "41",
+    "name": "Cayman Islands",
+    "capital": "George Town",
+    "code": "KY",
+    "continent": "North America",
+    "longitude": -81.383333,
+    "latitude": 19.3
+  },
+  {
+    "id": "42",
+    "name": "Central African Republic",
+    "capital": "Bangui",
+    "code": "CF",
+    "continent": "Africa",
+    "longitude": 18.583333,
+    "latitude": 4.366666666666666
+  },
+  {
+    "id": "43",
+    "name": "Chad",
+    "capital": "N'Djamena",
+    "code": "TD",
+    "continent": "Africa",
+    "longitude": 15.033333,
+    "latitude": 12.1
+  },
+  {
+    "id": "44",
+    "name": "Chile",
+    "capital": "Santiago",
+    "code": "CL",
+    "continent": "South America",
+    "longitude": -70.666667,
+    "latitude": -33.45
+  },
+  {
+    "id": "45",
+    "name": "China",
+    "capital": "Beijing",
+    "code": "CN",
+    "continent": "Asia",
+    "longitude": 116.383333,
+    "latitude": 39.916666666666664
+  },
+  {
+    "id": "46",
+    "name": "Christmas Island",
+    "capital": "The Settlement",
+    "code": "CX",
+    "continent": "Australia",
+    "longitude": 105.716667,
+    "latitude": -10.416666666666666
+  },
+  {
+    "id": "47",
+    "name": "Cocos Islands",
+    "capital": "West Island",
+    "code": "CC",
+    "continent": "Australia",
+    "longitude": 96.833333,
+    "latitude": -12.166666666666666
+  },
+  {
+    "id": "48",
+    "name": "Colombia",
+    "capital": "Bogota",
+    "code": "CO",
+    "continent": "South America",
+    "longitude": -74.083333,
+    "latitude": 4.6
+  },
+  {
+    "id": "49",
+    "name": "Comoros",
+    "capital": "Moroni",
+    "code": "KM",
+    "continent": "Africa",
+    "longitude": 43.233333,
+    "latitude": -11.7
+  },
+  {
+    "id": "50",
+    "name": "Cook Islands",
+    "capital": "Avarua",
+    "code": "CK",
+    "continent": "Australia",
+    "longitude": -159.766667,
+    "latitude": -21.2
+  },
+  {
+    "id": "51",
+    "name": "Costa Rica",
+    "capital": "San Jose",
+    "code": "CR",
+    "continent": "Central America",
+    "longitude": -84.083333,
+    "latitude": 9.933333333333334
+  },
+  {
+    "id": "52",
+    "name": "Cote d'Ivoire",
+    "capital": "Yamoussoukro",
+    "code": "CI",
+    "continent": "Africa",
+    "longitude": -5.266667,
+    "latitude": 6.816666666666666
+  },
+  {
+    "id": "53",
+    "name": "Croatia",
+    "capital": "Zagreb",
+    "code": "HR",
+    "continent": "Europe",
+    "longitude": 16.0,
+    "latitude": 45.8
+  },
+  {
+    "id": "54",
+    "name": "Cuba",
+    "capital": "Havana",
+    "code": "CU",
+    "continent": "North America",
+    "longitude": -82.35,
+    "latitude": 23.116666666666667
+  },
+  {
+    "id": "55",
+    "name": "CuraÃ§ao",
+    "capital": "Willemstad",
+    "code": "CW",
+    "continent": "North America",
+    "longitude": -68.916667,
+    "latitude": 12.1
+  },
+  {
+    "id": "56",
+    "name": "Cyprus",
+    "capital": "Nicosia",
+    "code": "CY",
+    "continent": "Europe",
+    "longitude": 33.366667,
+    "latitude": 35.166666666666664
+  },
+  {
+    "id": "57",
+    "name": "Czech Republic",
+    "capital": "Prague",
+    "code": "CZ",
+    "continent": "Europe",
+    "longitude": 14.466667,
+    "latitude": 50.083333333333336
+  },
+  {
+    "id": "58",
+    "name": "Democratic Republic of the Congo",
+    "capital": "Kinshasa",
+    "code": "CD",
+    "continent": "Africa",
+    "longitude": 15.3,
+    "latitude": -4.316666666666666
+  },
+  {
+    "id": "59",
+    "name": "Denmark",
+    "capital": "Copenhagen",
+    "code": "DK",
+    "continent": "Europe",
+    "longitude": 12.583333,
+    "latitude": 55.666666666666664
+  },
+  {
+    "id": "60",
+    "name": "Djibouti",
+    "capital": "Djibouti",
+    "code": "DJ",
+    "continent": "Africa",
+    "longitude": 43.15,
+    "latitude": 11.583333333333334
+  },
+  {
+    "id": "61",
+    "name": "Dominica",
+    "capital": "Roseau",
+    "code": "DM",
+    "continent": "North America",
+    "longitude": -61.4,
+    "latitude": 15.3
+  },
+  {
+    "id": "62",
+    "name": "Dominican Republic",
+    "capital": "Santo Domingo",
+    "code": "DO",
+    "continent": "North America",
+    "longitude": -69.9,
+    "latitude": 18.466666666666665
+  },
+  {
+    "id": "63",
+    "name": "Ecuador",
+    "capital": "Quito",
+    "code": "EC",
+    "continent": "South America",
+    "longitude": -78.5,
+    "latitude": -0.21666666666666667
+  },
+  {
+    "id": "64",
+    "name": "Egypt",
+    "capital": "Cairo",
+    "code": "EG",
+    "continent": "Africa",
+    "longitude": 31.25,
+    "latitude": 30.05
+  },
+  {
+    "id": "65",
+    "name": "El Salvador",
+    "capital": "San Salvador",
+    "code": "SV",
+    "continent": "Central America",
+    "longitude": -89.2,
+    "latitude": 13.7
+  },
+  {
+    "id": "66",
+    "name": "Equatorial Guinea",
+    "capital": "Malabo",
+    "code": "GQ",
+    "continent": "Africa",
+    "longitude": 8.783333,
+    "latitude": 3.75
+  },
+  {
+    "id": "67",
+    "name": "Eritrea",
+    "capital": "Asmara",
+    "code": "ER",
+    "continent": "Africa",
+    "longitude": 38.933333,
+    "latitude": 15.333333333333334
+  },
+  {
+    "id": "68",
+    "name": "Estonia",
+    "capital": "Tallinn",
+    "code": "EE",
+    "continent": "Europe",
+    "longitude": 24.716667,
+    "latitude": 59.43333333333333
+  },
+  {
+    "id": "69",
+    "name": "Ethiopia",
+    "capital": "Addis Ababa",
+    "code": "ET",
+    "continent": "Africa",
+    "longitude": 38.7,
+    "latitude": 9.033333333333333
+  },
+  {
+    "id": "70",
+    "name": "Falkland Islands",
+    "capital": "Stanley",
+    "code": "FK",
+    "continent": "South America",
+    "longitude": -57.85,
+    "latitude": -51.7
+  },
+  {
+    "id": "71",
+    "name": "Faroe Islands",
+    "capital": "Torshavn",
+    "code": "FO",
+    "continent": "Europe",
+    "longitude": -6.766667,
+    "latitude": 62
+  },
+  {
+    "id": "72",
+    "name": "Federated States of Micronesia",
+    "capital": "Palikir",
+    "code": "FM",
+    "continent": "Australia",
+    "longitude": 158.15,
+    "latitude": 6.916666666666667
+  },
+  {
+    "id": "73",
+    "name": "Fiji",
+    "capital": "Suva",
+    "code": "FJ",
+    "continent": "Australia",
+    "longitude": 178.416667,
+    "latitude": -18.133333333333333
+  },
+  {
+    "id": "74",
+    "name": "Finland",
+    "capital": "Helsinki",
+    "code": "FI",
+    "continent": "Europe",
+    "longitude": 24.933333,
+    "latitude": 60.166666666666664
+  },
+  {
+    "id": "75",
+    "name": "France",
+    "capital": "Paris",
+    "code": "FR",
+    "continent": "Europe",
+    "longitude": 2.333333,
+    "latitude": 48.86666666666667
+  },
+  {
+    "id": "76",
+    "name": "French Polynesia",
+    "capital": "Papeete",
+    "code": "PF",
+    "continent": "Australia",
+    "longitude": -149.566667,
+    "latitude": -17.533333333333335
+  },
+  {
+    "id": "77",
+    "name": "French Southern and Antarctic Lands",
+    "capital": "Port-aux-FranÃ§ais",
+    "code": "TF",
+    "continent": "Antarctica",
+    "longitude": 70.216667,
+    "latitude": -49.35
+  },
+  {
+    "id": "78",
+    "name": "Gabon",
+    "capital": "Libreville",
+    "code": "GA",
+    "continent": "Africa",
+    "longitude": 9.45,
+    "latitude": 0.38333333333333336
+  },
+  {
+    "id": "79",
+    "name": "Georgia",
+    "capital": "Tbilisi",
+    "code": "GE",
+    "continent": "Europe",
+    "longitude": 44.833333,
+    "latitude": 41.68333333333333
+  },
+  {
+    "id": "80",
+    "name": "Germany",
+    "capital": "Berlin",
+    "code": "DE",
+    "continent": "Europe",
+    "longitude": 13.4,
+    "latitude": 52.516666666666666
+  },
+  {
+    "id": "81",
+    "name": "Ghana",
+    "capital": "Accra",
+    "code": "GH",
+    "continent": "Africa",
+    "longitude": -0.216667,
+    "latitude": 5.55
+  },
+  {
+    "id": "82",
+    "name": "Gibraltar",
+    "capital": "Gibraltar",
+    "code": "GI",
+    "continent": "Europe",
+    "longitude": -5.35,
+    "latitude": 36.13333333333333
+  },
+  {
+    "id": "83",
+    "name": "Greece",
+    "capital": "Athens",
+    "code": "GR",
+    "continent": "Europe",
+    "longitude": 23.733333,
+    "latitude": 37.983333333333334
+  },
+  {
+    "id": "84",
+    "name": "Greenland",
+    "capital": "Nuuk",
+    "code": "GL",
+    "continent": "Central America",
+    "longitude": -51.75,
+    "latitude": 64.18333333333334
+  },
+  {
+    "id": "85",
+    "name": "Grenada",
+    "capital": "Saint George's",
+    "code": "GD",
+    "continent": "North America",
+    "longitude": -61.75,
+    "latitude": 12.05
+  },
+  {
+    "id": "86",
+    "name": "Guam",
+    "capital": "Hagatna",
+    "code": "GU",
+    "continent": "Australia",
+    "longitude": 144.733333,
+    "latitude": 13.466666666666667
+  },
+  {
+    "id": "87",
+    "name": "Guatemala",
+    "capital": "Guatemala City",
+    "code": "GT",
+    "continent": "Central America",
+    "longitude": -90.516667,
+    "latitude": 14.616666666666667
+  },
+  {
+    "id": "88",
+    "name": "Guernsey",
+    "capital": "Saint Peter Port",
+    "code": "GG",
+    "continent": "Europe",
+    "longitude": -2.533333,
+    "latitude": 49.45
+  },
+  {
+    "id": "89",
+    "name": "Guinea",
+    "capital": "Conakry",
+    "code": "GN",
+    "continent": "Africa",
+    "longitude": -13.7,
+    "latitude": 9.5
+  },
+  {
+    "id": "90",
+    "name": "Guinea-Bissau",
+    "capital": "Bissau",
+    "code": "GW",
+    "continent": "Africa",
+    "longitude": -15.583333,
+    "latitude": 11.85
+  },
+  {
+    "id": "91",
+    "name": "Guyana",
+    "capital": "Georgetown",
+    "code": "GY",
+    "continent": "South America",
+    "longitude": -58.15,
+    "latitude": 6.8
+  },
+  {
+    "id": "92",
+    "name": "Haiti",
+    "capital": "Port-au-Prince",
+    "code": "HT",
+    "continent": "North America",
+    "longitude": -72.333333,
+    "latitude": 18.533333333333335
+  },
+  {
+    "id": "93",
+    "name": "Heard Island and McDonald Islands",
+    "capital": "N/A",
+    "code": "HM",
+    "continent": "Antarctica",
+    "longitude": 0.0,
+    "latitude": 0
+  },
+  {
+    "id": "94",
+    "name": "Honduras",
+    "capital": "Tegucigalpa",
+    "code": "HN",
+    "continent": "Central America",
+    "longitude": -87.216667,
+    "latitude": 14.1
+  },
+  {
+    "id": "95",
+    "name": "Hong Kong",
+    "capital": "N/A",
+    "code": "HK",
+    "continent": "Asia",
+    "longitude": 0.0,
+    "latitude": 0
+  },
+  {
+    "id": "96",
+    "name": "Hungary",
+    "capital": "Budapest",
+    "code": "HU",
+    "continent": "Europe",
+    "longitude": 19.083333,
+    "latitude": 47.5
+  },
+  {
+    "id": "97",
+    "name": "Iceland",
+    "capital": "Reykjavik",
+    "code": "IS",
+    "continent": "Europe",
+    "longitude": -21.95,
+    "latitude": 64.15
+  },
+  {
+    "id": "98",
+    "name": "India",
+    "capital": "New Delhi",
+    "code": "IN",
+    "continent": "Asia",
+    "longitude": 77.2,
+    "latitude": 28.6
+  },
+  {
+    "id": "99",
+    "name": "Indonesia",
+    "capital": "Jakarta",
+    "code": "ID",
+    "continent": "Asia",
+    "longitude": 106.816667,
+    "latitude": -6.166666666666667
+  },
+  {
+    "id": "100",
+    "name": "Iran",
+    "capital": "Tehran",
+    "code": "IR",
+    "continent": "Asia",
+    "longitude": 51.416667,
+    "latitude": 35.7
+  },
+  {
+    "id": "101",
+    "name": "Iraq",
+    "capital": "Baghdad",
+    "code": "IQ",
+    "continent": "Asia",
+    "longitude": 44.4,
+    "latitude": 33.333333333333336
+  },
+  {
+    "id": "102",
+    "name": "Ireland",
+    "capital": "Dublin",
+    "code": "IE",
+    "continent": "Europe",
+    "longitude": -6.233333,
+    "latitude": 53.31666666666667
+  },
+  {
+    "id": "103",
+    "name": "Isle of Man",
+    "capital": "Douglas",
+    "code": "IM",
+    "continent": "Europe",
+    "longitude": -4.483333,
+    "latitude": 54.15
+  },
+  {
+    "id": "104",
+    "name": "Israel",
+    "capital": "Jerusalem",
+    "code": "IL",
+    "continent": "Asia",
+    "longitude": 35.233333,
+    "latitude": 31.766666666666666
+  },
+  {
+    "id": "105",
+    "name": "Italy",
+    "capital": "Rome",
+    "code": "IT",
+    "continent": "Europe",
+    "longitude": 12.483333,
+    "latitude": 41.9
+  },
+  {
+    "id": "106",
+    "name": "Jamaica",
+    "capital": "Kingston",
+    "code": "JM",
+    "continent": "North America",
+    "longitude": -76.8,
+    "latitude": 18
+  },
+  {
+    "id": "107",
+    "name": "Japan",
+    "capital": "Tokyo",
+    "code": "JP",
+    "continent": "Asia",
+    "longitude": 139.75,
+    "latitude": 35.68333333333333
+  },
+  {
+    "id": "108",
+    "name": "Jersey",
+    "capital": "Saint Helier",
+    "code": "JE",
+    "continent": "Europe",
+    "longitude": -2.1,
+    "latitude": 49.18333333333333
+  },
+  {
+    "id": "109",
+    "name": "Jordan",
+    "capital": "Amman",
+    "code": "JO",
+    "continent": "Asia",
+    "longitude": 35.933333,
+    "latitude": 31.95
+  },
+  {
+    "id": "110",
+    "name": "Kazakhstan",
+    "capital": "Astana",
+    "code": "KZ",
+    "continent": "Asia",
+    "longitude": 71.416667,
+    "latitude": 51.166666666666664
+  },
+  {
+    "id": "111",
+    "name": "Kenya",
+    "capital": "Nairobi",
+    "code": "KE",
+    "continent": "Africa",
+    "longitude": 36.816667,
+    "latitude": -1.2833333333333332
+  },
+  {
+    "id": "112",
+    "name": "Kiribati",
+    "capital": "Tarawa",
+    "code": "KI",
+    "continent": "Australia",
+    "longitude": 169.533333,
+    "latitude": -0.8833333333333333
+  },
+  {
+    "id": "113",
+    "name": "Kosovo",
+    "capital": "Pristina",
+    "code": "KO",
+    "continent": "Europe",
+    "longitude": 21.166667,
+    "latitude": 42.666666666666664
+  },
+  {
+    "id": "114",
+    "name": "Kuwait",
+    "capital": "Kuwait City",
+    "code": "KW",
+    "continent": "Asia",
+    "longitude": 47.966667,
+    "latitude": 29.366666666666667
+  },
+  {
+    "id": "115",
+    "name": "Kyrgyzstan",
+    "capital": "Bishkek",
+    "code": "KG",
+    "continent": "Asia",
+    "longitude": 74.6,
+    "latitude": 42.86666666666667
+  },
+  {
+    "id": "116",
+    "name": "Laos",
+    "capital": "Vientiane",
+    "code": "LA",
+    "continent": "Asia",
+    "longitude": 102.6,
+    "latitude": 17.966666666666665
+  },
+  {
+    "id": "117",
+    "name": "Latvia",
+    "capital": "Riga",
+    "code": "LV",
+    "continent": "Europe",
+    "longitude": 24.1,
+    "latitude": 56.95
+  },
+  {
+    "id": "118",
+    "name": "Lebanon",
+    "capital": "Beirut",
+    "code": "LB",
+    "continent": "Asia",
+    "longitude": 35.5,
+    "latitude": 33.86666666666667
+  },
+  {
+    "id": "119",
+    "name": "Lesotho",
+    "capital": "Maseru",
+    "code": "LS",
+    "continent": "Africa",
+    "longitude": 27.483333,
+    "latitude": -29.316666666666666
+  },
+  {
+    "id": "120",
+    "name": "Liberia",
+    "capital": "Monrovia",
+    "code": "LR",
+    "continent": "Africa",
+    "longitude": -10.8,
+    "latitude": 6.3
+  },
+  {
+    "id": "121",
+    "name": "Libya",
+    "capital": "Tripoli",
+    "code": "LY",
+    "continent": "Africa",
+    "longitude": 13.166667,
+    "latitude": 32.88333333333333
+  },
+  {
+    "id": "122",
+    "name": "Liechtenstein",
+    "capital": "Vaduz",
+    "code": "LI",
+    "continent": "Europe",
+    "longitude": 9.516667,
+    "latitude": 47.13333333333333
+  },
+  {
+    "id": "123",
+    "name": "Lithuania",
+    "capital": "Vilnius",
+    "code": "LT",
+    "continent": "Europe",
+    "longitude": 25.316667,
+    "latitude": 54.68333333333333
+  },
+  {
+    "id": "124",
+    "name": "Luxembourg",
+    "capital": "Luxembourg",
+    "code": "LU",
+    "continent": "Europe",
+    "longitude": 6.116667,
+    "latitude": 49.6
+  },
+  {
+    "id": "125",
+    "name": "Macau",
+    "capital": "N/A",
+    "code": "MO",
+    "continent": "Asia",
+    "longitude": 0.0,
+    "latitude": 0
+  },
+  {
+    "id": "126",
+    "name": "Macedonia",
+    "capital": "Skopje",
+    "code": "MK",
+    "continent": "Europe",
+    "longitude": 21.433333,
+    "latitude": 42
+  },
+  {
+    "id": "127",
+    "name": "Madagascar",
+    "capital": "Antananarivo",
+    "code": "MG",
+    "continent": "Africa",
+    "longitude": 47.516667,
+    "latitude": -18.916666666666668
+  },
+  {
+    "id": "128",
+    "name": "Malawi",
+    "capital": "Lilongwe",
+    "code": "MW",
+    "continent": "Africa",
+    "longitude": 33.783333,
+    "latitude": -13.966666666666667
+  },
+  {
+    "id": "129",
+    "name": "Malaysia",
+    "capital": "Kuala Lumpur",
+    "code": "MY",
+    "continent": "Asia",
+    "longitude": 101.7,
+    "latitude": 3.1666666666666665
+  },
+  {
+    "id": "130",
+    "name": "Maldives",
+    "capital": "Male",
+    "code": "MV",
+    "continent": "Asia",
+    "longitude": 73.5,
+    "latitude": 4.166666666666667
+  },
+  {
+    "id": "131",
+    "name": "Mali",
+    "capital": "Bamako",
+    "code": "ML",
+    "continent": "Africa",
+    "longitude": -8.0,
+    "latitude": 12.65
+  },
+  {
+    "id": "132",
+    "name": "Malta",
+    "capital": "Valletta",
+    "code": "MT",
+    "continent": "Europe",
+    "longitude": 14.5,
+    "latitude": 35.88333333333333
+  },
+  {
+    "id": "133",
+    "name": "Marshall Islands",
+    "capital": "Majuro",
+    "code": "MH",
+    "continent": "Australia",
+    "longitude": 171.383333,
+    "latitude": 7.1
+  },
+  {
+    "id": "134",
+    "name": "Mauritania",
+    "capital": "Nouakchott",
+    "code": "MR",
+    "continent": "Africa",
+    "longitude": -15.966667,
+    "latitude": 18.066666666666666
+  },
+  {
+    "id": "135",
+    "name": "Mauritius",
+    "capital": "Port Louis",
+    "code": "MU",
+    "continent": "Africa",
+    "longitude": 57.483333,
+    "latitude": -20.15
+  },
+  {
+    "id": "136",
+    "name": "Mexico",
+    "capital": "Mexico City",
+    "code": "MX",
+    "continent": "Central America",
+    "longitude": -99.133333,
+    "latitude": 19.433333333333334
+  },
+  {
+    "id": "137",
+    "name": "Moldova",
+    "capital": "Chisinau",
+    "code": "MD",
+    "continent": "Europe",
+    "longitude": 28.85,
+    "latitude": 47
+  },
+  {
+    "id": "138",
+    "name": "Monaco",
+    "capital": "Monaco",
+    "code": "MC",
+    "continent": "Europe",
+    "longitude": 7.416667,
+    "latitude": 43.733333333333334
+  },
+  {
+    "id": "139",
+    "name": "Mongolia",
+    "capital": "Ulaanbaatar",
+    "code": "MN",
+    "continent": "Asia",
+    "longitude": 106.916667,
+    "latitude": 47.916666666666664
+  },
+  {
+    "id": "140",
+    "name": "Montenegro",
+    "capital": "Podgorica",
+    "code": "ME",
+    "continent": "Europe",
+    "longitude": 19.266667,
+    "latitude": 42.43333333333333
+  },
+  {
+    "id": "141",
+    "name": "Montserrat",
+    "capital": "Plymouth",
+    "code": "MS",
+    "continent": "North America",
+    "longitude": -62.216667,
+    "latitude": 16.7
+  },
+  {
+    "id": "142",
+    "name": "Morocco",
+    "capital": "Rabat",
+    "code": "MA",
+    "continent": "Africa",
+    "longitude": -6.816667,
+    "latitude": 34.016666666666666
+  },
+  {
+    "id": "143",
+    "name": "Mozambique",
+    "capital": "Maputo",
+    "code": "MZ",
+    "continent": "Africa",
+    "longitude": 32.583333,
+    "latitude": -25.95
+  },
+  {
+    "id": "144",
+    "name": "Myanmar",
+    "capital": "Rangoon",
+    "code": "MM",
+    "continent": "Asia",
+    "longitude": 96.15,
+    "latitude": 16.8
+  },
+  {
+    "id": "145",
+    "name": "Namibia",
+    "capital": "Windhoek",
+    "code": "NA",
+    "continent": "Africa",
+    "longitude": 17.083333,
+    "latitude": -22.566666666666666
+  },
+  {
+    "id": "146",
+    "name": "Nauru",
+    "capital": "Yaren",
+    "code": "NR",
+    "continent": "Australia",
+    "longitude": 166.920867,
+    "latitude": -0.5477
+  },
+  {
+    "id": "147",
+    "name": "Nepal",
+    "capital": "Kathmandu",
+    "code": "NP",
+    "continent": "Asia",
+    "longitude": 85.316667,
+    "latitude": 27.716666666666665
+  },
+  {
+    "id": "148",
+    "name": "Netherlands",
+    "capital": "Amsterdam",
+    "code": "NL",
+    "continent": "Europe",
+    "longitude": 4.916667,
+    "latitude": 52.35
+  },
+  {
+    "id": "149",
+    "name": "New Caledonia",
+    "capital": "Noumea",
+    "code": "NC",
+    "continent": "Australia",
+    "longitude": 166.45,
+    "latitude": -22.266666666666666
+  },
+  {
+    "id": "150",
+    "name": "New Zealand",
+    "capital": "Wellington",
+    "code": "NZ",
+    "continent": "Australia",
+    "longitude": 174.783333,
+    "latitude": -41.3
+  },
+  {
+    "id": "151",
+    "name": "Nicaragua",
+    "capital": "Managua",
+    "code": "NI",
+    "continent": "Central America",
+    "longitude": -86.25,
+    "latitude": 12.133333333333333
+  },
+  {
+    "id": "152",
+    "name": "Niger",
+    "capital": "Niamey",
+    "code": "NE",
+    "continent": "Africa",
+    "longitude": 2.116667,
+    "latitude": 13.516666666666667
+  },
+  {
+    "id": "153",
+    "name": "Nigeria",
+    "capital": "Abuja",
+    "code": "NG",
+    "continent": "Africa",
+    "longitude": 7.533333,
+    "latitude": 9.083333333333334
+  },
+  {
+    "id": "154",
+    "name": "Niue",
+    "capital": "Alofi",
+    "code": "NU",
+    "continent": "Australia",
+    "longitude": -169.916667,
+    "latitude": -19.016666666666666
+  },
+  {
+    "id": "155",
+    "name": "Norfolk Island",
+    "capital": "Kingston",
+    "code": "NF",
+    "continent": "Australia",
+    "longitude": 167.966667,
+    "latitude": -29.05
+  },
+  {
+    "id": "156",
+    "name": "North Korea",
+    "capital": "Pyongyang",
+    "code": "KP",
+    "continent": "Asia",
+    "longitude": 125.75,
+    "latitude": 39.016666666666666
+  },
+  {
+    "id": "157",
+    "name": "Northern Cyprus",
+    "capital": "North Nicosia",
+    "code": "NULL",
+    "continent": "Europe",
+    "longitude": 33.366667,
+    "latitude": 35.183333
+  },
+  {
+    "id": "158",
+    "name": "Northern Mariana Islands",
+    "capital": "Saipan",
+    "code": "MP",
+    "continent": "Australia",
+    "longitude": 145.75,
+    "latitude": 15.2
+  },
+  {
+    "id": "159",
+    "name": "Norway",
+    "capital": "Oslo",
+    "code": "NO",
+    "continent": "Europe",
+    "longitude": 10.75,
+    "latitude": 59.916666666666664
+  },
+  {
+    "id": "160",
+    "name": "Oman",
+    "capital": "Muscat",
+    "code": "OM",
+    "continent": "Asia",
+    "longitude": 58.583333,
+    "latitude": 23.616666666666667
+  },
+  {
+    "id": "161",
+    "name": "Pakistan",
+    "capital": "Islamabad",
+    "code": "PK",
+    "continent": "Asia",
+    "longitude": 73.05,
+    "latitude": 33.68333333333333
+  },
+  {
+    "id": "162",
+    "name": "Palau",
+    "capital": "Melekeok",
+    "code": "PW",
+    "continent": "Australia",
+    "longitude": 134.633333,
+    "latitude": 7.483333333333333
+  },
+  {
+    "id": "163",
+    "name": "Palestine",
+    "capital": "Jerusalem",
+    "code": "PS",
+    "continent": "Asia",
+    "longitude": 35.233333,
+    "latitude": 31.766666666666666
+  },
+  {
+    "id": "164",
+    "name": "Panama",
+    "capital": "Panama City",
+    "code": "PA",
+    "continent": "Central America",
+    "longitude": -79.533333,
+    "latitude": 8.966666666666667
+  },
+  {
+    "id": "165",
+    "name": "Papua New Guinea",
+    "capital": "Port Moresby",
+    "code": "PG",
+    "continent": "Australia",
+    "longitude": 147.183333,
+    "latitude": -9.45
+  },
+  {
+    "id": "166",
+    "name": "Paraguay",
+    "capital": "Asuncion",
+    "code": "PY",
+    "continent": "South America",
+    "longitude": -57.666667,
+    "latitude": -25.266666666666666
+  },
+  {
+    "id": "167",
+    "name": "Peru",
+    "capital": "Lima",
+    "code": "PE",
+    "continent": "South America",
+    "longitude": -77.05,
+    "latitude": -12.05
+  },
+  {
+    "id": "168",
+    "name": "Philippines",
+    "capital": "Manila",
+    "code": "PH",
+    "continent": "Asia",
+    "longitude": 120.966667,
+    "latitude": 14.6
+  },
+  {
+    "id": "169",
+    "name": "Pitcairn Islands",
+    "capital": "Adamstown",
+    "code": "PN",
+    "continent": "Australia",
+    "longitude": -130.083333,
+    "latitude": -25.066666666666666
+  },
+  {
+    "id": "170",
+    "name": "Poland",
+    "capital": "Warsaw",
+    "code": "PL",
+    "continent": "Europe",
+    "longitude": 21.0,
+    "latitude": 52.25
+  },
+  {
+    "id": "171",
+    "name": "Portugal",
+    "capital": "Lisbon",
+    "code": "PT",
+    "continent": "Europe",
+    "longitude": -9.133333,
+    "latitude": 38.71666666666667
+  },
+  {
+    "id": "172",
+    "name": "Puerto Rico",
+    "capital": "San Juan",
+    "code": "PR",
+    "continent": "North America",
+    "longitude": -66.116667,
+    "latitude": 18.466666666666665
+  },
+  {
+    "id": "173",
+    "name": "Qatar",
+    "capital": "Doha",
+    "code": "QA",
+    "continent": "Asia",
+    "longitude": 51.533333,
+    "latitude": 25.283333333333335
+  },
+  {
+    "id": "174",
+    "name": "Republic of Congo",
+    "capital": "Brazzaville",
+    "code": "CG",
+    "continent": "Africa",
+    "longitude": 15.283333,
+    "latitude": -4.25
+  },
+  {
+    "id": "175",
+    "name": "Romania",
+    "capital": "Bucharest",
+    "code": "RO",
+    "continent": "Europe",
+    "longitude": 26.1,
+    "latitude": 44.43333333333333
+  },
+  {
+    "id": "176",
+    "name": "Russia",
+    "capital": "Moscow",
+    "code": "RU",
+    "continent": "Europe",
+    "longitude": 37.6,
+    "latitude": 55.75
+  },
+  {
+    "id": "177",
+    "name": "Rwanda",
+    "capital": "Kigali",
+    "code": "RW",
+    "continent": "Africa",
+    "longitude": 30.05,
+    "latitude": -1.95
+  },
+  {
+    "id": "178",
+    "name": "Saint Barthelemy",
+    "capital": "Gustavia",
+    "code": "BL",
+    "continent": "North America",
+    "longitude": -62.85,
+    "latitude": 17.883333333333333
+  },
+  {
+    "id": "179",
+    "name": "Saint Helena",
+    "capital": "Jamestown",
+    "code": "SH",
+    "continent": "Africa",
+    "longitude": -5.716667,
+    "latitude": -15.933333333333334
+  },
+  {
+    "id": "180",
+    "name": "Saint Kitts and Nevis",
+    "capital": "Basseterre",
+    "code": "KN",
+    "continent": "North America",
+    "longitude": -62.716667,
+    "latitude": 17.3
+  },
+  {
+    "id": "181",
+    "name": "Saint Lucia",
+    "capital": "Castries",
+    "code": "LC",
+    "continent": "North America",
+    "longitude": -61.0,
+    "latitude": 14
+  },
+  {
+    "id": "182",
+    "name": "Saint Martin",
+    "capital": "Marigot",
+    "code": "MF",
+    "continent": "North America",
+    "longitude": -63.0822,
+    "latitude": 18.0731
+  },
+  {
+    "id": "183",
+    "name": "Saint Pierre and Miquelon",
+    "capital": "Saint-Pierre",
+    "code": "PM",
+    "continent": "Central America",
+    "longitude": -56.183333,
+    "latitude": 46.766666666666666
+  },
+  {
+    "id": "184",
+    "name": "Saint Vincent and the Grenadines",
+    "capital": "Kingstown",
+    "code": "VC",
+    "continent": "Central America",
+    "longitude": -61.216667,
+    "latitude": 13.133333333333333
+  },
+  {
+    "id": "185",
+    "name": "Samoa",
+    "capital": "Apia",
+    "code": "WS",
+    "continent": "Australia",
+    "longitude": -171.766667,
+    "latitude": -13.816666666666666
+  },
+  {
+    "id": "186",
+    "name": "San Marino",
+    "capital": "San Marino",
+    "code": "SM",
+    "continent": "Europe",
+    "longitude": 12.416667,
+    "latitude": 43.93333333333333
+  },
+  {
+    "id": "187",
+    "name": "Sao Tome and Principe",
+    "capital": "Sao Tome",
+    "code": "ST",
+    "continent": "Africa",
+    "longitude": 6.733333,
+    "latitude": 0.3333333333333333
+  },
+  {
+    "id": "188",
+    "name": "Saudi Arabia",
+    "capital": "Riyadh",
+    "code": "SA",
+    "continent": "Asia",
+    "longitude": 46.7,
+    "latitude": 24.65
+  },
+  {
+    "id": "189",
+    "name": "Senegal",
+    "capital": "Dakar",
+    "code": "SN",
+    "continent": "Africa",
+    "longitude": -17.633333,
+    "latitude": 14.733333333333333
+  },
+  {
+    "id": "190",
+    "name": "Serbia",
+    "capital": "Belgrade",
+    "code": "RS",
+    "continent": "Europe",
+    "longitude": 20.5,
+    "latitude": 44.833333333333336
+  },
+  {
+    "id": "191",
+    "name": "Seychelles",
+    "capital": "Victoria",
+    "code": "SC",
+    "continent": "Africa",
+    "longitude": 55.45,
+    "latitude": -4.616666666666667
+  },
+  {
+    "id": "192",
+    "name": "Sierra Leone",
+    "capital": "Freetown",
+    "code": "SL",
+    "continent": "Africa",
+    "longitude": -13.233333,
+    "latitude": 8.483333333333333
+  },
+  {
+    "id": "193",
+    "name": "Singapore",
+    "capital": "Singapore",
+    "code": "SG",
+    "continent": "Asia",
+    "longitude": 103.85,
+    "latitude": 1.2833333333333332
+  },
+  {
+    "id": "194",
+    "name": "Sint Maarten",
+    "capital": "Philipsburg",
+    "code": "SX",
+    "continent": "North America",
+    "longitude": -63.033333,
+    "latitude": 18.016666666666666
+  },
+  {
+    "id": "195",
+    "name": "Slovakia",
+    "capital": "Bratislava",
+    "code": "SK",
+    "continent": "Europe",
+    "longitude": 17.116667,
+    "latitude": 48.15
+  },
+  {
+    "id": "196",
+    "name": "Slovenia",
+    "capital": "Ljubljana",
+    "code": "SI",
+    "continent": "Europe",
+    "longitude": 14.516667,
+    "latitude": 46.05
+  },
+  {
+    "id": "197",
+    "name": "Solomon Islands",
+    "capital": "Honiara",
+    "code": "SB",
+    "continent": "Australia",
+    "longitude": 159.95,
+    "latitude": -9.433333333333334
+  },
+  {
+    "id": "198",
+    "name": "Somalia",
+    "capital": "Mogadishu",
+    "code": "SO",
+    "continent": "Africa",
+    "longitude": 45.333333,
+    "latitude": 2.066666666666667
+  },
+  {
+    "id": "199",
+    "name": "Somaliland",
+    "capital": "Hargeisa",
+    "code": "NULL",
+    "continent": "Africa",
+    "longitude": 44.05,
+    "latitude": 9.55
+  },
+  {
+    "id": "200",
+    "name": "South Africa",
+    "capital": "Pretoria",
+    "code": "ZA",
+    "continent": "Africa",
+    "longitude": 28.216667,
+    "latitude": -25.7
+  },
+  {
+    "id": "201",
+    "name": "South Georgia and South Sandwich Islands",
+    "capital": "King Edward Point",
+    "code": "GS",
+    "continent": "Antarctica",
+    "longitude": -36.5,
+    "latitude": -54.283333
+  },
+  {
+    "id": "202",
+    "name": "South Korea",
+    "capital": "Seoul",
+    "code": "KR",
+    "continent": "Asia",
+    "longitude": 126.983333,
+    "latitude": 37.55
+  },
+  {
+    "id": "203",
+    "name": "South Sudan",
+    "capital": "Juba",
+    "code": "SS",
+    "continent": "Africa",
+    "longitude": 31.616667,
+    "latitude": 4.85
+  },
+  {
+    "id": "204",
+    "name": "Spain",
+    "capital": "Madrid",
+    "code": "ES",
+    "continent": "Europe",
+    "longitude": -3.683333,
+    "latitude": 40.4
+  },
+  {
+    "id": "205",
+    "name": "Sri Lanka",
+    "capital": "Colombo",
+    "code": "LK",
+    "continent": "Asia",
+    "longitude": 79.833333,
+    "latitude": 6.916666666666667
+  },
+  {
+    "id": "206",
+    "name": "Sudan",
+    "capital": "Khartoum",
+    "code": "SD",
+    "continent": "Africa",
+    "longitude": 32.533333,
+    "latitude": 15.6
+  },
+  {
+    "id": "207",
+    "name": "Suriname",
+    "capital": "Paramaribo",
+    "code": "SR",
+    "continent": "South America",
+    "longitude": -55.166667,
+    "latitude": 5.833333333333333
+  },
+  {
+    "id": "208",
+    "name": "Svalbard",
+    "capital": "Longyearbyen",
+    "code": "SJ",
+    "continent": "Europe",
+    "longitude": 15.633333,
+    "latitude": 78.21666666666667
+  },
+  {
+    "id": "209",
+    "name": "Swaziland",
+    "capital": "Mbabane",
+    "code": "SZ",
+    "continent": "Africa",
+    "longitude": 31.133333,
+    "latitude": -26.316666666666666
+  },
+  {
+    "id": "210",
+    "name": "Sweden",
+    "capital": "Stockholm",
+    "code": "SE",
+    "continent": "Europe",
+    "longitude": 18.05,
+    "latitude": 59.333333333333336
+  },
+  {
+    "id": "211",
+    "name": "Switzerland",
+    "capital": "Bern",
+    "code": "CH",
+    "continent": "Europe",
+    "longitude": 7.466667,
+    "latitude": 46.916666666666664
+  },
+  {
+    "id": "212",
+    "name": "Syria",
+    "capital": "Damascus",
+    "code": "SY",
+    "continent": "Asia",
+    "longitude": 36.3,
+    "latitude": 33.5
+  },
+  {
+    "id": "213",
+    "name": "Taiwan",
+    "capital": "Taipei",
+    "code": "TW",
+    "continent": "Asia",
+    "longitude": 121.516667,
+    "latitude": 25.033333333333335
+  },
+  {
+    "id": "214",
+    "name": "Tajikistan",
+    "capital": "Dushanbe",
+    "code": "TJ",
+    "continent": "Asia",
+    "longitude": 68.766667,
+    "latitude": 38.55
+  },
+  {
+    "id": "215",
+    "name": "Tanzania",
+    "capital": "Dar es Salaam",
+    "code": "TZ",
+    "continent": "Africa",
+    "longitude": 39.283333,
+    "latitude": -6.8
+  },
+  {
+    "id": "216",
+    "name": "Thailand",
+    "capital": "Bangkok",
+    "code": "TH",
+    "continent": "Asia",
+    "longitude": 100.516667,
+    "latitude": 13.75
+  },
+  {
+    "id": "217",
+    "name": "The Gambia",
+    "capital": "Banjul",
+    "code": "GM",
+    "continent": "Africa",
+    "longitude": -16.566667,
+    "latitude": 13.45
+  },
+  {
+    "id": "218",
+    "name": "Timor-Leste",
+    "capital": "Dili",
+    "code": "TL",
+    "continent": "Asia",
+    "longitude": 125.6,
+    "latitude": -8.583333333333334
+  },
+  {
+    "id": "219",
+    "name": "Togo",
+    "capital": "Lome",
+    "code": "TG",
+    "continent": "Africa",
+    "longitude": 1.216667,
+    "latitude": 6.116666666666666
+  },
+  {
+    "id": "220",
+    "name": "Tokelau",
+    "capital": "Atafu",
+    "code": "TK",
+    "continent": "Australia",
+    "longitude": -171.833333,
+    "latitude": -9.166667
+  },
+  {
+    "id": "221",
+    "name": "Tonga",
+    "capital": "Nuku'alofa",
+    "code": "TO",
+    "continent": "Australia",
+    "longitude": -175.2,
+    "latitude": -21.133333333333333
+  },
+  {
+    "id": "222",
+    "name": "Trinidad and Tobago",
+    "capital": "Port of Spain",
+    "code": "TT",
+    "continent": "North America",
+    "longitude": -61.516667,
+    "latitude": 10.65
+  },
+  {
+    "id": "223",
+    "name": "Tunisia",
+    "capital": "Tunis",
+    "code": "TN",
+    "continent": "Africa",
+    "longitude": 10.183333,
+    "latitude": 36.8
+  },
+  {
+    "id": "224",
+    "name": "Turkey",
+    "capital": "Ankara",
+    "code": "TR",
+    "continent": "Europe",
+    "longitude": 32.866667,
+    "latitude": 39.93333333333333
+  },
+  {
+    "id": "225",
+    "name": "Turkmenistan",
+    "capital": "Ashgabat",
+    "code": "TM",
+    "continent": "Asia",
+    "longitude": 58.383333,
+    "latitude": 37.95
+  },
+  {
+    "id": "226",
+    "name": "Turks and Caicos Islands",
+    "capital": "Grand Turk",
+    "code": "TC",
+    "continent": "North America",
+    "longitude": -71.133333,
+    "latitude": 21.466666666666665
+  },
+  {
+    "id": "227",
+    "name": "Tuvalu",
+    "capital": "Funafuti",
+    "code": "TV",
+    "continent": "Australia",
+    "longitude": 179.216667,
+    "latitude": -8.516666666666667
+  },
+  {
+    "id": "228",
+    "name": "US Minor Outlying Islands",
+    "capital": "Washington D.C.",
+    "code": "UM",
+    "continent": "Australia",
+    "longitude": -77.0,
+    "latitude": 38.883333
+  },
+  {
+    "id": "229",
+    "name": "US Virgin Islands",
+    "capital": "Charlotte Amalie",
+    "code": "VI",
+    "continent": "North America",
+    "longitude": -64.933333,
+    "latitude": 18.35
+  },
+  {
+    "id": "230",
+    "name": "Uganda",
+    "capital": "Kampala",
+    "code": "UG",
+    "continent": "Africa",
+    "longitude": 32.55,
+    "latitude": 0.31666666666666665
+  },
+  {
+    "id": "231",
+    "name": "Ukraine",
+    "capital": "Kyiv",
+    "code": "UA",
+    "continent": "Europe",
+    "longitude": 30.516667,
+    "latitude": 50.43333333333333
+  },
+  {
+    "id": "232",
+    "name": "United Arab Emirates",
+    "capital": "Abu Dhabi",
+    "code": "AE",
+    "continent": "Asia",
+    "longitude": 54.366667,
+    "latitude": 24.466666666666665
+  },
+  {
+    "id": "233",
+    "name": "United Kingdom",
+    "capital": "London",
+    "code": "GB",
+    "continent": "Europe",
+    "longitude": -0.083333,
+    "latitude": 51.5
+  },
+  {
+    "id": "234",
+    "name": "United States",
+    "capital": "Washington D.C.",
+    "code": "US",
+    "continent": "North America",
+    "longitude": -77.0,
+    "latitude": 38.883333
+  },
+  {
+    "id": "235",
+    "name": "Uruguay",
+    "capital": "Montevideo",
+    "code": "UY",
+    "continent": "South America",
+    "longitude": -56.166667,
+    "latitude": -34.85
+  },
+  {
+    "id": "236",
+    "name": "Uzbekistan",
+    "capital": "Tashkent",
+    "code": "UZ",
+    "continent": "Asia",
+    "longitude": 69.25,
+    "latitude": 41.31666666666667
+  },
+  {
+    "id": "237",
+    "name": "Vanuatu",
+    "capital": "Port-Vila",
+    "code": "VU",
+    "continent": "Australia",
+    "longitude": 168.316667,
+    "latitude": -17.733333333333334
+  },
+  {
+    "id": "238",
+    "name": "Vatican City",
+    "capital": "Vatican City",
+    "code": "VA",
+    "continent": "Europe",
+    "longitude": 12.45,
+    "latitude": 41.9
+  },
+  {
+    "id": "239",
+    "name": "Venezuela",
+    "capital": "Caracas",
+    "code": "VE",
+    "continent": "South America",
+    "longitude": -66.866667,
+    "latitude": 10.483333333333333
+  },
+  {
+    "id": "240",
+    "name": "Vietnam",
+    "capital": "Hanoi",
+    "code": "VN",
+    "continent": "Asia",
+    "longitude": 105.85,
+    "latitude": 21.033333333333335
+  },
+  {
+    "id": "241",
+    "name": "Wallis and Futuna",
+    "capital": "Mata-Utu",
+    "code": "WF",
+    "continent": "Australia",
+    "longitude": -171.933333,
+    "latitude": -13.95
+  },
+  {
+    "id": "242",
+    "name": "Western Sahara",
+    "capital": "El-AaiÃºn",
+    "code": "EH",
+    "continent": "Africa",
+    "longitude": -13.203333,
+    "latitude": 27.153611
+  },
+  {
+    "id": "243",
+    "name": "Yemen",
+    "capital": "Sanaa",
+    "code": "YE",
+    "continent": "Asia",
+    "longitude": 44.2,
+    "latitude": 15.35
+  },
+  {
+    "id": "244",
+    "name": "Zambia",
+    "capital": "Lusaka",
+    "code": "ZM",
+    "continent": "Africa",
+    "longitude": 28.283333,
+    "latitude": -15.416666666666666
+  },
+  {
+    "id": "245",
+    "name": "Zimbabwe",
+    "capital": "Harare",
+    "code": "ZW",
+    "continent": "Africa",
+    "longitude": 31.033333,
+    "latitude": -17.816666666666666
+  }
+]

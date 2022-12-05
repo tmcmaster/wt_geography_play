@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_geography_play/interactive_world_map/interactive_world_map.dart';
 import 'package:wt_geography_play/models/country.dart';
+import 'package:wt_geography_play/providers/capital_cities.dart';
 import 'package:wt_geography_play/providers/country_list.dart';
 import 'package:wt_geography_play/providers/country_neighbours.dart';
 
@@ -20,6 +21,7 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
   NavigateBetweenNotifier(this.ref) : super(NavigateBetween());
 
   void reset([Country? country]) {
+    ref.watch(distanceNotifierProvider.notifier).reset();
     final notifier = ref.read(InteractiveWorldMap.selected.notifier);
     notifier.clear();
     debugPrint('Resetting');
@@ -31,6 +33,12 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
   }
 
   void select(Country country) {
+    if (state.currentCountry != null) {
+      ref
+          .read(distanceNotifierProvider.notifier)
+          .addDistance(state.currentCountry!, country);
+    }
+
     final notifier = ref.read(InteractiveWorldMap.selected.notifier);
     notifier.select(country);
 
@@ -125,6 +133,26 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
         .map((name) => nameToCountryMap[name])
         .whereType<Country>()
         .toList();
+  }
+
+  void test() {
+    final countries = ref.read(countryListProvider2);
+    print('Countries: ${countries.length}');
+
+    final countryLookup = ref.read(countryLookupProvider2);
+    print('Country Lookup: ${countryLookup.length}');
+
+    final fromCountry = countryLookup['United Kingdom'];
+    final toCountry = countryLookup['France'];
+
+    if (fromCountry != null && toCountry != null) {
+      ref
+          .read(distanceNotifierProvider.notifier)
+          .addDistance(fromCountry, toCountry);
+
+      final distance = ref.read(distanceNotifierProvider);
+      print('Distance: ${(distance / 1000).toStringAsFixed(2)} km');
+    }
   }
 }
 
