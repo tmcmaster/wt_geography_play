@@ -43,12 +43,12 @@ final countryNeighboursProvider = Provider<Map<String, List<String>>>(
       "Switzerland"
     ],
     "Azerbaijan": ["Armenia", "Georgia", "Iran", "Russia", "Turkey"],
-    "The Bahamas": [],
+    "The Bahamas": ["USA", "Cuba", "Haiti", "Dominican Republic"],
     "Bahrain": [],
     "Bangladesh": ["India, including Dahagram", "Myanmar"],
     "Barbados": [],
     "Belarus": ["Latvia", "Lithuania", "Poland", "Russia", "Ukraine"],
-    "Belgium": ["France", "Germany", "Luxembourg", "Netherlands (31)"],
+    "Belgium": ["France", "Germany", "Luxembourg", "Netherlands"],
     "Belize": ["Guatemala", "Mexico"],
     "Benin": ["Burkina Faso", "Niger", "Nigeria", "Togo"],
     "Bhutan": ["China", "India"],
@@ -97,7 +97,7 @@ final countryNeighboursProvider = Provider<Map<String, List<String>>>(
       "Gabon",
       "Nigeria"
     ],
-    "Canada": ["USA", "Greenland (Denmark)"],
+    "Canada": ["USA", "Greenland"],
     "Cape Verde": [],
     "Central African Republic": [
       "Cameroon",
@@ -223,7 +223,7 @@ final countryNeighboursProvider = Provider<Map<String, List<String>>>(
     ],
     "Ghana": ["Burkina Faso", "Côte d'Ivoire", "Togo"],
     "Greece": ["Albania", "Bulgaria", "Turkey", "North Macedonia"],
-    "Greenland": [],
+    "Greenland": ["Canada", "Iceland"],
     "Grenada": [],
     "Guatemala": ["Belize", "El Salvador", "Honduras", "Mexico"],
     "Guinea": [
@@ -251,7 +251,7 @@ final countryNeighboursProvider = Provider<Map<String, List<String>>>(
       "Slovenia",
       "Ukraine"
     ],
-    "Iceland": [],
+    "Iceland": ["Greenland", "Ireland"],
     "India": [
       "Bangladesh",
       "Bhutan",
@@ -374,8 +374,7 @@ final countryNeighboursProvider = Provider<Map<String, List<String>>>(
     "Namibia": ["Angola", "Botswana", "South Africa", "Zambia"],
     "Nauru": [],
     "Nepal": ["China", "India"],
-    "Netherlands (constituent country)": ["Belgium", "Germany"],
-    "Netherlands": [],
+    "Netherlands": ["Belgium", "Germany"],
     "New Zealand": ["Australia"],
     "Nicaragua": ["Costa Rica", "Honduras"],
     "New Caledonia": [],
@@ -555,7 +554,7 @@ final countryNeighboursProvider = Provider<Map<String, List<String>>>(
       "Slovakia"
     ],
     "United Arab Emirates": ["Oman", "Saudi Arabia"],
-    "England": [],
+    "England": ["Ireland", "France", "Belgium", "Belgium", "Netherlands"],
     "USA": ["Canada", "Mexico"],
     "Uruguay": ["Argentina", "Brazil"],
     "Uzbekistan": [
