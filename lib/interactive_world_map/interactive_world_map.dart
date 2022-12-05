@@ -96,7 +96,7 @@ class _InteractiveWorldMapState extends State<_InteractiveWorldMap> {
       delayToRefreshResolution: 0,
       minScale: 3,
       maxScale: 100,
-      mode: VectorMapMode.panAndZoom,
+      mode: VectorMapMode.autoFit,
       layers: [
         MapLayer(
           dataSource: widget.mapDataSource,
@@ -115,6 +115,10 @@ class _InteractiveWorldMapState extends State<_InteractiveWorldMap> {
       ],
     );
 
+    // controller.addListener(() {
+    //   debugPrint(controller.scale.toString());
+    // });
+    //
     _removeListener = widget.selectedNotifier.addListener((state) {
       controller.notifyPanZoomMode(start: false);
     });
@@ -152,6 +156,7 @@ class _InteractiveWorldMapState extends State<_InteractiveWorldMap> {
           widget.onUnselect?.call(country);
         } else {
           widget.selectedNotifier.select(country);
+          //debugPrint(country.toString());
           widget.onSelect?.call(country);
         }
       },

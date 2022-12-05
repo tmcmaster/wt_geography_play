@@ -77,36 +77,42 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
   Set<Country> _createNextCountryOptions({
     required Country currentCountry,
     required Set<Country> traversedCountries,
+    bool randomSelection = false,
   }) {
     final countryList = ref.read(countryListProvider);
     final nameToCountryMap = ref.read(nameToCountryMapProvider);
     final neighbourMap = ref.read(countryNeighboursProvider);
 
-    final options = <Country>{};
+    if (randomSelection) {
+      final options = <Country>{};
 
-    final List<Country> neighbours =
-        _getNeighbours(currentCountry, neighbourMap, nameToCountryMap);
+      final List<Country> neighbours =
+          _getNeighbours(currentCountry, neighbourMap, nameToCountryMap);
 
-    // debugPrint('currentCountry: $currentCountry');
-    // debugPrint(neighbours.toString());
+      // debugPrint('currentCountry: $currentCountry');
+      // debugPrint(neighbours.toString());
 
-    int tries = 10;
-    while (options.length < 5 && --tries > 0) {
-      // final country = countryList[random.nextInt(countryList.length)];
-      // if (!traversedCountries.contains(country) && !options.contains(country)) {
-      //   options.add(country);
-      // }
+      int tries = 10;
+      while (options.length < 5 && --tries > 0) {
+        // final country = countryList[random.nextInt(countryList.length)];
+        // if (!traversedCountries.contains(country) && !options.contains(country)) {
+        //   options.add(country);
+        // }
 
-      if (neighbours.isNotEmpty) {
-        final country = neighbours[random.nextInt(neighbours.length)];
-        if (!traversedCountries.contains(country) &&
-            !options.contains(country)) {
-          options.add(country);
+        if (neighbours.isNotEmpty) {
+          final country = neighbours[random.nextInt(neighbours.length)];
+          if (!traversedCountries.contains(country) &&
+              !options.contains(country)) {
+            options.add(country);
+          }
         }
       }
-    }
 
-    return options;
+      return options;
+    } else {
+      return _getNeighbours(currentCountry, neighbourMap, nameToCountryMap)
+          .toSet();
+    }
   }
 
   List<Country> _getNeighbours(

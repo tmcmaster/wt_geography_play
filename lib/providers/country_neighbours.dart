@@ -416,7 +416,7 @@ final countryNeighboursProvider = Provider<Map<String, List<String>>>(
       "Ukraine"
     ],
     "Puerto Rico": [],
-    "Portugal": ["Spain"],
+    "Portugal": ["Spain", "Morocco"],
     "Qatar": ["Saudi Arabia"],
     "Romania": [
       "Bulgaria",
