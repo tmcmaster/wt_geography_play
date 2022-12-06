@@ -291,7 +291,7 @@ final countryNeighboursProvider = Provider<Map<String, List<String>>>(
       "Switzerland",
       "Vatican City"
     ],
-    "Ivory Coast": [],
+    "Ivory Coast": ["Liberia", "Mali", "Ghana", "Burkina Faso"],
     "Jamaica": [],
     "Japan": ["Russia", "South Korea"],
     "Jordan": [
@@ -330,7 +330,7 @@ final countryNeighboursProvider = Provider<Map<String, List<String>>>(
     "Latvia": ["Belarus", "Estonia", "Lithuania", "Russia"],
     "Lebanon": ["Israel", "Syria"],
     "Lesotho": ["South Africa"],
-    "Liberia": ["Guinea", "Côte d'Ivoire", "Sierra Leone"],
+    "Liberia": ["Guinea", "Côte d'Ivoire", "Sierra Leone", "Ivory Coast"],
     "Libya": ["Algeria", "Chad", "Egypt", "Niger", "Sudan", "Tunisia"],
     "Liechtenstein": ["Austria", "Switzerland"],
     "Lithuania": ["Belarus", "Latvia", "Poland", "Russia"],

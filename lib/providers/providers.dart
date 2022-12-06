@@ -49,3 +49,21 @@ final dinosaurByCountryProvider = Provider<Map<String, List<Dinosaur>>>((ref) {
   }
   return dinoByCountry;
 });
+
+final zoomModeProvider = StateNotifierProvider<ZoomModeNotifier, bool>(
+  (ref) => ZoomModeNotifier(),
+);
+
+class ZoomModeNotifier extends StateNotifier<bool> {
+  ZoomModeNotifier() : super(false);
+
+  void enable(bool enable) {
+    if (state != enable) {
+      state = enable;
+    }
+  }
+
+  void toggle() {
+    state = !state;
+  }
+}

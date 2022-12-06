@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vector_map/vector_map.dart';
@@ -17,26 +19,35 @@ class InteractiveWorldMap extends ConsumerWidget {
   final void Function(Country)? onUnselect;
   final void Function(Set<Country>)? onSelectionChanged;
 
+  final VectorMapMode mode;
+  final bool canSelect;
+
   const InteractiveWorldMap({
     super.key,
     this.onHover,
     this.onSelect,
     this.onUnselect,
     this.onSelectionChanged,
+    this.mode = VectorMapMode.autoFit,
+    this.canSelect = false,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final countryColorMap = ref.read(countryColorMapProvider);
     final mapDataSource = ref.watch(dataSourceFutureProvider);
-    final selectedNotifier = ref.watch(InteractiveWorldMap.selected.notifier);
-    final hoverNotifier = ref.watch(InteractiveWorldMap.hover.notifier);
+    final selectedNotifier = ref.read(InteractiveWorldMap.selected.notifier);
+    final hoverNotifier = ref.read(InteractiveWorldMap.hover.notifier);
+    final modeNotifier = ref.read(zoomModeProvider.notifier);
 
     return mapDataSource.when(
         data: (mapDataSource) => _InteractiveWorldMap(
+              mode: mode,
+              canSelect: canSelect,
               countryColorMap: countryColorMap,
               mapDataSource: mapDataSource,
               selectedNotifier: selectedNotifier,
+              modeNotifier: modeNotifier,
               onHover: (country) {
                 hoverNotifier.state = country;
                 onHover?.call(country);
@@ -58,16 +69,21 @@ class _InteractiveWorldMap extends StatefulWidget {
   final void Function(Country)? onUnselect;
   final void Function(Set<Country>)? onSelectionChanged;
   final InteractiveWorldMaoNotifier selectedNotifier;
+  final ZoomModeNotifier modeNotifier;
+  final VectorMapMode mode;
+  final bool canSelect;
 
   const _InteractiveWorldMap({
-    super.key,
     required this.mapDataSource,
     required this.selectedNotifier,
+    required this.modeNotifier,
     this.countryColorMap = const {},
     this.onHover,
     this.onSelect,
     this.onUnselect,
     this.onSelectionChanged,
+    this.mode = VectorMapMode.autoFit,
+    this.canSelect = false,
   });
 
   @override
@@ -89,20 +105,23 @@ final colors = [
 class _InteractiveWorldMapState extends State<_InteractiveWorldMap> {
   late VectorMapController controller;
   late RemoveListener _removeListener;
+  late RemoveListener _removeListener2;
 
   @override
   void initState() {
     controller = VectorMapController(
       delayToRefreshResolution: 0,
-      minScale: 3,
+      minScale: 1,
       maxScale: 100,
-      mode: VectorMapMode.autoFit,
+      mode: widget.mode,
       layers: [
         MapLayer(
           dataSource: widget.mapDataSource,
-          highlightTheme: MapHighlightTheme(
-            color: Colors.white,
-          ),
+          highlightTheme: Platform.isMacOS
+              ? MapHighlightTheme(
+                  color: Colors.white,
+                )
+              : null,
           theme: MapRuleTheme(
             color: Colors.grey.shade100,
             contourColor: Colors.grey,
@@ -119,6 +138,12 @@ class _InteractiveWorldMapState extends State<_InteractiveWorldMap> {
     //   debugPrint(controller.scale.toString());
     // });
     //
+
+    _removeListener2 = widget.modeNotifier.addListener((enabled) {
+      controller.mode =
+          enabled ? VectorMapMode.panAndZoom : VectorMapMode.autoFit;
+    });
+
     _removeListener = widget.selectedNotifier.addListener((state) {
       controller.notifyPanZoomMode(start: false);
     });
@@ -129,6 +154,7 @@ class _InteractiveWorldMapState extends State<_InteractiveWorldMap> {
   @override
   void dispose() {
     _removeListener.call();
+    _removeListener2.call();
     super.dispose();
   }
 
@@ -152,11 +178,14 @@ class _InteractiveWorldMapState extends State<_InteractiveWorldMap> {
       clickListener: (feature) {
         final country = _featureToCountry(feature);
         if (widget.selectedNotifier.isSelected(country)) {
-          widget.selectedNotifier.unselect(country);
+          if (widget.canSelect) {
+            widget.selectedNotifier.unselect(country);
+          }
           widget.onUnselect?.call(country);
         } else {
-          widget.selectedNotifier.select(country);
-          //debugPrint(country.toString());
+          if (widget.canSelect) {
+            widget.selectedNotifier.select(country);
+          }
           widget.onSelect?.call(country);
         }
       },

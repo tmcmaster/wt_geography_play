@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/apps/navigate_between.dart';
+import 'package:wt_geography_play/features/navigate_between/navigate_between.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

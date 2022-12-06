@@ -839,7 +839,14 @@
   "Somalia": [
     "Djibouti",
     "Ethiopia",
-    "Kenya"
+    "Kenya",
+    "Somaliland"
+  ],
+  "Somaliland": [
+    "Djibouti",
+    "Ethiopia",
+    "Kenya",
+    "Somalia"
   ],
   "South Africa": [
     "Botswana",
