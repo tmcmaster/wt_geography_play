@@ -47,7 +47,8 @@
   ],
   "Australia": [
     "New Zealand",
-    "Papua New Guinea"
+    "Papua New Guinea",
+    "Fiji"
   ],
   "Austria": [
     "Czech Republic",
@@ -258,9 +259,10 @@
     "Slovenia"
   ],
   "Cuba": [
+    "United States", "Dominican Republic"
   ],
   "Cyprus": [
-
+    "Greece", "Turkey"
   ],
   "Czech Republic": [
     "Austria",
@@ -279,7 +281,7 @@
   "Dominica": [
   ],
   "Dominican Republic": [
-    "Haiti"
+    "Haiti", "Cuba"
   ],
   "East Timor": [
     "Indonesia"
@@ -324,6 +326,7 @@
     "Sudan"
   ],
   "Fiji": [
+    "Australia"
   ],
   "Finland": [
     "Norway",
@@ -332,7 +335,6 @@
   ],
   "France": [
     "Belgium",
-    "Brazil",
     "Germany",
     "Italy",
     "Luxembourg",
@@ -340,7 +342,8 @@
     "Netherlands",
     "Spain",
     "Suriname",
-    "Switzerland"
+    "Switzerland",
+    "United Kingdom"
   ],
   "Gabon": [
     "Cameroon",
@@ -377,8 +380,8 @@
   "Greece": [
     "Albania",
     "Bulgaria",
-    "Turkey",
-    "North Macedonia"
+    "North Macedonia",
+    "Cyprus"
   ],
   "Grenada": [
   ],
@@ -954,7 +957,8 @@
     "Greece",
     "Iran",
     "Iraq",
-    "Syria"
+    "Syria",
+    "Turkey"
   ],
   "Turkmenistan": [
     "Afghanistan",
@@ -985,10 +989,12 @@
     "Saudi Arabia"
   ],
   "United Kingdom": [
+    "Ireland", "France"
   ],
   "United States": [
     "Canada",
-    "Mexico"
+    "Mexico",
+    "Cuba"
   ],
   "Uruguay": [
     "Argentina",

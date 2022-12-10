@@ -13,10 +13,27 @@ dependencies:
   flutter_riverpod:
   freezed: ^2.3.0
   freezed_annotation: ^2.2.0
+  geolocator: ^9.0.2
+  firebase_core: ^2.4.0
+  firebase_database: ^10.0.7
+  wt_action_button:
+    git:
+      url: git@github.com:tmcmaster/wt_action_button.git
   wt_models:
     git:
-      url: https://github.com/tmcmaster/wt_models.git
-  geolocator: ^9.0.2
+      url: git@github.com:tmcmaster/wt_models.git
+  wt_settings:
+    git:
+      url: git@github.com:tmcmaster/wt_settings.git
+  wt_firepod:
+    git:
+      url: git@github.com:tmcmaster/wt_firepod.git
+  wt_logging:
+    git:
+      url: git@github.com:tmcmaster/wt_logging.git
+  wt_app_scaffold:
+    git:
+      url: https://github.com/tmcmaster/wt_app_scaffold.git
 
 dev_dependencies:
   flutter_test:
@@ -30,3 +47,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+
+dependency_overrides:
+  wt_app_scaffold:
+    path: ../wt_app_scaffold

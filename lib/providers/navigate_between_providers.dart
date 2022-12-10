@@ -8,8 +8,7 @@ import 'package:wt_geography_play/providers/capital_cities.dart';
 import 'package:wt_geography_play/providers/country_list.dart';
 import 'package:wt_geography_play/providers/country_neighbours.dart';
 
-final navigateBetweenProvider =
-    StateNotifierProvider<NavigateBetweenNotifier, NavigateBetween>(
+final navigateBetweenProvider = StateNotifierProvider<NavigateBetweenNotifier, NavigateBetween>(
   (ref) => NavigateBetweenNotifier(ref),
 );
 
@@ -18,10 +17,14 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
 
   final Ref ref;
 
-  NavigateBetweenNotifier(this.ref) : super(NavigateBetween());
+  NavigateBetweenNotifier(this.ref) : super(NavigateBetween()) {
+    Future.delayed(const Duration(seconds: 1), () {
+      restart();
+    });
+  }
 
-  void reset([Country? country]) {
-    ref.watch(distanceNotifierProvider.notifier).reset();
+  void restart([Country? country]) {
+    // ref.watch(distanceNotifierProvider.notifier).reset();
     final notifier = ref.read(InteractiveWorldMap.selected.notifier);
     notifier.clear();
     debugPrint('Resetting');
@@ -34,9 +37,7 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
 
   void select(Country country) {
     if (state.currentCountry != null) {
-      ref
-          .read(distanceNotifierProvider.notifier)
-          .addDistance(state.currentCountry!, country);
+      ref.read(distanceNotifierProvider.notifier).addDistance(state.currentCountry!, country);
     }
 
     final notifier = ref.read(InteractiveWorldMap.selected.notifier);
@@ -62,8 +63,7 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
 
   NavigateBetween _createNewInitialState([Country? country]) {
     final countryList = ref.read(countryListProvider);
-    final startCountry =
-        country ?? countryList[random.nextInt(countryList.length)];
+    final startCountry = country ?? countryList[random.nextInt(countryList.length)];
     final destinationCountry = countryList[random.nextInt(countryList.length)];
     final currentCountry = startCountry;
     final traversalCountries = {currentCountry};
@@ -109,8 +109,7 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
 
         if (neighbours.isNotEmpty) {
           final country = neighbours[random.nextInt(neighbours.length)];
-          if (!traversedCountries.contains(country) &&
-              !options.contains(country)) {
+          if (!traversedCountries.contains(country) && !options.contains(country)) {
             options.add(country);
           }
         }
@@ -118,21 +117,15 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
 
       return options;
     } else {
-      return _getNeighbours(currentCountry, neighbourMap, nameToCountryMap)
-          .toSet();
+      return _getNeighbours(currentCountry, neighbourMap, nameToCountryMap).toSet();
     }
   }
 
-  List<Country> _getNeighbours(
-      Country country,
-      Map<String, List<String>> neighbourMap,
+  List<Country> _getNeighbours(Country country, Map<String, List<String>> neighbourMap,
       Map<String, Country> nameToCountryMap) {
     final neighbourNames = neighbourMap[country.name] ?? [];
 
-    return neighbourNames
-        .map((name) => nameToCountryMap[name])
-        .whereType<Country>()
-        .toList();
+    return neighbourNames.map((name) => nameToCountryMap[name]).whereType<Country>().toList();
   }
 
   void test() {
@@ -146,9 +139,7 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
     final toCountry = countryLookup['France'];
 
     if (fromCountry != null && toCountry != null) {
-      ref
-          .read(distanceNotifierProvider.notifier)
-          .addDistance(fromCountry, toCountry);
+      ref.read(distanceNotifierProvider.notifier).addDistance(fromCountry, toCountry);
 
       final distance = ref.read(distanceNotifierProvider);
       print('Distance: ${(distance / 1000).toStringAsFixed(2)} km');

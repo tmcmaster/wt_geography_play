@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vector_map/vector_map.dart';
+import 'package:wt_app_scaffold/app_scaffolds.dart';
+import 'package:wt_app_scaffold/scaffolds/app/application_settings.dart';
+import 'package:wt_app_scaffold/scaffolds/app/hidden_drawer_app/hidden_drawer_opener.dart';
 import 'package:wt_geography_play/interactive_world_map/interactive_world_map.dart';
 import 'package:wt_geography_play/providers/capital_cities.dart';
 import 'package:wt_geography_play/providers/navigate_between_providers.dart';
@@ -15,6 +18,8 @@ class NavigateBetween extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final notifier = ref.read(InteractiveWorldMap.hover.notifier);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -25,25 +30,15 @@ class NavigateBetween extends ConsumerWidget {
               SizedBox(
                 width: double.infinity,
                 child: InteractiveWorldMap(
-                  mode: Platform.isMacOS
-                      ? VectorMapMode.autoFit
-                      : VectorMapMode.panAndZoom,
+                  mode: Platform.isMacOS ? VectorMapMode.autoFit : VectorMapMode.panAndZoom,
                   onSelect: (country) {
-                    // final navigateBetweenNotifier =
-                    //     ref.read(navigateBetweenProvider.notifier);
-                    // navigateBetweenNotifier.reset(country);
                     print('Select: $country');
                     if (Platform.isIOS) {
-                      final notifier =
-                          ref.watch(InteractiveWorldMap.hover.notifier);
                       notifier.state = country;
                     }
                   },
                   onHover: (country) {
                     print('Hover: $country');
-                    // final notifier =
-                    //     ref.watch(InteractiveWorldMap.hover.notifier);
-                    // notifier.state = country;
                   },
                 ),
               ),
@@ -54,7 +49,7 @@ class NavigateBetween extends ConsumerWidget {
               ),
               Positioned(
                 width: MediaQuery.of(context).size.width,
-                height: 50,
+                height: 60,
                 left: 0,
                 bottom: 10,
                 child: _CountrySelection(),
@@ -77,8 +72,10 @@ class NavigateBetween extends ConsumerWidget {
 class _ScoresPanel extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final style = Theme.of(context).textTheme.headline6!.copyWith(
-        color: Colors.white, fontSize: MediaQuery.of(context).size.height / 50);
+    final style = Theme.of(context)
+        .textTheme
+        .headline6!
+        .copyWith(color: Colors.white, fontSize: MediaQuery.of(context).size.height / 50);
 
     final distance = ref.watch(distanceNotifierProvider);
     final visitedCountries = ref.watch(InteractiveWorldMap.selected).length;
@@ -119,12 +116,13 @@ class _CountrySelection extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final navigateBetween = ref.watch(navigateBetweenProvider);
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Container(
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.1),
       ),
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20),
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: navigateBetween.countryOptions.map((country) {
@@ -132,11 +130,17 @@ class _CountrySelection extends ConsumerWidget {
             padding: const EdgeInsets.only(right: 8.0),
             child: ElevatedButton(
               onPressed: () {
-                final navigateBetweenNotifier =
-                    ref.read(navigateBetweenProvider.notifier);
+                final navigateBetweenNotifier = ref.read(navigateBetweenProvider.notifier);
                 navigateBetweenNotifier.select(country);
               },
-              child: Text(country.name),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: colorScheme.primary,
+                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+              ),
+              child: Text(
+                country.name,
+                style: TextStyle(color: colorScheme.onPrimary),
+              ),
             ),
           );
         }).toList(),
@@ -151,8 +155,7 @@ class _InfoPanel extends ConsumerWidget {
     final hoverCountry = ref.watch(InteractiveWorldMap.hover);
     final navigateBetween = ref.watch(navigateBetweenProvider);
 
-    final style =
-        Theme.of(context).textTheme.headline5!.copyWith(color: Colors.white);
+    final style = Theme.of(context).textTheme.headline5!.copyWith(color: Colors.white);
 
     return Container(
       decoration: BoxDecoration(
@@ -185,8 +188,10 @@ class _HeaderPanel extends ConsumerWidget {
     final navigateBetweenNotifier = ref.read(navigateBetweenProvider.notifier);
     final navigateBetween = ref.watch(navigateBetweenProvider);
 
-    final style =
-        Theme.of(context).textTheme.headline5!.copyWith(color: Colors.blue);
+    final style = Theme.of(context).textTheme.headline5!.copyWith(color: Colors.white);
+
+    final isHiddenDraw =
+        ref.read(ApplicationSettings.applicationType.value) == ApplicationType.hiddenDrawer;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -195,11 +200,22 @@ class _HeaderPanel extends ConsumerWidget {
         children: [
           Row(
             children: [
+              if (isHiddenDraw)
+                IconButton(
+                  onPressed: () {
+                    HiddenDrawerOpener.of(context)?.open();
+                  },
+                  icon: Icon(
+                    Icons.menu,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
+              const SizedBox(width: 10),
               ElevatedButton(
                 onPressed: () {
-                  navigateBetweenNotifier.reset();
+                  navigateBetweenNotifier.restart();
                 },
-                child: const Text('Reset'),
+                child: const Text('Restart'),
               ),
               // TODO: need to remove isMacOS
               if (Platform.isIOS || Platform.isMacOS)
@@ -256,7 +272,7 @@ class ZoomModeSwitch extends ConsumerWidget {
       children: [
         Text(
           'Zoom Mode',
-          style: style.copyWith(color: Colors.blueGrey),
+          style: style.copyWith(color: Colors.white),
         ),
         Switch(
           value: enabled,
