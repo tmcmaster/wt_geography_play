@@ -27,7 +27,7 @@ final appDetails = Provider<AppDetails>(
   (ref) => AppDetails(
     title: 'Geography Play',
     subTitle: 'Explore your interests',
-    iconPath: 'assets/wt_logo.png',
+    iconPath: 'assets/wt_logo_3.png',
   ),
 );
 final appDefinition = Provider<AppDefinition>(
