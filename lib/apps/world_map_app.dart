@@ -12,10 +12,17 @@ class WorldMapApp extends StatelessWidget {
   const WorldMapApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'ClipPath Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: WorldMap(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Shape Stack'),
+        ),
+        body: const WorldMap(
+          oscillate: false,
+        ),
+      ),
     );
   }
 }

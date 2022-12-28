@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/features/world_map/models/shape.dart';
+import 'package:wt_geography_play/features/world_map/providers/selected_countries.dart';
 
-class ShapeWidget extends StatelessWidget {
+class ShapeWidget extends ConsumerWidget {
+  static final log = logger(ShapeWidget, level: Level.warning);
+
+  static String? hovering;
+
+  final String country;
   final Shape shape;
   final double scale;
   final Color color;
@@ -9,6 +17,7 @@ class ShapeWidget extends StatelessWidget {
 
   const ShapeWidget({
     super.key,
+    required this.country,
     required this.shape,
     this.scale = 1,
     this.color = Colors.red,
@@ -16,7 +25,9 @@ class ShapeWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    log.v('Building Widget : $country');
+    final notifier = ref.read(selectedCountriesProvider.notifier);
     return Positioned(
       left: shape.offset.dx * scale,
       top: shape.offset.dy * scale,
@@ -26,27 +37,60 @@ class ShapeWidget extends StatelessWidget {
         // color: Colors.yellow,
         padding: const EdgeInsets.all(10),
         child: shadow
-            ? ClipShadowPath(
+            ? IgnorePointer(
+                child: ClipShadowPath(
+                  clipper: CustomClipPath(
+                    shape: shape,
+                    scale: scale,
+                  ),
+                  shadow: const Shadow(
+                    color: Colors.grey,
+                    offset: Offset(-10, 10),
+                    blurRadius: 10.0,
+                  ),
+                  child: Container(
+                    color: color,
+                  ),
+                ),
+              )
+            : ClipShadowPath(
                 clipper: CustomClipPath(
                   shape: shape,
                   scale: scale,
                 ),
                 shadow: const Shadow(
-                  color: Colors.grey,
-                  offset: Offset(10, 10),
-                  blurRadius: 10.0,
+                  color: Colors.black,
+                  offset: Offset(0, 0),
+                  blurRadius: 1.0,
                 ),
-                child: Container(
-                  color: color,
-                ),
-              )
-            : ClipPath(
-                clipper: CustomClipPath(
-                  shape: shape,
-                  scale: scale,
-                ),
-                child: Container(
-                  color: color,
+                child: Listener(
+                  onPointerPanZoomUpdate: (event) {
+                    log.v('Zoom : $country');
+                  },
+                  onPointerHover: (event) {
+                    if (hovering != country) {
+                      log.v('Hover : $country');
+                      hovering = country;
+                    }
+                  },
+                  child: GestureDetector(
+                    // onPanUpdate: (details) {
+                    //   log.v('Pan Update');
+                    // },
+                    onTap: () {
+                      log.v('Tap : $country');
+                      notifier.select(country);
+                    },
+                    child: Consumer(
+                      builder: (BuildContext context, WidgetRef ref, Widget? child) {
+                        final selected = ref.watch(isCountrySelected(country));
+                        log.v('Rebuilding $country');
+                        return Container(
+                          color: selected ? color : Colors.grey.shade300,
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
       ),
