@@ -44,9 +44,13 @@ app.*.map.json
 /android/app/release
 
 hold
+junk
+
 android/app/google-services.json
 ios/Runner/GoogleService-Info.plist
 ios/firebase_app_id_file.json
 lib/firebase_options.dart
 macos/firebase_app_id_file.json
 
+*.g.dart
+*.freezed.dart

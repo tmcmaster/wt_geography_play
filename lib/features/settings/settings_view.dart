@@ -7,23 +7,10 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const Text(
-              'Settings Page',
-              style: TextStyle(fontSize: 36),
-            ),
-            ApplicationSettings.theme.component,
-            ApplicationSettings.colorScheme.component,
-            // ApplicationSettings.debugMode.component,
-            // ApplicationSettings.applicationType.component,
-            NavigateBetweenSettings.multiplayerMode.component,
-          ],
-        ),
-      ),
+    return SettingsPage(
+      children: [
+        NavigateBetweenSettings.multiplayerMode.component,
+      ],
     );
   }
 }
