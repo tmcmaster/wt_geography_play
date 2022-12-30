@@ -39,7 +39,7 @@ class ScrollPane extends ConsumerWidget {
                 //   decoration: const BoxDecoration(
                 //     image: DecorationImage(
                 //       repeat: ImageRepeat.repeat,
-                //       image: AssetImage('assets/paper-texture.png'),
+                //       image: AssetImage('assets/ocean_texture.png'),
                 //       // repeat: ImageRepeat.repeat,
                 //     ),
                 //   ),

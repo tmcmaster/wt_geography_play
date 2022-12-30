@@ -13,6 +13,7 @@ class WorldMap extends ConsumerWidget {
   static final log = logger(WorldMap, level: Level.verbose);
 
   final bool oscillate;
+
   const WorldMap({
     super.key,
     this.oscillate = false,
@@ -23,35 +24,33 @@ class WorldMap extends ConsumerWidget {
     log.v('Building Widget');
     ref.watch(countryCountProvider3);
     List<Country> countryList = ref.read(countryListProvider3);
-    return Center(
-      child: FittedBox(
-        child: MapCanvas(
-          oscillate: oscillate,
-          children: [true, false]
-              .map((shadow) => countryList
-                  // .where((country) => country.name == 'Brazil')
-                  .map((country) {
-                    print('Creating selection providers for ${country.name}');
-                    final countrySelectedProvider = isCountrySelected(country.name);
-                    return country.shapes
-                        .map(
-                          (shape) => ShapeWidget(
-                            country: country.name,
-                            scale: 4.3,
-                            shape: shape,
-                            color: country.color,
-                            shadow: shadow,
-                            selectedProvider: countrySelectedProvider,
-                          ),
-                        )
-                        .toList();
-                  })
-                  .toList()
-                  .expand((item) => item)
-                  .toList())
-              .expand((item) => item)
-              .toList(),
-        ),
+    return FittedBox(
+      child: MapCanvas(
+        oscillate: oscillate,
+        children: [true, false]
+            .map((shadow) => countryList
+                // .where((country) => country.name == 'Brazil')
+                .map((country) {
+                  print('Creating selection providers for ${country.name}');
+                  final countrySelectedProvider = isCountrySelected(country.name);
+                  return country.shapes
+                      .map(
+                        (shape) => ShapeWidget(
+                          country: country.name,
+                          scale: 4.3,
+                          shape: shape,
+                          color: country.color,
+                          shadow: shadow,
+                          selectedProvider: countrySelectedProvider,
+                        ),
+                      )
+                      .toList();
+                })
+                .toList()
+                .expand((item) => item)
+                .toList())
+            .expand((item) => item)
+            .toList(),
       ),
     );
   }
@@ -69,9 +68,10 @@ class MapCanvas extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SizedBox(
+    return Container(
       width: 1600,
       height: 800,
+      color: Colors.white,
       child: Stack(
         key: stackKey,
         children: [

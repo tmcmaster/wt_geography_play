@@ -20,7 +20,7 @@ class WorldMapApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Shape Stack'),
+          title: const Text('World Map'),
         ),
         body: const WorldMap(
           oscillate: false,
