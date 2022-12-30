@@ -14,6 +14,7 @@ class ShapeWidget extends ConsumerWidget {
   final double scale;
   final Color color;
   final bool shadow;
+  final AutoDisposeProvider<bool> selectedProvider;
 
   const ShapeWidget({
     super.key,
@@ -22,6 +23,7 @@ class ShapeWidget extends ConsumerWidget {
     this.scale = 1,
     this.color = Colors.red,
     this.shadow = true,
+    required this.selectedProvider,
   });
 
   @override
@@ -33,67 +35,90 @@ class ShapeWidget extends ConsumerWidget {
       top: shape.offset.dy * scale,
       width: shape.size.width * scale + 20,
       height: shape.size.height * scale + 20,
-      child: Container(
-        // color: Colors.yellow,
-        padding: const EdgeInsets.all(10),
-        child: shadow
-            ? IgnorePointer(
-                child: ClipShadowPath(
-                  clipper: CustomClipPath(
-                    shape: shape,
-                    scale: scale,
-                  ),
-                  shadow: const Shadow(
-                    color: Colors.grey,
-                    offset: Offset(-10, 10),
-                    blurRadius: 10.0,
-                  ),
-                  child: Container(
-                    color: color,
-                  ),
-                ),
-              )
-            : ClipShadowPath(
+      child: shadow
+          ? IgnorePointer(
+              child: ClipShadowPath(
                 clipper: CustomClipPath(
                   shape: shape,
                   scale: scale,
                 ),
                 shadow: const Shadow(
-                  color: Colors.black,
-                  offset: Offset(0, 0),
-                  blurRadius: 1.0,
+                  color: Colors.grey,
+                  offset: Offset(-10, 10),
+                  blurRadius: 10.0,
                 ),
-                child: Listener(
-                  onPointerPanZoomUpdate: (event) {
-                    log.v('Zoom : $country');
+                child: Container(
+                  color: color,
+                ),
+              ),
+            )
+          : ClipShadowPath(
+              clipper: CustomClipPath(
+                shape: shape,
+                scale: scale,
+              ),
+              shadow: const Shadow(
+                color: Colors.black,
+                offset: Offset(0, 0),
+                blurRadius: 1.0,
+              ),
+              child: Listener(
+                // onPointerPanZoomUpdate: (event) {
+                //   log.v('Zoom : $country');
+                // },
+                onPointerHover: (event) {
+                  if (hovering != country) {
+                    log.v('Hover : $country');
+                    hovering = country;
+                  }
+                },
+                child: GestureDetector(
+                  // onPanUpdate: (details) {
+                  //   log.v('Pan Update');
+                  // },
+                  onTap: () {
+                    log.v('Tap : $country');
+                    notifier.select(country);
                   },
-                  onPointerHover: (event) {
-                    if (hovering != country) {
-                      log.v('Hover : $country');
-                      hovering = country;
-                    }
-                  },
-                  child: GestureDetector(
-                    // onPanUpdate: (details) {
-                    //   log.v('Pan Update');
-                    // },
-                    onTap: () {
-                      log.v('Tap : $country');
-                      notifier.select(country);
-                    },
-                    child: Consumer(
-                      builder: (BuildContext context, WidgetRef ref, Widget? child) {
-                        final selected = ref.watch(isCountrySelected(country));
-                        log.v('Rebuilding $country');
-                        return Container(
-                          color: selected ? color : Colors.grey.shade300,
-                        );
-                      },
-                    ),
+                  child: ShapeContainer(
+                    country: country,
+                    color: color,
+                    selectedProvider: selectedProvider,
                   ),
                 ),
               ),
-      ),
+            ),
+    );
+  }
+}
+
+class ShapeContainer extends ConsumerWidget {
+  static final log = logger(ShapeContainer, level: Level.verbose);
+
+  const ShapeContainer({
+    super.key,
+    required this.country,
+    required this.color,
+    required this.selectedProvider,
+  });
+
+  final String country;
+  final Color color;
+  final AutoDisposeProvider<bool> selectedProvider;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    log.v('Building Widget : $country');
+    final selected = ref.watch(selectedProvider);
+    return Stack(
+      children: [
+        Container(
+          color: selected ? color : Colors.grey.shade300,
+        ),
+        Container(
+          color: Colors.white.withOpacity(0.5),
+        )
+      ],
     );
   }
 }
@@ -158,6 +183,15 @@ class _ClipShadowShadowPainter extends CustomPainter {
     var paint = shadow.toPaint();
     var clipPath = clipper.getClip(size).shift(shadow.offset);
     canvas.drawPath(clipPath, paint);
+  }
+
+  @override
+  bool hitTest(Offset position) {
+    // TODO: need to review always making this false.
+    return false;
+    // Path path = Path();
+    // path.close();
+    // return path.contains(position);
   }
 
   @override

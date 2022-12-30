@@ -1,8 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final isCountrySelected = Provider.family<bool, String>((ref, country) {
-  return ref.watch(selectedCountriesProvider).contains(country);
-});
+final isCountrySelected = Provider.autoDispose.family<bool, String>(
+  name: 'Is Country Selected',
+  (ref, country) {
+    return ref.watch(selectedCountriesProvider).contains(country);
+  },
+);
 
 final selectedCountriesProvider = StateNotifierProvider<SelectedCountriesNotifier, Set<String>>(
   name: 'Selected Countries',

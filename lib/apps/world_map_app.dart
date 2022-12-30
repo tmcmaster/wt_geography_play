@@ -3,7 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 
 void main() {
-  runApp(const ProviderScope(
+  runApp(ProviderScope(
+    observers: [
+      //ProviderMonitor.instance,
+    ],
     child: WorldMapApp(),
   ));
 }

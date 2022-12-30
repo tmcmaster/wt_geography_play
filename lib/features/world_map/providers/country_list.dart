@@ -8,12 +8,27 @@ import 'package:wt_geography_play/features/world_map/models/country.dart';
 import 'package:wt_geography_play/features/world_map/models/geometry.dart';
 import 'package:wt_geography_play/features/world_map/models/shape.dart';
 
+final countryCountProvider3 = Provider((ref) => ref.watch(countryListProvider3).length);
+
 final countryListProvider3 = StateNotifierProvider<CountryListNotifier, List<Country>>(
   name: 'Country List',
   (ref) => CountryListNotifier(),
 );
 
 class CountryListNotifier extends StateNotifier<List<Country>> {
+  static final colors = [
+    Colors.red,
+    Colors.blue,
+    Colors.green,
+    Colors.purple,
+    Colors.orangeAccent,
+  ]
+      .map((color) =>
+          [for (var i = 100; i < 1000; i += 100) i].map((shade) => color[shade]).toList())
+      .expand((element) => element)
+      .where((color) => color != null)
+      .toList();
+
   CountryListNotifier() : super([]) {
     rootBundle.loadString('assets/world_countries.json').then((geoJson) {
       final geoJsonMap = json.decode(geoJson);
@@ -23,17 +38,11 @@ class CountryListNotifier extends StateNotifier<List<Country>> {
               _flattenGeometries(_convertToGeometryList(feature['geometry']['coordinates']))
       };
 
-      final baseColors = [Colors.red, Colors.blue, Colors.green, Colors.yellow];
-      final colors = baseColors
-          .map((color) =>
-              [for (var i = 100; i < 1000; i += 100) i].map((shade) => color[shade]).toList())
-          .expand((element) => element)
-          .toList();
-
       state = countryGeometryMap.keys.map((country) {
         final shapes = countryGeometryMap[country]!.map((g) => Shape(g.points)).toList();
-        final color =
-            colors[(shapes[0].region.top * 100).toInt() % colors.length] ?? Colors.grey.shade400;
+        final int locationID = (shapes[0].region.top * shapes[0].region.left * 1000).toInt();
+        final int colorID = locationID % colors.length;
+        final color = colors[colorID] ?? Colors.grey;
         return Country(name: country, color: color, shapes: shapes);
       }).toList();
     }, onError: (error) => print(error));
