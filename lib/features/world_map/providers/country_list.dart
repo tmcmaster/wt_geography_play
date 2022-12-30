@@ -8,13 +8,6 @@ import 'package:wt_geography_play/features/world_map/models/country.dart';
 import 'package:wt_geography_play/features/world_map/models/geometry.dart';
 import 'package:wt_geography_play/features/world_map/models/shape.dart';
 
-final countryCountProvider3 = Provider((ref) => ref.watch(countryListProvider3).length);
-
-final countryListProvider3 = StateNotifierProvider<CountryListNotifier, List<Country>>(
-  name: 'Country List',
-  (ref) => CountryListNotifier(),
-);
-
 class CountryListNotifier extends StateNotifier<List<Country>> {
   static final colors = [
     Colors.red,

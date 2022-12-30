@@ -1,4 +1,4 @@
-part of '../scroll_pane.dart';
+part of 'scroll_pane.dart';
 
 class ScrollPaneState {
   final Offset offset;

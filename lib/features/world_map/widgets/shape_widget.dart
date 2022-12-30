@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/features/world_map/models/shape.dart';
-import 'package:wt_geography_play/features/world_map/providers/selected_countries.dart';
 
 class ShapeWidget extends ConsumerWidget {
   static final log = logger(ShapeWidget, level: Level.warning);
@@ -15,6 +14,8 @@ class ShapeWidget extends ConsumerWidget {
   final Color color;
   final bool shadow;
   final AutoDisposeProvider<bool> selectedProvider;
+  final void Function(String country)? onSelect;
+  final void Function(String country)? onHover;
 
   const ShapeWidget({
     super.key,
@@ -23,13 +24,14 @@ class ShapeWidget extends ConsumerWidget {
     this.scale = 1,
     this.color = Colors.red,
     this.shadow = true,
+    this.onSelect,
+    this.onHover,
     required this.selectedProvider,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     log.v('Building Widget : $country');
-    final notifier = ref.read(selectedCountriesProvider.notifier);
     return Positioned(
       left: shape.offset.dx * scale,
       top: shape.offset.dy * scale,
@@ -37,8 +39,8 @@ class ShapeWidget extends ConsumerWidget {
       height: shape.size.height * scale + 20,
       child: shadow
           ? IgnorePointer(
-              child: ClipShadowPath(
-                clipper: CustomClipPath(
+              child: _ClipShadowPath(
+                clipper: _CustomClipPath(
                   shape: shape,
                   scale: scale,
                 ),
@@ -52,8 +54,8 @@ class ShapeWidget extends ConsumerWidget {
                 ),
               ),
             )
-          : ClipShadowPath(
-              clipper: CustomClipPath(
+          : _ClipShadowPath(
+              clipper: _CustomClipPath(
                 shape: shape,
                 scale: scale,
               ),
@@ -70,17 +72,16 @@ class ShapeWidget extends ConsumerWidget {
                   if (hovering != country) {
                     log.v('Hover : $country');
                     hovering = country;
+                    onHover?.call(country);
                   }
                 },
                 child: GestureDetector(
-                  // onPanUpdate: (details) {
-                  //   log.v('Pan Update');
-                  // },
                   onTap: () {
                     log.v('Tap : $country');
-                    notifier.select(country);
+                    // notifier.select(country);
+                    onSelect?.call(country);
                   },
-                  child: ShapeContainer(
+                  child: _ShapeContainer(
                     country: country,
                     color: color,
                     selectedProvider: selectedProvider,
@@ -92,11 +93,10 @@ class ShapeWidget extends ConsumerWidget {
   }
 }
 
-class ShapeContainer extends ConsumerWidget {
-  static final log = logger(ShapeContainer, level: Level.verbose);
+class _ShapeContainer extends ConsumerWidget {
+  static final log = logger(_ShapeContainer, level: Level.verbose);
 
-  const ShapeContainer({
-    super.key,
+  const _ShapeContainer({
     required this.country,
     required this.color,
     required this.selectedProvider,
@@ -123,10 +123,10 @@ class ShapeContainer extends ConsumerWidget {
   }
 }
 
-class CustomClipPath extends CustomClipper<Path> {
+class _CustomClipPath extends CustomClipper<Path> {
   final Shape shape;
   final double scale;
-  CustomClipPath({
+  _CustomClipPath({
     required this.shape,
     this.scale = 1,
   });
@@ -145,12 +145,12 @@ class CustomClipPath extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
 
-class ClipShadowPath extends StatelessWidget {
+class _ClipShadowPath extends StatelessWidget {
   final Shadow shadow;
   final CustomClipper<Path> clipper;
   final Widget child;
 
-  const ClipShadowPath({
+  const _ClipShadowPath({
     Key? key,
     required this.shadow,
     required this.clipper,

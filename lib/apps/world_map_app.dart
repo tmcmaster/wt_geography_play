@@ -1,31 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
+import 'package:wt_geography_play/features/world_map_app/world_map_app.dart';
 
 void main() {
-  runApp(ProviderScope(
-    observers: [
-      //ProviderMonitor.instance,
-    ],
-    child: WorldMapApp(),
-  ));
-}
-
-class WorldMapApp extends StatelessWidget {
-  const WorldMapApp({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ClipPath Flutter Demo',
+  runApp(const ProviderScope(
+    child: MaterialApp(
+      title: 'World Map App',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('World Map'),
-        ),
-        body: const WorldMap(
-          oscillate: false,
+        body: WorldMapApp(
+          zoomControls: false,
         ),
       ),
-    );
-  }
+    ),
+  ));
 }

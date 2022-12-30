@@ -1,10 +1,4 @@
-part of '../scroll_pane.dart';
-
-final stackKey = GlobalKey();
-
-final scrollPaneStateProvider = StateNotifierProvider<ScrollPaneStateNotifier, ScrollPaneState>(
-  (ref) => ScrollPaneStateNotifier(),
-);
+part of 'scroll_pane.dart';
 
 class ScrollPaneStateNotifier extends StateNotifier<ScrollPaneState> {
   ScrollPaneStateNotifier()

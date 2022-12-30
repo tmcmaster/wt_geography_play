@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_app_scaffold/app_scaffolds.dart';
 import 'package:wt_firepod/wt_firepod.dart';
 import 'package:wt_geography_play/apps/navigate_between.dart';
-import 'package:wt_geography_play/features/settings/settings_view.dart';
 import 'package:wt_geography_play/firebase_options.dart';
 
 void main() async {
@@ -46,7 +45,7 @@ final appDefinition = Provider<AppDefinition>(
       PageDefinition(
         title: 'Settings',
         icon: Icons.settings,
-        builder: (context) => const SettingsView(),
+        builder: (context) => const SettingsPage(),
         primary: true,
       ),
     ],
