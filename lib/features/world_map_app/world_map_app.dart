@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:wt_app_scaffold/app_scaffolds.dart';
 import 'package:wt_geography_play/features/scroll_pane/scroll_pane.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 
@@ -25,17 +26,20 @@ class WorldMapApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
-      children: [
-        _TopToolbar(leftHeader: leftHeader, rightHeader: rightHeader, zoomControls: zoomControls),
-        Expanded(
-          child: _MapSection(
-            onSelect: onSelect,
-            onHover: onHover,
+    return Scaffold(
+      body: Column(
+        children: [
+          _TopToolbar(leftHeader: leftHeader, rightHeader: rightHeader),
+          Expanded(
+            child: _MapSection(
+              onSelect: onSelect,
+              onHover: onHover,
+            ),
           ),
-        ),
-        _BottomToolbar(leftFooter: leftFooter, rightFooter: rightFooter),
-      ],
+          _BottomToolbar(
+              leftFooter: leftFooter, rightFooter: rightFooter, zoomControls: zoomControls),
+        ],
+      ),
     );
   }
 }
@@ -85,10 +89,12 @@ class _BottomToolbar extends StatelessWidget {
     Key? key,
     required this.leftFooter,
     required this.rightFooter,
+    required this.zoomControls,
   }) : super(key: key);
 
   final List<Widget> leftFooter;
   final List<Widget> rightFooter;
+  final bool zoomControls;
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +119,10 @@ class _BottomToolbar extends StatelessWidget {
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
-            children: rightFooter,
+            children: [
+              ...rightFooter,
+              if (zoomControls) const _ZoomControls(),
+            ],
           )
         ],
       ),
@@ -121,20 +130,21 @@ class _BottomToolbar extends StatelessWidget {
   }
 }
 
-class _TopToolbar extends StatelessWidget {
+class _TopToolbar extends ConsumerWidget {
   const _TopToolbar({
     Key? key,
     required this.leftHeader,
     required this.rightHeader,
-    required this.zoomControls,
   }) : super(key: key);
 
   final List<Widget> leftHeader;
   final List<Widget> rightHeader;
-  final bool zoomControls;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isHiddenDraw =
+        ref.read(ApplicationSettings.applicationType.value) == ApplicationType.hiddenDrawer;
+
     return Container(
       height: 50,
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -152,13 +162,34 @@ class _TopToolbar extends StatelessWidget {
         children: [
           Row(
             mainAxisSize: MainAxisSize.min,
-            children: leftHeader,
+            children: [
+              if (isHiddenDraw)
+                IconButton(
+                  onPressed: () {
+                    HiddenDrawerOpener.of(context)?.open();
+                  },
+                  icon: const Icon(
+                    Icons.menu,
+                    color: Colors.blueGrey,
+                  ),
+                ),
+              ...leftHeader
+            ],
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               ...rightHeader,
-              if (zoomControls) const _ZoomControls(),
+              IconButton(
+                focusColor: Colors.transparent,
+                onPressed: () {
+                  ref.read(WorldMap.selectedCountries.notifier).clear();
+                },
+                icon: const Icon(
+                  Icons.refresh,
+                  color: Colors.blueGrey,
+                ),
+              ),
             ],
           )
         ],
@@ -177,21 +208,30 @@ class _ZoomControls extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         IconButton(
-          icon: const Icon(Icons.fit_screen),
+          icon: const Icon(
+            Icons.fit_screen,
+            color: Colors.blueGrey,
+          ),
           hoverColor: Colors.transparent,
           onPressed: () {
             notifier.fitScreen();
           },
         ),
         IconButton(
-          icon: const Icon(Icons.add),
+          icon: const Icon(
+            Icons.add,
+            color: Colors.blueGrey,
+          ),
           hoverColor: Colors.transparent,
           onPressed: () {
             notifier.scale(1.5);
           },
         ),
         IconButton(
-          icon: const Icon(Icons.remove),
+          icon: const Icon(
+            Icons.remove,
+            color: Colors.blueGrey,
+          ),
           hoverColor: Colors.transparent,
           onPressed: () {
             notifier.scale(2 / 3);

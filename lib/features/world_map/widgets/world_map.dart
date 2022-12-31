@@ -8,7 +8,7 @@ import 'package:wt_geography_play/features/world_map/providers/selected_countrie
 import 'package:wt_geography_play/features/world_map/widgets/shape_widget.dart';
 
 class WorldMap extends ConsumerWidget {
-  static final log = logger(WorldMap, level: Level.verbose);
+  static final log = logger(WorldMap, level: Level.warning);
 
   static final countryCount = Provider(
     name: 'Country Count',
@@ -55,8 +55,9 @@ class WorldMap extends ConsumerWidget {
       child: _MapCanvas(
         children: [true, false]
             .map((shadow) => countryList
+                // .where((c) => c.name == 'Egypt')
                 .map((country) {
-                  print('Creating selection providers for ${country.name}');
+                  log.v('Creating selection providers for ${country.name}');
                   final countrySelectedProvider = WorldMap.isSelected(country.name);
                   return country.shapes
                       .map(

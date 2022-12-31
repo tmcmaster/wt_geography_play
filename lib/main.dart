@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_app_scaffold/app_scaffolds.dart';
 import 'package:wt_firepod/wt_firepod.dart';
 import 'package:wt_geography_play/apps/navigate_between.dart';
+import 'package:wt_geography_play/features/explore_map/explore_map_app.dart';
+import 'package:wt_geography_play/features/find_country/find_country_app.dart';
 import 'package:wt_geography_play/firebase_options.dart';
 
 void main() async {
@@ -35,7 +37,20 @@ final appDefinition = Provider<AppDefinition>(
     appName: 'geography-play',
     appTitle: 'Geography Play',
     includeAppBar: false,
+    swipeEnabled: false,
     pages: [
+      PageDefinition(
+        title: 'Explore Map',
+        icon: Icons.explore,
+        builder: (context) => const ExploreMapApp(),
+        primary: true,
+      ),
+      PageDefinition(
+        title: 'Find Country',
+        icon: Icons.find_in_page,
+        builder: (context) => const FindCountryApp(),
+        primary: true,
+      ),
       PageDefinition(
         title: 'Navigate Between',
         icon: Icons.map,

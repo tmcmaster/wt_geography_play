@@ -94,7 +94,7 @@ class ShapeWidget extends ConsumerWidget {
 }
 
 class _ShapeContainer extends ConsumerWidget {
-  static final log = logger(_ShapeContainer, level: Level.verbose);
+  static final log = logger(_ShapeContainer, level: Level.warning);
 
   const _ShapeContainer({
     required this.country,

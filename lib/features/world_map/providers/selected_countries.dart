@@ -18,4 +18,8 @@ class SelectedCountriesNotifier extends StateNotifier<Set<String>> {
       state = state.where((item) => item != country).toSet();
     }
   }
+
+  void clear() {
+    state = {};
+  }
 }

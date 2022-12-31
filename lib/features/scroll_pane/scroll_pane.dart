@@ -2,12 +2,15 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:wt_action_button/utils/logging.dart';
 
 part 'scroll_pane_canvas.dart';
 part 'scroll_pane_notifier.dart';
 part 'scroll_pane_state.dart';
 
 class ScrollPane extends ConsumerWidget {
+  static final log = logger(ScrollPane, level: Level.warning);
+
   static final state = StateNotifierProvider<ScrollPaneStateNotifier, ScrollPaneState>(
     (ref) => ScrollPaneStateNotifier(),
   );
@@ -21,12 +24,10 @@ class ScrollPane extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print('Building ScrollPane');
+    log.v('Building ScrollPane');
 
     Offset? start;
 
-    final size = ref.watch(state.select((value) => value.size));
-    print('Map Size changed: $size');
     final notifier = ref.read(state.notifier);
 
     final window = Stack(
@@ -52,7 +53,7 @@ class ScrollPane extends ConsumerWidget {
             }
           },
           onPanEnd: (details) {
-            print('Pan End');
+            log.v('Pan End');
             start = null;
           },
         )
@@ -60,7 +61,7 @@ class ScrollPane extends ConsumerWidget {
     );
 
     return LayoutBuilder(builder: (_, constraints) {
-      print('Building LayoutBuilder');
+      log.v('Building LayoutBuilder');
       Future.delayed(const Duration(milliseconds: 1), () {
         notifier.windowResize(
           constraints.maxWidth.toDouble(),

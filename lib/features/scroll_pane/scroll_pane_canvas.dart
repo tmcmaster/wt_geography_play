@@ -1,6 +1,8 @@
 part of 'scroll_pane.dart';
 
 class ScrollPaneCanvas extends ConsumerWidget {
+  static final log = logger(ScrollPaneCanvas, level: Level.warning);
+
   final Widget child;
 
   const ScrollPaneCanvas({
@@ -10,7 +12,7 @@ class ScrollPaneCanvas extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print('Building ScrollPaneCanvas');
+    log.v('Building ScrollPaneCanvas');
     final state = ref.watch(ScrollPane.state);
 
     return Positioned(
