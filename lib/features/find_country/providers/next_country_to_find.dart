@@ -6,7 +6,7 @@ import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 final nextCountryToFind = Provider<String>(
   name: 'Next Country to Find',
   (ref) {
-    final countryList = ref.watch(WorldMap.countryList);
+    final countryList = ref.watch(WorldMap.countryMap).values;
     final selectedCountries = ref.watch(WorldMap.selectedCountries);
     if (countryList.isNotEmpty) {
       final remainingCountries =

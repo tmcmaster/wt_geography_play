@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_action_button/utils/logging.dart';
-import 'package:wt_geography_play/features/world_map/models/country.dart';
+import 'package:wt_geography_play/features/world_map/models/world_map_country.dart';
 import 'package:wt_geography_play/features/world_map/providers/country_list.dart';
 import 'package:wt_geography_play/features/world_map/providers/hover_country.dart';
 import 'package:wt_geography_play/features/world_map/providers/selected_countries.dart';
@@ -12,10 +12,11 @@ class WorldMap extends ConsumerWidget {
 
   static final countryCount = Provider(
     name: 'Country Count',
-    (ref) => ref.watch(WorldMap.countryList).length,
+    (ref) => ref.watch(WorldMap.countryMap).length,
   );
 
-  static final countryList = StateNotifierProvider<CountryListNotifier, List<Country>>(
+  static final countryMap =
+      StateNotifierProvider<CountryListNotifier, Map<String, WorldMapCountry>>(
     name: 'Country List',
     (ref) => CountryListNotifier(),
   );
@@ -50,7 +51,7 @@ class WorldMap extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     log.v('Building Widget');
     ref.watch(WorldMap.countryCount);
-    List<Country> countryList = ref.read(WorldMap.countryList);
+    List<WorldMapCountry> countryList = ref.read(WorldMap.countryMap).values.toList();
     return FittedBox(
       child: _MapCanvas(
         children: [true, false]

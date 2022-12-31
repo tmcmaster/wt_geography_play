@@ -14,6 +14,7 @@ class ExploreMapApp extends ConsumerWidget {
     final hoverNotifier = ref.read(WorldMap.hoverCountry.notifier);
 
     return WorldMapApp(
+      appName: 'Explore Map',
       zoomControls: true,
       onSelect: (country) {
         ref.read(WorldMap.selectedCountries.notifier).select(country);

@@ -5,6 +5,7 @@ import 'package:wt_geography_play/features/scroll_pane/scroll_pane.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 
 class WorldMapApp extends ConsumerWidget {
+  final String appName;
   final List<Widget> leftHeader;
   final List<Widget> rightHeader;
   final List<Widget> leftFooter;
@@ -12,9 +13,11 @@ class WorldMapApp extends ConsumerWidget {
   final bool zoomControls;
   final void Function(String country)? onSelect;
   final void Function(String country)? onHover;
+  final List<Widget> infoPanels;
 
   const WorldMapApp({
     super.key,
+    required this.appName,
     this.leftHeader = const [],
     this.rightHeader = const [],
     this.leftFooter = const [],
@@ -22,6 +25,7 @@ class WorldMapApp extends ConsumerWidget {
     this.zoomControls = true,
     this.onSelect,
     this.onHover,
+    this.infoPanels = const [],
   });
 
   @override
@@ -32,8 +36,10 @@ class WorldMapApp extends ConsumerWidget {
           _TopToolbar(leftHeader: leftHeader, rightHeader: rightHeader),
           Expanded(
             child: _MapSection(
+              appName: appName,
               onSelect: onSelect,
               onHover: onHover,
+              infoPanels: infoPanels,
             ),
           ),
           _BottomToolbar(
@@ -45,13 +51,17 @@ class WorldMapApp extends ConsumerWidget {
 }
 
 class _MapSection extends ConsumerWidget {
+  final String appName;
   final void Function(String country)? onSelect;
   final void Function(String country)? onHover;
+  final List<Widget> infoPanels;
 
   const _MapSection({
     super.key,
+    required this.appName,
     this.onSelect,
     this.onHover,
+    this.infoPanels = const [],
   });
 
   @override
@@ -73,12 +83,31 @@ class _MapSection extends ConsumerWidget {
             ),
           ),
         ),
+        Align(
+          alignment: Alignment.topCenter,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Opacity(
+              opacity: 0.3,
+              child: Text(
+                appName,
+                style: TextStyle(
+                  color: Colors.black.withOpacity(0.8),
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.normal,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+          ),
+        ),
         ScrollPane(
           child: WorldMap(
             onSelect: onSelect,
             onHover: onHover,
           ),
         ),
+        ...infoPanels,
       ],
     );
   }
@@ -100,6 +129,7 @@ class _BottomToolbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 50,
+      width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       decoration: BoxDecoration(
         border: Border(
@@ -113,12 +143,16 @@ class _BottomToolbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: leftFooter,
+          Expanded(
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: leftFooter,
+            ),
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               ...rightFooter,
               if (zoomControls) const _ZoomControls(),

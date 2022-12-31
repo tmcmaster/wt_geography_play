@@ -6,7 +6,7 @@ import 'package:wt_geography_play/models/dinosaur.dart';
 
 final dataSourceFutureProvider = FutureProvider(
   (ref) async {
-    String geoJson = await rootBundle.loadString('assets/world_countries.json');
+    String geoJson = await rootBundle.loadString('assets/data/world_countries.json');
     return await MapDataSource.geoJson(geoJson: geoJson, labelKey: 'name');
   },
 );

@@ -3,9 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 
 class HoverCountry extends ConsumerWidget {
-  const HoverCountry({
-    Key? key,
-  }) : super(key: key);
+  const HoverCountry({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

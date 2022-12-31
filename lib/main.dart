@@ -5,6 +5,7 @@ import 'package:wt_firepod/wt_firepod.dart';
 import 'package:wt_geography_play/apps/navigate_between.dart';
 import 'package:wt_geography_play/features/explore_map/explore_map_app.dart';
 import 'package:wt_geography_play/features/find_country/find_country_app.dart';
+import 'package:wt_geography_play/features/navigate_between/navigate_between_app.dart';
 import 'package:wt_geography_play/firebase_options.dart';
 
 void main() async {
@@ -39,6 +40,12 @@ final appDefinition = Provider<AppDefinition>(
     includeAppBar: false,
     swipeEnabled: false,
     pages: [
+      PageDefinition(
+        title: 'Race to Country',
+        icon: Icons.navigation_rounded,
+        builder: (context) => const NavigateBetweenApp(),
+        primary: true,
+      ),
       PageDefinition(
         title: 'Explore Map',
         icon: Icons.explore,

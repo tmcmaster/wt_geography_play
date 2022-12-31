@@ -9,6 +9,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: WorldMapApp(
+          appName: 'World Map App',
           zoomControls: false,
         ),
       ),

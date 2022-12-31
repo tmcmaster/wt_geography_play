@@ -23,21 +23,19 @@ import 'package:wt_geography_play/models/country.dart';
 //
 
 final countryListProvider2 =
-    StateNotifierProvider<CountryListNotifier, List<Country>>(
-        (ref) => CountryListNotifier());
+    StateNotifierProvider<CountryListNotifier, List<Country>>((ref) => CountryListNotifier());
 
 class CountryListNotifier extends StateNotifier<List<Country>> {
   CountryListNotifier() : super([]) {
-    rootBundle.loadString('assets/countries.json').then((jsonString) {
+    rootBundle.loadString('assets/data/countries.json').then((jsonString) {
       final List<dynamic> jsonObject = json.decode(jsonString);
       state = jsonObject.map((j) => Country.fromJson(j)).toList();
     });
   }
 }
 
-final countryLookupProvider2 =
-    StateNotifierProvider<CountryLookupNotifier, Map<String, Country>>(
-        (ref) => CountryLookupNotifier(ref));
+final countryLookupProvider2 = StateNotifierProvider<CountryLookupNotifier, Map<String, Country>>(
+    (ref) => CountryLookupNotifier(ref));
 
 class CountryLookupNotifier extends StateNotifier<Map<String, Country>> {
   CountryLookupNotifier(Ref ref) : super({}) {
@@ -48,8 +46,7 @@ class CountryLookupNotifier extends StateNotifier<Map<String, Country>> {
 }
 
 final distanceNotifierProvider =
-    StateNotifierProvider<DistanceStateNotifier, double>(
-        (ref) => DistanceStateNotifier(ref));
+    StateNotifierProvider<DistanceStateNotifier, double>((ref) => DistanceStateNotifier(ref));
 
 class DistanceStateNotifier extends StateNotifier<double> {
   final Ref ref;
@@ -75,8 +72,7 @@ class DistanceStateNotifier extends StateNotifier<double> {
       final double toLng = toCountry.longitude.toDouble();
 
       if (fromLat != 0 && fromLng != 0 && toLat != 0 && toLng != 0) {
-        final distance =
-            Geolocator.distanceBetween(fromLat, fromLng, toLat, toLng);
+        final distance = Geolocator.distanceBetween(fromLat, fromLng, toLat, toLng);
         state += distance;
       } else {
         print('Missing some location data');

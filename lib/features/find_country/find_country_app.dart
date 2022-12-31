@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_action_button/utils/logging.dart';
+import 'package:wt_geography_play/features/common/widgets/world_map_icon_button.dart';
 import 'package:wt_geography_play/features/find_country/providers/next_country_to_find.dart';
 import 'package:wt_geography_play/features/find_country/widgets/country_to_find.dart';
 import 'package:wt_geography_play/features/find_country/widgets/hover_country.dart';
@@ -18,6 +19,7 @@ class FindCountryApp extends ConsumerWidget {
     final hoverNotifier = ref.read(WorldMap.hoverCountry.notifier);
 
     return WorldMapApp(
+      appName: 'Find Country',
       zoomControls: true,
       onSelect: (country) {
         final nextCountry = ref.watch(nextCountryToFind);
@@ -32,9 +34,8 @@ class FindCountryApp extends ConsumerWidget {
         CountryToFind(),
       ],
       rightHeader: [
-        IconButton(
-          icon: const Icon(Icons.question_mark_outlined),
-          hoverColor: Colors.transparent,
+        WorldMapIconButton(
+          icon: Icons.question_mark_outlined,
           onPressed: () {
             final country = ref.read(nextCountryToFind);
             ref.read(WorldMap.selectedCountries.notifier).select(country);
