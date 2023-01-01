@@ -1,35 +1,58 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/features/navigate_between/models/navigate_between_state.dart';
-
-final navigateBetweenStateProvider =
-    StateNotifierProvider<NavigateBetweenStateNotifier, NavigateBetweenState>(
-  name: 'Navigate Between State',
-  (ref) => NavigateBetweenStateNotifier(),
-);
+import 'package:wt_geography_play/features/world_map/models/world_map_country.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 
 class NavigateBetweenStateNotifier extends StateNotifier<NavigateBetweenState> {
-  NavigateBetweenStateNotifier()
-      : super(NavigateBetweenState(
-          source: '',
-          destination: '',
-          selected: '',
-        ));
+  static final log = logger(NavigateBetweenStateNotifier, level: Level.warning);
+
+  final Ref ref;
+
+  NavigateBetweenStateNotifier(this.ref) : super(NavigateBetweenState.empty());
 
   void setSelected(String selectedCountry) {
+    if (!state.active) {
+      throw Exception('Not currently active.');
+    }
+    final previousCountry = state.visited.last;
+    final distanceTravelled = _calculateDistance(previousCountry, selectedCountry);
     state = state.copyWith(
       selected: selectedCountry,
+      visited: [...state.visited, selectedCountry],
+      distance: state.distance + distanceTravelled,
     );
+  }
+
+  double _calculateDistance(String from, String to) {
+    final WorldMapCountry? fromCountry = ref.read(WorldMap.countryMap)[from];
+    final WorldMapCountry? toCountry = ref.read(WorldMap.countryMap)[to];
+    if (fromCountry == null || toCountry == null) {
+      throw Exception('Could not calculate distance between countries: '
+          'From(${fromCountry?.name}) -> To(${toCountry?.name})');
+    }
+    final double fromLat = fromCountry.latitude.toDouble();
+    final double fromLng = fromCountry.longitude.toDouble();
+    final double toLat = toCountry.latitude.toDouble();
+    final double toLng = toCountry.longitude.toDouble();
+
+    if (fromLat != 0 && fromLng != 0 && toLat != 0 && toLng != 0) {
+      return Geolocator.distanceBetween(fromLat, fromLng, toLat, toLng);
+    } else {
+      throw Exception('Missing some location data: '
+          'From(${fromCountry.name}) -> To(${toCountry.name})');
+    }
   }
 
   void setGoal({
     required String fromCountry,
     required String toCountry,
   }) {
-    print('Updating Goal');
-    state = state.copyWith(
+    log.d('Updating Goal');
+    state = NavigateBetweenState.init(
       source: fromCountry,
       destination: toCountry,
-      selected: fromCountry,
     );
   }
 }

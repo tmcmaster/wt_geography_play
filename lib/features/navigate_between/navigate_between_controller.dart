@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_action_button/utils/logging.dart';
@@ -10,17 +12,18 @@ import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 
 class NavigateBetweenController with WorldMapListener {
   static final log = logger(NavigateBetweenController, level: Level.verbose);
+  static final random = Random();
 
   static final provider = Provider((ref) => NavigateBetweenController._(ref));
 
   final Ref ref;
 
-  late WorldMapAction clear;
+  late WorldMapAction reset;
   late WorldMapActionItem<String> select;
 
   final state = StateNotifierProvider<NavigateBetweenStateNotifier, NavigateBetweenState>(
     name: 'Navigate Between State',
-    (ref) => NavigateBetweenStateNotifier(),
+    (ref) => NavigateBetweenStateNotifier(ref),
   );
 
   final country = Provider.autoDispose.family<WorldMapCountry?, String>((ref, name) {
@@ -28,19 +31,23 @@ class NavigateBetweenController with WorldMapListener {
   });
 
   NavigateBetweenController._(this.ref) {
-    clear = WorldMapAction(
+    reset = WorldMapAction(
       icon: Icons.refresh,
-      onPressed: clearSelection,
+      onPressed: resetGame,
     );
     select = WorldMapActionItem<String>(
       onPressed: (country) => selectCountry(country),
       getLabel: (value) => value,
     );
+
+    ref.listen(WorldMap.countryMap, (_, __) {
+      resetGame();
+    });
   }
 
   @override
   void onClear() {
-    clearSelection();
+    resetGame();
   }
 
   @override
@@ -52,19 +59,30 @@ class NavigateBetweenController with WorldMapListener {
   void onSelect(String country) => selectCountry(country);
 
   void selectCountry(String country) {
-    print('Selecting Country : $country');
-    ref.read(navigateBetweenStateProvider.notifier).setSelected(country);
-    ref.read(WorldMap.selectedCountries.notifier).select(country);
+    log.d('Selecting Country : $country');
+    ref.read(state.notifier).setSelected(country);
+    ref.read(WorldMap.selectedCountries.notifier).select(country, toggle: false);
   }
 
-  void clearSelection() {
-    print('sfsafsfadf');
+  void resetGame() {
+    log.d('Reset game');
     final mapNotifier = ref.read(WorldMap.selectedCountries.notifier);
     final stateNotifier = ref.read(state.notifier);
+
     mapNotifier.clear();
-    mapNotifier.select('Egypt');
-    mapNotifier.select('Spain');
-    stateNotifier.setGoal(fromCountry: 'Egypt', toCountry: 'Spain');
+    final countries = _randomlySelectCountries();
+    stateNotifier.setGoal(fromCountry: countries[0], toCountry: countries[1]);
+    for (var country in countries) {
+      mapNotifier.select(country);
+    }
+  }
+
+  List<String> _randomlySelectCountries() {
+    final countryList = ref.read(WorldMap.countryMap).keys.toList();
+    final fromCountry = countryList[random.nextInt(countryList.length)];
+    countryList.remove(fromCountry);
+    final toCountry = countryList[random.nextInt(countryList.length)];
+    return [fromCountry, toCountry];
   }
 }
 

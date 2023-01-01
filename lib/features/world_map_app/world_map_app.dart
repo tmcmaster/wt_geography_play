@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_app_scaffold/app_scaffolds.dart';
+import 'package:wt_geography_play/features/common/widgets/world_map_icon_button.dart';
 import 'package:wt_geography_play/features/scroll_pane/scroll_pane.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 
@@ -11,6 +12,7 @@ class WorldMapApp extends ConsumerWidget {
   final List<Widget> leftFooter;
   final List<Widget> rightFooter;
   final bool zoomControls;
+  final bool refreshButton;
   final void Function(String country)? onSelect;
   final void Function(String country)? onHover;
   final List<Widget> infoPanels;
@@ -23,6 +25,7 @@ class WorldMapApp extends ConsumerWidget {
     this.leftFooter = const [],
     this.rightFooter = const [],
     this.zoomControls = true,
+    this.refreshButton = true,
     this.onSelect,
     this.onHover,
     this.infoPanels = const [],
@@ -33,7 +36,8 @@ class WorldMapApp extends ConsumerWidget {
     return Scaffold(
       body: Column(
         children: [
-          _TopToolbar(leftHeader: leftHeader, rightHeader: rightHeader),
+          _TopToolbar(
+              leftHeader: leftHeader, rightHeader: rightHeader, refreshButton: refreshButton),
           Expanded(
             child: _MapSection(
               appName: appName,
@@ -165,14 +169,16 @@ class _BottomToolbar extends StatelessWidget {
 }
 
 class _TopToolbar extends ConsumerWidget {
+  final List<Widget> leftHeader;
+  final List<Widget> rightHeader;
+  final bool refreshButton;
+
   const _TopToolbar({
     Key? key,
     required this.leftHeader,
     required this.rightHeader,
+    required this.refreshButton,
   }) : super(key: key);
-
-  final List<Widget> leftHeader;
-  final List<Widget> rightHeader;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -214,16 +220,13 @@ class _TopToolbar extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ...rightHeader,
-              IconButton(
-                focusColor: Colors.transparent,
-                onPressed: () {
-                  ref.read(WorldMap.selectedCountries.notifier).clear();
-                },
-                icon: const Icon(
-                  Icons.refresh,
-                  color: Colors.blueGrey,
+              if (refreshButton)
+                WorldMapIconButton(
+                  icon: Icons.refresh,
+                  onPressed: () {
+                    ref.read(WorldMap.selectedCountries.notifier).clear();
+                  },
                 ),
-              ),
             ],
           )
         ],

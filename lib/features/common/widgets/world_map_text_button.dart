@@ -14,7 +14,12 @@ class WorldMapTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      child: Text(label),
+      child: Text(
+        label,
+        style: const TextStyle(
+          color: Colors.blueGrey,
+        ),
+      ),
     );
   }
 }

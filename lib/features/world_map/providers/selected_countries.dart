@@ -1,14 +1,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:wt_action_button/utils/logging.dart';
 
 class SelectedCountriesNotifier extends StateNotifier<Set<String>> {
+  static final log = logger(SelectedCountriesNotifier, level: Level.warning);
+
   SelectedCountriesNotifier() : super({});
 
-  void select(String country) {
+  void select(String country, {bool toggle = true}) {
     if (!state.contains(country)) {
-      print('selecting $country');
+      log.d('Selecting $country');
       state = {...state, country};
-    } else {
-      print('unselecting $country');
+    } else if (toggle) {
+      log.d('Unselecting $country');
       state = state.where((item) => item != country).toSet();
     }
   }

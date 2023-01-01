@@ -77,8 +77,8 @@
     "capital": "N/A",
     "code": "AQ",
     "continent": "Antarctica",
-    "longitude": 0.0,
-    "latitude": 0
+    "longitude": 0.001,
+    "latitude": 0.001
   },
   {
     "id": "10",
@@ -2089,7 +2089,7 @@
   },
   {
     "id": "233",
-    "name": "United Kingdom",
+    "name": "England",
     "capital": "London",
     "code": "GB",
     "continent": "Europe",
@@ -2098,7 +2098,7 @@
   },
   {
     "id": "234",
-    "name": "United States",
+    "name": "USA",
     "capital": "Washington D.C.",
     "code": "US",
     "continent": "North America",

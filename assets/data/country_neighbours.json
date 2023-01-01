@@ -1,18 +1,13 @@
 {
   "Afghanistan": [
-    "People's Republic of China",
+    "China",
     "Iran",
     "Pakistan",
     "Tajikistan",
     "Turkmenistan",
     "Uzbekistan"
   ],
-  "Albania": [
-    "Greece",
-    "Kosovo",
-    "North Macedonia",
-    "Montenegro"
-  ],
+  "Albania": ["Greece", "Kosovo", "North Macedonia", "Montenegro"],
   "Algeria": [
     "Libya",
     "Mali",
@@ -22,34 +17,17 @@
     "Tunisia",
     "Western Sahara"
   ],
-  "Andorra": [
-    "France",
-    "Spain"
-  ],
+  "Andorra": ["France", "Spain"],
   "Angola": [
     "Democratic Republic of the Congo",
     "Republic of the Congo",
     "Namibia",
     "Zambia"
   ],
-  "Argentina": [
-    "Bolivia",
-    "Brazil",
-    "Chile",
-    "Paraguay",
-    "Uruguay"
-  ],
-  "Armenia": [
-    "Azerbaijan",
-    "Georgia",
-    "Iran",
-    "Turkey"
-  ],
-  "Australia": [
-    "New Zealand",
-    "Papua New Guinea",
-    "Fiji"
-  ],
+  "Antarctica": ["Australia", "New Zealand", "Chile", "South Africa"],
+  "Argentina": ["Bolivia", "Brazil", "Chile", "Paraguay", "Uruguay"],
+  "Armenia": ["Azerbaijan", "Georgia", "Iran", "Turkey"],
+  "Australia": ["New Zealand", "Papua New Guinea", "Antarctica"],
   "Austria": [
     "Czech Republic",
     "Germany",
@@ -60,68 +38,19 @@
     "Slovenia",
     "Switzerland"
   ],
-  "Azerbaijan": [
-    "Armenia",
-    "Georgia",
-    "Iran",
-    "Russia",
-    "Turkey"
-  ],
-  "Bahamas": [
-  ],
-  "Bahrain": [
-  ],
-  "Bangladesh": [
-    "India, including Dahagram",
-    "Myanmar"
-  ],
-  "Barbados": [
-  ],
-  "Belarus": [
-    "Latvia",
-    "Lithuania",
-    "Poland",
-    "Russia",
-    "Ukraine"
-  ],
-  "Belgium": [
-    "France",
-    "Germany",
-    "Luxembourg",
-    "Netherlands (31)"
-  ],
-  "Belize": [
-    "Guatemala",
-    "Mexico"
-  ],
-  "Benin": [
-    "Burkina Faso",
-    "Niger",
-    "Nigeria",
-    "Togo"
-  ],
-  "Bhutan": [
-    "People's Republic of China",
-    "India"
-  ],
-  "Bolivia": [
-    "Argentina",
-    "Brazil",
-    "Chile",
-    "Paraguay",
-    "Peru"
-  ],
-  "Bosnia and Herzegovina": [
-    "Croatia",
-    "Montenegro",
-    "Serbia"
-  ],
-  "Botswana": [
-    "Namibia",
-    "South Africa",
-    "Zambia",
-    "Zimbabwe"
-  ],
+  "Azerbaijan": ["Armenia", "Georgia", "Iran", "Russia", "Turkey"],
+  "The Bahamas": ["USA", "Cuba", "Haiti", "Dominican Republic"],
+  "Bahrain": [],
+  "Bangladesh": ["India, including Dahagram", "Myanmar"],
+  "Barbados": [],
+  "Belarus": ["Latvia", "Lithuania", "Poland", "Russia", "Ukraine"],
+  "Belgium": ["France", "Germany", "Luxembourg", "Netherlands"],
+  "Belize": ["Guatemala", "Mexico"],
+  "Benin": ["Burkina Faso", "Niger", "Nigeria", "Togo"],
+  "Bhutan": ["China", "India"],
+  "Bolivia": ["Argentina", "Brazil", "Chile", "Paraguay", "Peru"],
+  "Bosnia and Herzegovina": ["Croatia", "Montenegro", "Republic of Serbia"],
+  "Botswana": ["Namibia", "South Africa", "Zambia", "Zimbabwe"],
   "Brazil": [
     "Argentina",
     "Bolivia",
@@ -134,14 +63,12 @@
     "Uruguay",
     "Venezuela"
   ],
-  "Brunei": [
-    "Malaysia"
-  ],
+  "Brunei": ["Malaysia"],
   "Bulgaria": [
     "Greece",
     "North Macedonia",
     "Romania",
-    "Serbia",
+    "Republic of Serbia",
     "Turkey"
   ],
   "Burkina Faso": [
@@ -157,11 +84,7 @@
     "Rwanda",
     "Tanzania"
   ],
-  "Cambodia": [
-    "Laos",
-    "Thailand",
-    "Vietnam"
-  ],
+  "Cambodia": ["Laos", "Thailand", "Vietnam"],
   "Cameroon": [
     "Central African Republic",
     "Chad",
@@ -170,12 +93,8 @@
     "Gabon",
     "Nigeria"
   ],
-  "Canada": [
-    "United States",
-    "Greenland (Denmark)"
-  ],
-  "Cape Verde": [
-  ],
+  "Canada": ["USA", "Greenland"],
+  "Cape Verde": ["Mauritania", "Senegal"],
   "Central African Republic": [
     "Cameroon",
     "Chad",
@@ -192,12 +111,8 @@
     "Nigeria",
     "Sudan"
   ],
-  "Chile": [
-    "Argentina",
-    "Bolivia",
-    "Peru"
-  ],
-  "People's Republic of China": [
+  "Chile": ["Argentina", "Bolivia", "Peru", "Antarctica"],
+  "China": [
     "Afghanistan",
     "Bhutan",
     "India",
@@ -213,15 +128,8 @@
     "Tajikistan",
     "Vietnam"
   ],
-  "Colombia": [
-    "Brazil",
-    "Ecuador",
-    "Panama",
-    "Peru",
-    "Venezuela"
-  ],
-  "Comoros": [
-  ],
+  "Colombia": ["Brazil", "Ecuador", "Panama", "Peru", "Venezuela"],
+  "Comoros": ["Mozambique","Tanzania","Madagascar"],
   "Democratic Republic of the Congo": [
     "Angola",
     "Burundi",
@@ -240,101 +148,45 @@
     "Democratic Republic of the Congo",
     "Gabon"
   ],
-  "Costa Rica": [
-    "Nicaragua",
-    "Panama"
-  ],
-  "Côte d'Ivoire": [
-    "Burkina Faso",
-    "Ghana",
-    "Guinea",
-    "Liberia",
-    "Mali"
-  ],
+  "Costa Rica": ["Nicaragua", "Panama"],
+  "Côte d'Ivoire": ["Burkina Faso", "Ghana", "Guinea", "Liberia", "Mali"],
   "Croatia": [
     "Bosnia and Herzegovina",
     "Hungary",
     "Montenegro",
-    "Serbia",
+    "Republic of Serbia",
     "Slovenia"
   ],
-  "Cuba": [
-    "United States", "Dominican Republic"
-  ],
-  "Cyprus": [
-    "Greece", "Turkey"
-  ],
-  "Czech Republic": [
-    "Austria",
-    "Germany",
-    "Poland",
-    "Slovakia"
-  ],
-  "Denmark (constituent country)": [
-    "Germany"
-  ],
-  "Djibouti": [
-    "Eritrea",
-    "Ethiopia",
-    "Somaliland"
-  ],
-  "Dominica": [
-  ],
-  "Dominican Republic": [
-    "Haiti", "Cuba"
-  ],
-  "East Timor": [
-    "Indonesia"
-  ],
-  "Ecuador": [
-    "Colombia",
-    "Peru"
-  ],
-  "Egypt": [
-    "Gaza Strip (State of Palestine)",
-    "Israel",
-    "Libya",
-    "Sudan"
-  ],
-  "El Salvador": [
-    "Guatemala",
-    "Honduras"
-  ],
-  "Equatorial Guinea": [
-    "Cameroon",
-    "Gabon"
-  ],
-  "Eritrea": [
-    "Djibouti",
-    "Ethiopia",
-    "Sudan"
-  ],
-  "Estonia": [
-    "Latvia",
-    "Russia"
-  ],
-  "Eswatini": [
-    "Mozambique",
-    "South Africa"
-  ],
+  "Cuba": ["USA","Dominican Republic"],
+  "Cyprus": ["Greece", "Turkey", "Northern Cyprus"],
+  "Czech Republic": ["Austria", "Germany", "Poland", "Slovakia"],
+  "Denmark": ["Germany", "Sweden"],
+  "Djibouti": ["Eritrea", "Ethiopia", "Somaliland"],
+  "Dominica": ["Grenada","Puerto Rico"],
+  "Dominican Republic": ["Haiti"],
+  "East Timor": ["Indonesia"],
+  "Ecuador": ["Colombia", "Peru"],
+  "Egypt": ["Gaza Strip (State of Palestine)", "Israel", "Libya", "Sudan"],
+  "El Salvador": ["Guatemala", "Honduras"],
+  "Equatorial Guinea": ["Cameroon", "Gabon"],
+  "Eritrea": ["Djibouti", "Ethiopia", "Sudan"],
+  "Estonia": ["Latvia", "Russia"],
+  "Eswatini": ["Mozambique", "South Africa"],
   "Ethiopia": [
     "Djibouti",
     "Eritrea",
     "Kenya",
     "Somalia",
     "South Sudan",
-    "Sudan"
+    "Sudan",
+    "Yemen"
   ],
-  "Fiji": [
-    "Australia"
-  ],
-  "Finland": [
-    "Norway",
-    "Sweden",
-    "Russia"
-  ],
+  "Falkland Islands": ["Argentina", "Antarctica"],
+  "Fiji": [],
+  "Finland": ["Norway", "Sweden", "Russia"],
   "France": [
     "Belgium",
+    "Brazil",
     "Germany",
     "Italy",
     "Luxembourg",
@@ -342,17 +194,11 @@
     "Netherlands",
     "Spain",
     "Suriname",
-    "Switzerland",
-    "United Kingdom"
+    "Switzerland"
   ],
-  "Gabon": [
-    "Cameroon",
-    "Republic of the Congo",
-    "Equatorial Guinea"
-  ],
-  "The Gambia": [
-    "Senegal"
-  ],
+  "French Southern and Antarctic Lands": [],
+  "Gabon": ["Cameroon", "Republic of the Congo", "Equatorial Guinea"],
+  "Gambia": ["Senegal"],
   "Georgia": [
     "Armenia",
     "Azerbaijan",
@@ -366,31 +212,18 @@
     "Belgium",
     "Czech Republic",
     "Denmark",
+    "Sweden",
     "France",
     "Luxembourg",
     "Netherlands",
     "Poland",
     "Switzerland"
   ],
-  "Ghana": [
-    "Burkina Faso",
-    "Côte d'Ivoire",
-    "Togo"
-  ],
-  "Greece": [
-    "Albania",
-    "Bulgaria",
-    "North Macedonia",
-    "Cyprus"
-  ],
-  "Grenada": [
-  ],
-  "Guatemala": [
-    "Belize",
-    "El Salvador",
-    "Honduras",
-    "Mexico"
-  ],
+  "Ghana": ["Burkina Faso", "Côte d'Ivoire", "Togo"],
+  "Greece": ["Albania", "Bulgaria", "Turkey", "North Macedonia", "Cyprus"],
+  "Greenland": ["Canada", "Iceland", "Norway"],
+  "Grenada": ["Trinidad and Tobago"],
+  "Guatemala": ["Belize", "El Salvador", "Honduras", "Mexico"],
   "Guinea": [
     "Côte d'Ivoire",
     "Guinea",
@@ -402,47 +235,31 @@
     "Guinea",
     "Senegal"
   ],
-  "Guyana": [
-    "Brazil",
-    "Suriname",
-    "Venezuela"
-  ],
-  "Haiti": [
-    "Dominican Republic"
-  ],
-  "Honduras": [
-    "Guatemala",
-    "El Salvador",
-    "Nicaragua"
-  ],
-  "Hong Kong": [
-    "People's Republic of China"
-  ],
+  "Guinea Bissau": ["Senegal","Guinea"],
+  "Guyana": ["Brazil", "Suriname", "Venezuela"],
+  "Haiti": ["Dominican Republic"],
+  "Honduras": ["Guatemala", "El Salvador", "Nicaragua"],
+  "Hong Kong": ["China"],
   "Hungary": [
     "Austria",
     "Croatia",
     "Romania",
-    "Serbia",
+    "Republic of Serbia",
     "Slovakia",
     "Slovenia",
     "Ukraine"
   ],
-  "Iceland": [
-  ],
+  "Iceland": ["Greenland", "Ireland"],
   "India": [
     "Bangladesh",
     "Bhutan",
-    "People's Republic of China",
+    "China",
     "Myanmar",
     "Nepal",
     "Pakistan",
     "Sri Lanka"
   ],
-  "Indonesia": [
-    "East Timor",
-    "Malaysia",
-    "Papua New Guinea"
-  ],
+  "Indonesia": ["East Timor", "Malaysia", "Papua New Guinea", "Philippines"],
   "Iran": [
     "Afghanistan",
     "Armenia",
@@ -452,17 +269,8 @@
     "Turkey",
     "Turkmenistan"
   ],
-  "Iraq": [
-    "Iran",
-    "Jordan",
-    "Kuwait",
-    "Saudi Arabia",
-    "Syria",
-    "Turkey"
-  ],
-  "Ireland": [
-    "United Kingdom"
-  ],
+  "Iraq": ["Iran", "Jordan", "Kuwait", "Saudi Arabia", "Syria", "Turkey"],
+  "Ireland": ["England", "Iceland"],
   "Israel": [
     "Egypt",
     "Gaza Strip (State of Palestine)",
@@ -474,15 +282,15 @@
   "Italy": [
     "Austria",
     "France",
+    "Malta",
     "San Marino",
     "Slovenia",
     "Switzerland",
     "Vatican City"
   ],
-  "Jamaica": [
-  ],
-  "Japan": [
-  ],
+  "Ivory Coast": ["Liberia", "Mali", "Ghana", "Burkina Faso"],
+  "Jamaica": ["Cuba","Haiti"],
+  "Japan": ["Russia", "South Korea"],
   "Jordan": [
     "Iraq",
     "Israel",
@@ -491,7 +299,7 @@
     "West Bank (State of Palestine)"
   ],
   "Kazakhstan": [
-    "People's Republic of China",
+    "China",
     "Kyrgyzstan",
     "Russia",
     "Turkmenistan",
@@ -504,94 +312,31 @@
     "Tanzania",
     "Uganda"
   ],
-  "Kiribati": [
-  ],
-  "North Korea": [
-    "People's Republic of China",
-    "South Korea",
-    "Russia"
-  ],
-  "South Korea": [
-    "North Korea"
-  ],
+  "Kiribati": ["Australia","New Zealand"],
+  "North Korea": ["China", "South Korea", "Russia"],
+  "South Korea": ["North Korea", "Japan"],
   "Kosovo": [
     "Albania",
     "Montenegro",
     "North Macedonia",
-    "Serbia"
+    "Republic of Serbia"
   ],
-  "Kuwait": [
-    "Iraq",
-    "Saudi Arabia"
-  ],
-  "Kyrgyzstan": [
-    "People's Republic of China",
-    "Kazakhstan",
-    "Tajikistan",
-    "Uzbekistan"
-  ],
-  "Laos": [
-    "Cambodia",
-    "People's Republic of China",
-    "Myanmar",
-    "Thailand",
-    "Vietnam"
-  ],
-  "Latvia": [
-    "Belarus",
-    "Estonia",
-    "Lithuania",
-    "Russia"
-  ],
-  "Lebanon": [
-    "Israel",
-    "Syria"
-  ],
-  "Lesotho": [
-    "South Africa"
-  ],
-  "Liberia": [
-    "Guinea",
-    "Côte d'Ivoire",
-    "Sierra Leone"
-  ],
-  "Libya": [
-    "Algeria",
-    "Chad",
-    "Egypt",
-    "Niger",
-    "Sudan",
-    "Tunisia"
-  ],
-  "Liechtenstein": [
-    "Austria",
-    "Switzerland"
-  ],
-  "Lithuania": [
-    "Belarus",
-    "Latvia",
-    "Poland",
-    "Russia"
-  ],
-  "Luxembourg": [
-    "Belgium",
-    "France",
-    "Germany"
-  ],
-  "Madagascar": [
-  ],
-  "Malawi": [
-    "Mozambique",
-    "Tanzania",
-    "Zambia"
-  ],
-  "Malaysia": [
-    "Brunei",
-    "Indonesia",
-    "Thailand"
-  ],
-  "Maldives": [
-  ],
+  "Kuwait": ["Iraq", "Saudi Arabia"],
+  "Kyrgyzstan": ["China", "Kazakhstan", "Tajikistan", "Uzbekistan"],
+  "Laos": ["Cambodia", "China", "Myanmar", "Thailand", "Vietnam"],
+  "Latvia": ["Belarus", "Estonia", "Lithuania", "Russia"],
+  "Lebanon": ["Israel", "Syria"],
+  "Lesotho": ["South Africa"],
+  "Liberia": ["Guinea", "Côte d'Ivoire", "Sierra Leone", "Ivory Coast"],
+  "Libya": ["Algeria", "Chad", "Egypt", "Niger", "Sudan", "Tunisia"],
+  "Liechtenstein": ["Austria", "Switzerland"],
+  "Lithuania": ["Belarus", "Latvia", "Poland", "Russia"],
+  "Luxembourg": ["Belgium", "France", "Germany"],
+  "North Macedonia": ["Greece","Kosovo","Serbia","Bulgaria","Albania"],
+  "Madagascar": ["Mozambique"],
+  "Malawi": ["Mozambique", "Tanzania", "Zambia"],
+  "Malaysia": ["Brunei", "Indonesia", "Thailand", "Philippines"],
+  "Maldives": ["India","Sri Lanka"],
   "Mali": [
     "Algeria",
     "Burkina Faso",
@@ -601,83 +346,39 @@
     "Niger",
     "Senegal"
   ],
-  "Malta": [
-  ],
-  "Mauritania": [
-    "Algeria",
-    "Mali",
-    "Senegal",
-    "Western Sahara"
-  ],
-  "Mauritius": [
-  ],
-  "Mexico": [
-    "Belize",
-    "Guatemala",
-    "United States"
-  ],
-  "Moldova": [
-    "Romania",
-    "Ukraine"
-  ],
-  "Monaco": [
-    "France"
-  ],
-  "Mongolia": [
-    "People's Republic of China",
-    "Russia"
-  ],
+  "Malta": ["Italy"],
+  "Mauritania": ["Algeria", "Mali", "Senegal", "Western Sahara"],
+  "Mauritius": [],
+  "Mexico": ["Belize", "Guatemala", "USA"],
+  "Moldova": ["Romania", "Ukraine"],
+  "Monaco": ["France"],
+  "Mongolia": ["China", "Russia"],
   "Montenegro": [
     "Albania",
     "Bosnia and Herzegovina",
     "Croatia",
     "Kosovo",
-    "Serbia"
+    "Republic of Serbia"
   ],
-  "Morocco": [
-    "Algeria",
-    "Western Sahara",
-    "Spain"
-  ],
+  "Morocco": ["Algeria", "Western Sahara", "Spain"],
   "Mozambique": [
     "Eswatini",
+    "Madagascar",
     "Malawi",
     "South Africa",
     "Tanzania",
     "Zambia",
     "Zimbabwe"
   ],
-  "Myanmar": [
-    "Bangladesh",
-    "People's Republic of China",
-    "India",
-    "Laos",
-    "Thailand"
-  ],
-  "Namibia": [
-    "Angola",
-    "Botswana",
-    "South Africa",
-    "Zambia"
-  ],
-  "Nauru": [
-  ],
-  "Nepal": [
-    "People's Republic of China",
-    "India"
-  ],
-  "Netherlands (constituent country)": [
-    "Belgium",
-    "Germany"
-  ],
-  "Kingdom of the Netherlands Netherlands, Kingdom of": [
-  ],
-  "New Zealand": [
-    "Australia"
-  ],
-  "Nicaragua": [
-    "Costa Rica",
-    "Honduras"
+  "Myanmar": ["Bangladesh", "China", "India", "Laos", "Thailand"],
+  "Namibia": ["Angola", "Botswana", "South Africa", "Zambia"],
+  "Nauru": ["Papua New Guinea"],
+  "Nepal": ["China", "India"],
+  "Netherlands": ["Belgium", "Germany"],
+  "New Zealand": ["Australia", "Antarctica"],
+  "Nicaragua": ["Costa Rica", "Honduras"],
+  "New Caledonia": [
+    "Australia", "New Zealand"
   ],
   "Niger": [
     "Algeria",
@@ -688,63 +389,25 @@
     "Mali",
     "Nigeria"
   ],
-  "Nigeria": [
-    "Benin",
-    "Cameroon",
-    "Chad",
-    "Niger"
-  ],
+  "Nigeria": ["Benin", "Cameroon", "Chad", "Niger"],
+  "Northern Cyprus": ["Turkey", "Cyprus", "Greece"],
   "North Macedonia": [
     "Albania",
     "Bulgaria",
     "Greece",
     "Kosovo",
-    "Serbia"
+    "Republic of Serbia"
   ],
-  "Norway": [
-    "Finland",
-    "Sweden",
-    "Russia"
-  ],
-  "Oman": [
-    "Saudi Arabia",
-    "United Arab Emirates",
-    "Yemen"
-  ],
-  "Pakistan": [
-    "Afghanistan",
-    "India",
-    "Iran",
-    "People's Republic of China"
-  ],
-  "Palau": [
-  ],
-  "Palestine": [
-    "Egypt",
-    "Israel",
-    "Jordan"
-  ],
-  "Panama": [
-    "Colombia",
-    "Costa Rica"
-  ],
-  "Papua New Guinea": [
-    "Indonesia"
-  ],
-  "Paraguay": [
-    "Argentina",
-    "Bolivia",
-    "Brazil"
-  ],
-  "Peru": [
-    "Bolivia",
-    "Brazil",
-    "Chile",
-    "Colombia",
-    "Ecuador"
-  ],
-  "Philippines": [
-  ],
+  "Norway": ["Finland", "Sweden", "Russia", "Greenland"],
+  "Oman": ["Saudi Arabia", "United Arab Emirates", "Yemen"],
+  "Pakistan": ["Afghanistan", "India", "Iran", "China"],
+  "Palau": ["Indonesia", "Philippines"],
+  "Palestine": ["Egypt", "Israel", "Jordan"],
+  "Panama": ["Colombia", "Costa Rica"],
+  "Papua New Guinea": ["Indonesia"],
+  "Paraguay": ["Argentina", "Bolivia", "Brazil"],
+  "Peru": ["Bolivia", "Brazil", "Chile", "Colombia", "Ecuador"],
+  "Philippines": ["Malaysia", "Indonesia"],
   "Poland": [
     "Belarus",
     "Czech Republic",
@@ -754,26 +417,24 @@
     "Slovakia",
     "Ukraine"
   ],
-  "Portugal": [
-    "Spain"
-  ],
-  "Qatar": [
-    "Saudi Arabia"
-  ],
+  "Puerto Rico": ["Dominican Republic", "British Virgin island"],
+  "Portugal": ["Spain", "Morocco"],
+  "Qatar": ["Saudi Arabia"],
   "Romania": [
     "Bulgaria",
     "Hungary",
     "Moldova",
-    "Serbia",
+    "Republic of Serbia",
     "Ukraine"
   ],
   "Russia": [
     "Azerbaijan",
     "Belarus",
-    "People's Republic of China",
+    "China",
     "Estonia",
     "Finland",
     "Georgia",
+    "Japan",
     "Kazakhstan",
     "North Korea",
     "Latvia",
@@ -781,7 +442,8 @@
     "Mongolia",
     "Norway",
     "Poland",
-    "Ukraine"
+    "Ukraine",
+    "USA"
   ],
   "Rwanda": [
     "Burundi",
@@ -789,9 +451,7 @@
     "Tanzania",
     "Uganda"
   ],
-  "San Marino": [
-    "Italy"
-  ],
+  "San Marino": ["Italy"],
   "Saudi Arabia": [
     "Iraq",
     "Jordan",
@@ -801,14 +461,8 @@
     "United Arab Emirates",
     "Yemen"
   ],
-  "Senegal": [
-    "The Gambia",
-    "Guinea",
-    "Guinea",
-    "Mali",
-    "Mauritania"
-  ],
-  "Serbia": [
+  "Senegal": ["Gambia", "Guinea", "Guinea", "Mali", "Mauritania"],
+  "Republic of Serbia": [
     "Bosnia and Herzegovina",
     "Bulgaria",
     "Croatia",
@@ -818,51 +472,23 @@
     "North Macedonia",
     "Romania"
   ],
-  "Sierra Leone": [
-    "Guinea",
-    "Liberia"
-  ],
-  "Singapore": [
-  ],
-  "Slovakia": [
-    "Austria",
-    "Czech Republic",
-    "Hungary",
-    "Poland",
-    "Ukraine"
-  ],
-  "Slovenia": [
-    "Austria",
-    "Croatia",
-    "Italy",
-    "Hungary"
-  ],
-  "Solomon Islands": [
-  ],
-  "Somalia": [
-    "Djibouti",
-    "Ethiopia",
-    "Kenya",
-    "Somaliland"
-  ],
-  "Somaliland": [
-    "Djibouti",
-    "Ethiopia",
-    "Kenya",
-    "Somalia"
-  ],
+  "Sierra Leone": ["Guinea", "Liberia"],
+  "Singapore": ["Malaysia", "Indonesia"],
+  "Slovakia": ["Austria", "Czech Republic", "Hungary", "Poland", "Ukraine"],
+  "Slovenia": ["Austria", "Croatia", "Italy", "Hungary"],
+  "Solomon Islands": ["Papua New Guinea", "Vanuatu"],
+  "Somaliland": ["Somalia", "Ethiopia"],
+  "Somalia": ["Djibouti", "Ethiopia", "Kenya"],
   "South Africa": [
     "Botswana",
     "Eswatini",
     "Lesotho",
     "Mozambique",
     "Namibia",
-    "Zimbabwe"
+    "Zimbabwe",
+    "Antarctica"
   ],
-  "South Ossetia": [
-    "Russia",
-    "Georgia"
-  ],
+  "South Ossetia": ["Russia", "Georgia"],
   "South Sudan": [
     "Central African Republic",
     "Democratic Republic of the Congo",
@@ -871,15 +497,8 @@
     "Sudan",
     "Uganda"
   ],
-  "Spain": [
-    "Andorra",
-    "France",
-    "Gibraltar",
-    "Portugal",
-    "Morocco"
-  ],
-  "Sri Lanka": [
-  ],
+  "Spain": ["Andorra", "France", "Gibraltar", "Portugal", "Morocco"],
+  "Sri Lanka": ["India"],
   "Sudan": [
     "Central African Republic",
     "Chad",
@@ -889,37 +508,13 @@
     "Libya",
     "South Sudan"
   ],
-  "Suriname": [
-    "Brazil",
-    "French Guiana[15], (France)",
-    "Guyana"
-  ],
-  "Sweden": [
-    "Finland",
-    "Norway"
-  ],
-  "Switzerland": [
-    "Austria",
-    "France",
-    "Italy",
-    "Liechtenstein",
-    "Germany"
-  ],
-  "Syria": [
-    "Iraq",
-    "Israel",
-    "Jordan",
-    "Lebanon",
-    "Turkey"
-  ],
-  "Taiwan": [
-  ],
-  "Tajikistan": [
-    "Afghanistan",
-    "People's Republic of China",
-    "Kyrgyzstan",
-    "Uzbekistan"
-  ],
+  "Suriname": ["Brazil", "French Guiana[15], (France)", "Guyana"],
+  "Swaziland": ["South Africa"],
+  "Sweden": ["Finland", "Norway", "Denmark", "Germany"],
+  "Switzerland": ["Austria", "France", "Italy", "Liechtenstein", "Germany"],
+  "Syria": ["Iraq", "Israel", "Jordan", "Lebanon", "Turkey"],
+  "Taiwan": [],
+  "Tajikistan": ["Afghanistan", "China", "Kyrgyzstan", "Uzbekistan"],
   "Tanzania": [
     "Burundi",
     "Democratic Republic of the Congo",
@@ -930,25 +525,11 @@
     "Uganda",
     "Zambia"
   ],
-  "Thailand": [
-    "Cambodia",
-    "Laos",
-    "Malaysia",
-    "Myanmar"
-  ],
-  "Togo": [
-    "Benin",
-    "Burkina Faso",
-    "Ghana"
-  ],
-  "Tonga": [
-  ],
-  "Trinidad and Tobago": [
-  ],
-  "Tunisia": [
-    "Algeria",
-    "Libya"
-  ],
+  "Thailand": ["Cambodia", "Laos", "Malaysia", "Myanmar"],
+  "Togo": ["Benin", "Burkina Faso", "Ghana"],
+  "Tonga": ["Australia", "Fiji", "Samoa"],
+  "Trinidad and Tobago": ["Granada","Venezuela"],
+  "Tunisia": ["Algeria", "Libya"],
   "Turkey": [
     "Armenia",
     "Azerbaijan",
@@ -957,17 +538,10 @@
     "Greece",
     "Iran",
     "Iraq",
-    "Syria",
-    "Turkey"
+    "Syria"
   ],
-  "Turkmenistan": [
-    "Afghanistan",
-    "Iran",
-    "Kazakhstan",
-    "Uzbekistan"
-  ],
-  "Tuvalu": [
-  ],
+  "Turkmenistan": ["Afghanistan", "Iran", "Kazakhstan", "Uzbekistan"],
+  "Tuvalu": [],
   "Uganda": [
     "Democratic Republic of the Congo",
     "Kenya",
@@ -984,22 +558,17 @@
     "Russia",
     "Slovakia"
   ],
-  "United Arab Emirates": [
-    "Oman",
-    "Saudi Arabia"
+  "United Arab Emirates": ["Oman", "Saudi Arabia"],
+  "England": [
+    "Ireland",
+    "Iceland",
+    "France",
+    "Belgium",
+    "Belgium",
+    "Netherlands"
   ],
-  "United Kingdom": [
-    "Ireland", "France"
-  ],
-  "United States": [
-    "Canada",
-    "Mexico",
-    "Cuba"
-  ],
-  "Uruguay": [
-    "Argentina",
-    "Brazil"
-  ],
+  "USA": ["Canada", "Mexico", "Russia"],
+  "Uruguay": ["Argentina", "Brazil"],
   "Uzbekistan": [
     "Afghanistan",
     "Kazakhstan",
@@ -1007,28 +576,13 @@
     "Tajikistan",
     "Turkmenistan"
   ],
-  "Vatican City": [
-    "Italy"
-  ],
-  "Venezuela": [
-    "Brazil",
-    "Colombia",
-    "Guyana"
-  ],
-  "Vietnam": [
-    "Cambodia",
-    "People's Republic of China",
-    "Laos"
-  ],
-  "Western Sahara": [
-    "Algeria",
-    "Mauritania",
-    "Morocco"
-  ],
-  "Yemen": [
-    "Oman",
-    "Saudi Arabia"
-  ],
+  "Vatican City": ["Italy"],
+  "Venezuela": ["Brazil", "Colombia", "Guyana"],
+  "Vanuatu": [],
+  "Vietnam": ["Cambodia", "China", "Laos"],
+  "West Bank": [],
+  "Western Sahara": ["Algeria", "Mauritania", "Morocco"],
+  "Yemen": ["Oman", "Saudi Arabia", "Ethiopia"],
   "Zambia": [
     "Angola",
     "Botswana",
@@ -1039,10 +593,5 @@
     "Tanzania",
     "Zimbabwe"
   ],
-  "Zimbabwe": [
-    "Botswana",
-    "Mozambique",
-    "South Africa",
-    "Zambia"
-  ]
+  "Zimbabwe": ["Botswana", "Mozambique", "South Africa", "Zambia"]
 }

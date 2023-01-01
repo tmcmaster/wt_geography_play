@@ -18,15 +18,17 @@ class NavigateBetweenApp extends ConsumerWidget {
     final controller = ref.read(NavigateBetweenController.provider);
 
     return WorldMapApp(
-      appName: 'Race to Country',
+      appName: 'Navigate Between',
       zoomControls: true,
-      onSelect: controller.onSelect,
+      refreshButton: false,
+      //onSelect: controller.onSelect,
       onHover: controller.onHover,
-      leftHeader: [
-        controller.clear.button(),
+      leftHeader: const [
+        _Objective(),
       ],
-      rightHeader: const [
-        HoverCountry(),
+      rightHeader: [
+        const HoverCountry(),
+        controller.reset.button(),
       ],
       leftFooter: const [
         CountryNeighboursButtons(),
@@ -34,14 +36,30 @@ class NavigateBetweenApp extends ConsumerWidget {
       rightFooter: const [],
       infoPanels: const [
         _ScorePanel(
-          alignment: Alignment.bottomLeft,
+          alignment: Alignment.bottomCenter,
         ),
       ],
     );
   }
 }
 
-class _ScorePanel extends StatelessWidget {
+class _Objective extends ConsumerWidget {
+  const _Objective({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final controller = ref.read(NavigateBetweenController.provider);
+    final state = ref.watch(controller.state);
+    final objective = state.active ? '${state.source} to ${state.destination}' : '';
+    return Text(objective,
+        style: const TextStyle(
+          color: Colors.blueGrey,
+          fontSize: 20,
+        ));
+  }
+}
+
+class _ScorePanel extends ConsumerWidget {
   final Alignment alignment;
 
   const _ScorePanel({
@@ -49,15 +67,18 @@ class _ScorePanel extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    // TODO: need to get the real values here.
-    final distance = 100.0;
-    final visitedCountries = 10;
-    final currentCountry = 'Australia';
+  Widget build(BuildContext context, WidgetRef ref) {
+    final controller = ref.read(NavigateBetweenController.provider);
+    final state = ref.watch(controller.state);
+
+    final distance = state.distance;
+    final visitedCountries = state.steps;
+    final currentCountry = state.selected;
 
     return InfoPanel(
+      title: 'SCORES',
       alignment: alignment,
-      size: const Size(300, 130),
+      size: const Size(400, 130),
       children: [
         Text(
           'Distance: ${(distance / 1000).toStringAsFixed(0)} km',
@@ -77,6 +98,11 @@ class _ScorePanel extends StatelessWidget {
             ...currentCountry.split(' ').map((word) => Text(' $word')).toList(),
           ],
         ),
+        if (state.completed)
+          const Padding(
+            padding: EdgeInsets.only(top: 8),
+            child: Text('Journey is complete!'),
+          )
       ],
     );
   }
@@ -90,16 +116,12 @@ class CountryNeighboursButtons extends ConsumerWidget {
     final controller = ref.read(NavigateBetweenController.provider);
     final state = ref.watch(controller.state);
 
-    print('State ==>> $state');
     final selected = ref.read(controller.country(state.selected));
     final neighbours = selected?.neighbours ?? ['Australia'];
     return Expanded(
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: [
-          controller.select.button(state.selected),
-          ...neighbours.map((neighbour) => controller.select.button(neighbour)).toList(),
-        ],
+        children: neighbours.map((neighbour) => controller.select.button(neighbour)).toList(),
       ),
     );
   }
