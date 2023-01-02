@@ -6,6 +6,8 @@ class InfoPanel extends StatefulWidget {
   final Size size;
   final double tabSize;
   final String title;
+  final bool open;
+  final bool canToggle;
   const InfoPanel({
     super.key,
     required this.alignment,
@@ -13,6 +15,8 @@ class InfoPanel extends StatefulWidget {
     this.size = const Size(300, 60),
     this.tabSize = 40,
     this.title = '',
+    this.open = false,
+    this.canToggle = true,
   });
 
   @override
@@ -20,9 +24,20 @@ class InfoPanel extends StatefulWidget {
 }
 
 class _InfoPanelState extends State<InfoPanel> {
-  bool visible = false;
+  bool _visible = false;
+
+  @override
+  void initState() {
+    setState(() {
+      _visible = widget.open;
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final visible = widget.open || (widget.canToggle ? _visible : true);
+
     final style =
         Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white, fontSize: 16);
 
@@ -40,11 +55,13 @@ class _InfoPanelState extends State<InfoPanel> {
     return Align(
       alignment: widget.alignment,
       child: GestureDetector(
-        onTap: () {
-          setState(() {
-            visible = !visible;
-          });
-        },
+        onTap: widget.canToggle
+            ? () {
+                setState(() {
+                  _visible = !_visible;
+                });
+              }
+            : null,
         child: Container(
           width: visible
               ? widget.size.width

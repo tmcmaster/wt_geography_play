@@ -11,7 +11,7 @@ import 'package:wt_geography_play/features/world_map/models/world_map_country.da
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 
 class NavigateBetweenController with WorldMapListener {
-  static final log = logger(NavigateBetweenController, level: Level.verbose);
+  static final log = logger(NavigateBetweenController, level: Level.warning);
   static final random = Random();
 
   static final provider = Provider((ref) => NavigateBetweenController._(ref));

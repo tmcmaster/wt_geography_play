@@ -8,7 +8,7 @@ import 'package:wt_geography_play/features/world_map_app/widgets/info_panel.dart
 import 'package:wt_geography_play/features/world_map_app/world_map_app.dart';
 
 class NavigateBetweenApp extends ConsumerWidget {
-  static final log = logger(NavigateBetweenApp, level: Level.verbose);
+  static final log = logger(NavigateBetweenApp, level: Level.warning);
 
   const NavigateBetweenApp({super.key});
 
@@ -79,6 +79,8 @@ class _ScorePanel extends ConsumerWidget {
       title: 'SCORES',
       alignment: alignment,
       size: const Size(400, 130),
+      open: state.completed,
+      canToggle: !state.completed,
       children: [
         Text(
           'Distance: ${(distance / 1000).toStringAsFixed(0)} km',
@@ -98,11 +100,6 @@ class _ScorePanel extends ConsumerWidget {
             ...currentCountry.split(' ').map((word) => Text(' $word')).toList(),
           ],
         ),
-        if (state.completed)
-          const Padding(
-            padding: EdgeInsets.only(top: 8),
-            child: Text('Journey is complete!'),
-          )
       ],
     );
   }
@@ -119,10 +116,15 @@ class CountryNeighboursButtons extends ConsumerWidget {
     final selected = ref.read(controller.country(state.selected));
     final neighbours = selected?.neighbours ?? ['Australia'];
     return Expanded(
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: neighbours.map((neighbour) => controller.select.button(neighbour)).toList(),
-      ),
+      child: state.completed
+          ? const Text(
+              'Journey Completed!!',
+              style: TextStyle(fontSize: 20, color: Colors.blueGrey),
+            )
+          : ListView(
+              scrollDirection: Axis.horizontal,
+              children: neighbours.map((neighbour) => controller.select.button(neighbour)).toList(),
+            ),
     );
   }
 }
