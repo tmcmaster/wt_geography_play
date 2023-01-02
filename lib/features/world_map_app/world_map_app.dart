@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_app_scaffold/app_scaffolds.dart';
-import 'package:wt_geography_play/features/common/widgets/world_map_icon_button.dart';
 import 'package:wt_geography_play/features/scroll_pane/scroll_pane.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
+import 'package:wt_geography_play/features/world_map_app/widgets/world_map_icon_button.dart';
 
 class WorldMapApp extends ConsumerWidget {
   final String appName;

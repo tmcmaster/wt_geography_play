@@ -1,0 +1,9 @@
+name: interactive_world_map
+description: This was a first go at creating an interactive map component
+
+environment:
+  sdk: ">=2.17.5 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter

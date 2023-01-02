@@ -6,6 +6,7 @@ import 'package:wt_geography_play/features/world_map/providers/country_list.dart
 import 'package:wt_geography_play/features/world_map/providers/hover_country.dart';
 import 'package:wt_geography_play/features/world_map/providers/selected_countries.dart';
 import 'package:wt_geography_play/features/world_map/widgets/shape_widget.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_canvas.dart';
 
 class WorldMap extends ConsumerWidget {
   static final log = logger(WorldMap, level: Level.warning);
@@ -53,7 +54,7 @@ class WorldMap extends ConsumerWidget {
     ref.watch(WorldMap.countryCount);
     List<WorldMapCountry> countryList = ref.read(WorldMap.countryMap).values.toList();
     return FittedBox(
-      child: _MapCanvas(
+      child: WorldMapCanvas(
         children: [true, false]
             .map((shadow) => countryList
                 // .where((c) => c.name == 'Egypt')
@@ -80,29 +81,6 @@ class WorldMap extends ConsumerWidget {
                 .toList())
             .expand((item) => item)
             .toList(),
-      ),
-    );
-  }
-}
-
-class _MapCanvas extends ConsumerWidget {
-  const _MapCanvas({
-    Key? key,
-    required this.children,
-  }) : super(key: key);
-
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      width: 1600,
-      height: 800,
-      color: Colors.transparent,
-      child: Stack(
-        children: [
-          ...children,
-        ],
       ),
     );
   }

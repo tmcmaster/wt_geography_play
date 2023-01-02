@@ -3,12 +3,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_action_button/utils/logging.dart';
-import 'package:wt_geography_play/features/common/widgets/world_map_icon_button.dart';
-import 'package:wt_geography_play/features/common/widgets/world_map_text_button.dart';
 import 'package:wt_geography_play/features/navigate_between/models/navigate_between_state.dart';
 import 'package:wt_geography_play/features/navigate_between/providers/navigate_between_state_provider.dart';
 import 'package:wt_geography_play/features/world_map/models/world_map_country.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
+import 'package:wt_geography_play/features/world_map_app/widgets/world_map_action.dart';
+import 'package:wt_geography_play/features/world_map_app/widgets/world_map_action_item.dart';
+import 'package:wt_geography_play/features/world_map_app/world_map_listener.dart';
 
 class NavigateBetweenController with WorldMapListener {
   static final log = logger(NavigateBetweenController, level: Level.warning);
@@ -83,43 +84,5 @@ class NavigateBetweenController with WorldMapListener {
     countryList.remove(fromCountry);
     final toCountry = countryList[random.nextInt(countryList.length)];
     return [fromCountry, toCountry];
-  }
-}
-
-abstract class WorldMapListener {
-  void onSelect(String country);
-  void onHover(String country);
-  void onClear();
-}
-
-class WorldMapActionItem<T> {
-  final void Function(T value) onPressed;
-  final String Function(T value) getLabel;
-  WorldMapActionItem({
-    required this.onPressed,
-    required this.getLabel,
-  });
-
-  Widget button(T value) {
-    return WorldMapTextButton(
-      label: getLabel(value),
-      onPressed: () => onPressed(value),
-    );
-  }
-}
-
-class WorldMapAction {
-  final IconData icon;
-  final void Function() onPressed;
-  WorldMapAction({
-    required this.icon,
-    required this.onPressed,
-  });
-
-  Widget button() {
-    return WorldMapIconButton(
-      icon: icon,
-      onPressed: onPressed,
-    );
   }
 }
