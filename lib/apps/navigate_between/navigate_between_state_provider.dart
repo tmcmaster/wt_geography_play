@@ -3,7 +3,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/apps/navigate_between/models/navigate_between_state.dart';
 import 'package:wt_geography_play/features/world_map/models/world_map_country.dart';
-import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
 
 class NavigateBetweenStateNotifier extends StateNotifier<NavigateBetweenState> {
   static final log = logger(NavigateBetweenStateNotifier, level: Level.warning);
@@ -26,8 +26,8 @@ class NavigateBetweenStateNotifier extends StateNotifier<NavigateBetweenState> {
   }
 
   double _calculateDistance(String from, String to) {
-    final WorldMapCountry? fromCountry = ref.read(WorldMap.countryMap)[from];
-    final WorldMapCountry? toCountry = ref.read(WorldMap.countryMap)[to];
+    final WorldMapCountry? fromCountry = ref.read(WorldMapController.countryMap)[from];
+    final WorldMapCountry? toCountry = ref.read(WorldMapController.countryMap)[to];
     if (fromCountry == null || toCountry == null) {
       throw Exception('Could not calculate distance between countries: '
           'From(${fromCountry?.name}) -> To(${toCountry?.name})');

@@ -35,8 +35,8 @@ class ShapeWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     log.v('Building Widget : $country : ${shape.region}');
     return Positioned(
-      left: (shape.offset.dx + offset.dx) * scale,
-      top: (shape.offset.dy + offset.dy) * scale,
+      left: (shape.offset.dx + offset.dx) * scale + 10,
+      top: (shape.offset.dy + offset.dy) * scale + 10,
       width: shape.size.width * scale + 20,
       height: shape.size.height * scale + 20,
       child: shadow

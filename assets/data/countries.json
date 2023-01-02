@@ -346,7 +346,7 @@
     "name": "Canada",
     "capital": "Ottawa",
     "code": "CA",
-    "continent": "Central America",
+    "continent": "North America",
     "longitude": -75.7,
     "latitude": 45.416666666666664
   },
@@ -460,7 +460,7 @@
   },
   {
     "id": "52",
-    "name": "Cote d'Ivoire",
+    "name": "Ivory Coast",
     "capital": "Yamoussoukro",
     "code": "CI",
     "continent": "Africa",
@@ -1558,7 +1558,7 @@
   },
   {
     "id": "174",
-    "name": "Republic of Congo",
+    "name": "Republic of the Congo",
     "capital": "Brazzaville",
     "code": "CG",
     "continent": "Africa",

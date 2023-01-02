@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/apps/find_country/models/find_country_state.dart';
-import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
 
 class FindCountryStateNotifier extends StateNotifier<FindCountryState> {
   static final random = Random();
@@ -13,12 +13,12 @@ class FindCountryStateNotifier extends StateNotifier<FindCountryState> {
   final Ref ref;
 
   FindCountryStateNotifier(this.ref) : super(FindCountryState.empty()) {
-    ref.listen(WorldMap.countryMap, (_, countryMap) {
+    ref.listen(WorldMapController.countryMap, (_, countryMap) {
       final countryList = countryMap.keys.toList();
       setCountryList(countryList);
     });
 
-    final countryMap = ref.read(WorldMap.countryMap);
+    final countryMap = ref.read(WorldMapController.countryMap);
     if (countryMap.isNotEmpty) {
       final countryList = countryMap.keys.toList();
       Future.delayed(const Duration(), () {

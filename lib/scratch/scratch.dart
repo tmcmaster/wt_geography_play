@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,12 +19,13 @@ class ScratchApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.lightBlue.shade50,
       ),
-      home: const Scaffold(
-        body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.all(8),
-            // child: ExploreMapApp(),
-            child: TestShapeWidget(),
+      home: Scaffold(
+        body: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Expanded(child: TestShapeWidget()),
+            ],
           ),
         ),
       ),
@@ -34,24 +36,30 @@ class ScratchApp extends StatelessWidget {
 class TestShapeWidget extends ConsumerWidget {
   const TestShapeWidget({super.key});
 
-  static const australiaOffset = Offset(-290, -100);
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final countryMap = ref.watch(WorldMap.countryMap);
-    final asia = countryMap.values.where((country) => country.continent == 'Asia').toList();
+    final countryMap = ref.watch(WorldMapController.countryMap);
+    final countries = countryMap.values.where((country) => country.name == 'New Zealand').toList();
 
-    final notifier = ref.read(WorldMap.selectedCountries.notifier);
+    final notifier = ref.read(WorldMapController.selectedCountries.notifier);
 
-    return Stack(
-      children: asia.isEmpty
-          ? []
-          : WorldMap.fromCountryList(
-              asia,
-              shadow: true,
-              offset: const Offset(-210, -30),
-              onSelect: (country) => notifier.select(country),
-            ),
+    final region = WorldMapController.calculateCombinedRegion(countries);
+
+    return FittedBox(
+      child: SizedBox(
+        width: region.width * 4.3 + 20,
+        height: region.height * 4.3 + 20,
+        child: Stack(
+          children: countries.isEmpty
+              ? []
+              : WorldMapController.fromCountryList(
+                  countries,
+                  shadow: true,
+                  onSelect: (country) => notifier.select(country),
+                  offset: Offset(-region.left, -region.top),
+                ),
+        ),
+      ),
     );
   }
 }
@@ -61,10 +69,12 @@ class TestWorldMap extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return WorldMap(
-      onSelect: (country) {
-        ref.read(WorldMap.selectedCountries.notifier).select(country);
-      },
+    return FittedBox(
+      child: WorldMap(
+        onSelect: (country) {
+          ref.read(WorldMapController.selectedCountries.notifier).select(country);
+        },
+      ),
     );
   }
 }
