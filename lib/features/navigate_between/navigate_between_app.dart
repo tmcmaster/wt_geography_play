@@ -20,10 +20,9 @@ class NavigateBetweenApp extends ConsumerWidget {
 
     return WorldMapApp(
       appName: 'Navigate Between',
+      controller: controller,
       zoomControls: true,
       refreshButton: false,
-      //onSelect: controller.onSelect,
-      onHover: controller.onHover,
       leftHeader: [
         NavigateBetweenObjective(
           controller: controller,

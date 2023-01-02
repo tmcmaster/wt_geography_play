@@ -57,7 +57,7 @@ class NavigateBetweenController with WorldMapListener {
   }
 
   @override
-  void onSelect(String country) => selectCountry(country);
+  void onSelect(String country) => () {};
 
   void selectCountry(String country) {
     log.d('Selecting Country : $country');

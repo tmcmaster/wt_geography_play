@@ -4,30 +4,33 @@ import 'package:wt_app_scaffold/app_scaffolds.dart';
 import 'package:wt_geography_play/features/scroll_pane/scroll_pane.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 import 'package:wt_geography_play/features/world_map_app/widgets/world_map_icon_button.dart';
+import 'package:wt_geography_play/features/world_map_app/world_map_listener.dart';
 
 class WorldMapApp extends ConsumerWidget {
   final String appName;
+  final WorldMapListener controller;
   final List<Widget> leftHeader;
   final List<Widget> rightHeader;
   final List<Widget> leftFooter;
   final List<Widget> rightFooter;
   final bool zoomControls;
   final bool refreshButton;
-  final void Function(String country)? onSelect;
-  final void Function(String country)? onHover;
+  // final void Function(String country)? onSelect;
+  // final void Function(String country)? onHover;
   final List<Widget> infoPanels;
 
   const WorldMapApp({
     super.key,
     required this.appName,
+    required this.controller,
     this.leftHeader = const [],
     this.rightHeader = const [],
     this.leftFooter = const [],
     this.rightFooter = const [],
     this.zoomControls = true,
     this.refreshButton = true,
-    this.onSelect,
-    this.onHover,
+    // this.onSelect,
+    // this.onHover,
     this.infoPanels = const [],
   });
 
@@ -37,17 +40,23 @@ class WorldMapApp extends ConsumerWidget {
       body: Column(
         children: [
           _TopToolbar(
-              leftHeader: leftHeader, rightHeader: rightHeader, refreshButton: refreshButton),
+            controller: controller,
+            leftHeader: leftHeader,
+            rightHeader: rightHeader,
+            refreshButton: refreshButton,
+          ),
           Expanded(
             child: _MapSection(
               appName: appName,
-              onSelect: onSelect,
-              onHover: onHover,
+              controller: controller,
               infoPanels: infoPanels,
             ),
           ),
           _BottomToolbar(
-              leftFooter: leftFooter, rightFooter: rightFooter, zoomControls: zoomControls),
+            leftFooter: leftFooter,
+            rightFooter: rightFooter,
+            zoomControls: zoomControls,
+          ),
         ],
       ),
     );
@@ -56,15 +65,12 @@ class WorldMapApp extends ConsumerWidget {
 
 class _MapSection extends ConsumerWidget {
   final String appName;
-  final void Function(String country)? onSelect;
-  final void Function(String country)? onHover;
+  final WorldMapListener controller;
   final List<Widget> infoPanels;
 
   const _MapSection({
-    super.key,
     required this.appName,
-    this.onSelect,
-    this.onHover,
+    required this.controller,
     this.infoPanels = const [],
   });
 
@@ -107,8 +113,8 @@ class _MapSection extends ConsumerWidget {
         ),
         ScrollPane(
           child: WorldMap(
-            onSelect: onSelect,
-            onHover: onHover,
+            onSelect: controller.onSelect,
+            onHover: controller.onHover,
           ),
         ),
         ...infoPanels,
@@ -172,9 +178,10 @@ class _TopToolbar extends ConsumerWidget {
   final List<Widget> leftHeader;
   final List<Widget> rightHeader;
   final bool refreshButton;
-
+  final WorldMapListener controller;
   const _TopToolbar({
     Key? key,
+    required this.controller,
     required this.leftHeader,
     required this.rightHeader,
     required this.refreshButton,
@@ -223,9 +230,7 @@ class _TopToolbar extends ConsumerWidget {
               if (refreshButton)
                 WorldMapIconButton(
                   icon: Icons.refresh,
-                  onPressed: () {
-                    ref.read(WorldMap.selectedCountries.notifier).clear();
-                  },
+                  onPressed: controller.onClear,
                 ),
             ],
           )
