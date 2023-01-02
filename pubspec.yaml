@@ -8,7 +8,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  vector_map:
   cupertino_icons: ^1.0.2
   flutter_riverpod:
   freezed: ^2.3.0

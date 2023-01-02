@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/interactive_world_map/interactive_world_map.dart';
-import 'package:wt_geography_play/models/country.dart';
-import 'package:wt_geography_play/models/dinosaur.dart';
-import 'package:wt_geography_play/providers/providers.dart';
+import 'package:interactive_world_map/interactive_world_map.dart';
+import 'package:interactive_world_map/models/country.dart';
+import 'package:interactive_world_map/models/dinosaur.dart';
+import 'package:interactive_world_map/providers/providers.dart';
 
 class FindDinosaurs extends ConsumerWidget {
   const FindDinosaurs({super.key});
@@ -49,8 +49,7 @@ class CountryDinosaurs extends ConsumerWidget {
     );
   }
 
-  String _generateCountryDinoString(
-      Country? country, List<Dinosaur>? dinoList) {
+  String _generateCountryDinoString(Country? country, List<Dinosaur>? dinoList) {
     return country == null
         ? ''
         : dinoList == null || dinoList.isEmpty

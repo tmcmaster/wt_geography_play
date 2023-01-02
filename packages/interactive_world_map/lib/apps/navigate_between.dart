@@ -2,14 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:interactive_world_map/providers/capital_cities.dart';
+import 'package:interactive_world_map/providers/navigate_between_providers.dart';
+import 'package:interactive_world_map/providers/providers.dart';
 import 'package:vector_map/vector_map.dart';
 import 'package:wt_app_scaffold/app_scaffolds.dart';
-import 'package:wt_app_scaffold/scaffolds/app/application_settings.dart';
-import 'package:wt_app_scaffold/scaffolds/app/hidden_drawer_app/hidden_drawer_opener.dart';
-import 'package:wt_geography_play/interactive_world_map/interactive_world_map.dart';
-import 'package:wt_geography_play/providers/capital_cities.dart';
-import 'package:wt_geography_play/providers/navigate_between_providers.dart';
-import 'package:wt_geography_play/providers/providers.dart';
+
+import '../interactive_world_map.dart';
 
 const debug = false;
 

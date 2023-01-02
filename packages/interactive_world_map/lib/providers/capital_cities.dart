@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:wt_geography_play/models/country.dart';
+import 'package:interactive_world_map/models/country.dart';
 
 // final countriesProvider = FutureProvider<List<Country>>((ref) async {
 //   String jsonString = await rootBundle.loadString('assets/countries.json');
@@ -39,7 +39,7 @@ final countryLookupProvider2 = StateNotifierProvider<CountryLookupNotifier, Map<
 
 class CountryLookupNotifier extends StateNotifier<Map<String, Country>> {
   CountryLookupNotifier(Ref ref) : super({}) {
-    ref.listen(countryListProvider2, (_, next) {
+    ref.listen(countryListProvider2, (_, List<Country> next) {
       state = {for (var c in next) c.name: c};
     });
   }

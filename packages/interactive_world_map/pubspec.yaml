@@ -7,3 +7,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  vector_map:
+  flutter_riverpod:
+  freezed: ^2.3.0
+  freezed_annotation: ^2.2.0
+  geolocator: ^9.0.2
+
+  wt_models:
+    git:
+      url: git@github.com:tmcmaster/wt_models.git
+  wt_app_scaffold:
+    git:
+      url: https://github.com/tmcmaster/wt_app_scaffold.git
+  wt_settings:
+    git:
+      url: git@github.com:tmcmaster/wt_settings.git

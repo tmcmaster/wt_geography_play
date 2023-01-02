@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/interactive_world_map/interactive_world_map.dart';
-import 'package:wt_geography_play/models/country.dart';
-import 'package:wt_geography_play/models/dinosaur.dart';
-import 'package:wt_geography_play/providers/country_list.dart';
-import 'package:wt_geography_play/providers/providers.dart';
+import 'package:interactive_world_map/interactive_world_map.dart';
+import 'package:interactive_world_map/models/country.dart';
+import 'package:interactive_world_map/models/dinosaur.dart';
+import 'package:interactive_world_map/providers/country_list.dart';
+import 'package:interactive_world_map/providers/providers.dart';
 
 class GeographyPlay extends ConsumerWidget {
   const GeographyPlay({Key? key}) : super(key: key);
@@ -24,8 +24,7 @@ class GeographyPlay extends ConsumerWidget {
             },
             onSelect: (country) => _countrySelected(country, dinoByCountry),
             onUnselect: (country) => debugPrint('Country Unselected: $country'),
-            onSelectionChanged: (countries) =>
-                debugPrint('Selected Countries: $countries'),
+            onSelectionChanged: (countries) => debugPrint('Selected Countries: $countries'),
           ),
         ),
       ],

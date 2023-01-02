@@ -2,11 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/interactive_world_map/interactive_world_map.dart';
-import 'package:wt_geography_play/models/country.dart';
-import 'package:wt_geography_play/providers/capital_cities.dart';
-import 'package:wt_geography_play/providers/country_list.dart';
-import 'package:wt_geography_play/providers/country_neighbours.dart';
+
+import '../interactive_world_map.dart';
+import '../models/country.dart';
+import 'capital_cities.dart';
+import 'country_list.dart';
+import 'country_neighbours.dart';
 
 final navigateBetweenProvider = StateNotifierProvider<NavigateBetweenNotifier, NavigateBetween>(
   (ref) => NavigateBetweenNotifier(ref),

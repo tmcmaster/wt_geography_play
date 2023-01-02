@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wt_geography_play/scratch/clipper_play/clip_with_path.dart';
-import 'package:wt_geography_play/scratch/clipper_play/test_widget.dart';
+
+import 'clip_with_path.dart';
+import 'test_widget.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

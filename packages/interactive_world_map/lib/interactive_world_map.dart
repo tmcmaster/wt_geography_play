@@ -2,15 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:interactive_world_map/models/country.dart';
+import 'package:interactive_world_map/providers/providers.dart';
 import 'package:vector_map/vector_map.dart';
-import 'package:wt_geography_play/interactive_world_map/interactive_word_map_notifier.dart';
-import 'package:wt_geography_play/models/country.dart';
-import 'package:wt_geography_play/providers/providers.dart';
+
+import 'interactive_word_map_notifier.dart';
 
 class InteractiveWorldMap extends ConsumerWidget {
-  static final selected =
-      StateNotifierProvider<InteractiveWorldMaoNotifier, Set<Country>>(
-          (ref) => InteractiveWorldMaoNotifier());
+  static final selected = StateNotifierProvider<InteractiveWorldMaoNotifier, Set<Country>>(
+      (ref) => InteractiveWorldMaoNotifier());
 
   static final hover = StateProvider<Country?>((ref) => null);
 
@@ -140,8 +140,7 @@ class _InteractiveWorldMapState extends State<_InteractiveWorldMap> {
     //
 
     _removeListener2 = widget.modeNotifier.addListener((enabled) {
-      controller.mode =
-          enabled ? VectorMapMode.panAndZoom : VectorMapMode.autoFit;
+      controller.mode = enabled ? VectorMapMode.panAndZoom : VectorMapMode.autoFit;
     });
 
     _removeListener = widget.selectedNotifier.addListener((state) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wt_geography_play/scratch/clipper_play/triangle_clipper.dart';
+
+import 'triangle_clipper.dart';
 
 class ClipWithPath extends StatelessWidget {
   final Offset? offset;

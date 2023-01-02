@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vector_map/vector_map.dart';
-import 'package:wt_geography_play/models/dinosaur.dart';
+
+import '../models/dinosaur.dart';
 
 final dataSourceFutureProvider = FutureProvider(
   (ref) async {

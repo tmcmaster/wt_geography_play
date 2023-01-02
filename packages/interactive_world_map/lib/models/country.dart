@@ -31,6 +31,5 @@ class Country with _$Country {
     @JsonKey(name: 'latitude') @Default(0.0) num latitude,
   }) = _Country;
 
-  factory Country.fromJson(Map<String, dynamic> json) =>
-      _$CountryFromJson(json);
+  factory Country.fromJson(Map<String, dynamic> json) => _$CountryFromJson(json);
 }

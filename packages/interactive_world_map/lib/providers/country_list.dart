@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/models/country.dart';
+
+import '../models/country.dart';
 
 final nameToCountryMapProvider = Provider<Map<String, Country>>((ref) {
   return {for (var c in ref.read(countryListProvider)) c.name: c};
