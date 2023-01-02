@@ -6,7 +6,7 @@ import 'package:wt_geography_play/features/world_map/providers/country_list.dart
 import 'package:wt_geography_play/features/world_map/providers/hover_country.dart';
 import 'package:wt_geography_play/features/world_map/providers/selected_countries.dart';
 import 'package:wt_geography_play/features/world_map/widgets/shape_widget.dart';
-import 'package:wt_geography_play/features/world_map/widgets/world_map_canvas.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_canvas.dart';
 
 class WorldMap extends ConsumerWidget {
   static final log = logger(WorldMap, level: Level.warning);
@@ -55,33 +55,50 @@ class WorldMap extends ConsumerWidget {
     List<WorldMapCountry> countryList = ref.read(WorldMap.countryMap).values.toList();
     return FittedBox(
       child: WorldMapCanvas(
-        children: [true, false]
-            .map((shadow) => countryList
-                // .where((c) => c.name == 'Egypt')
-                .map((country) {
-                  log.v('Creating selection providers for ${country.name}');
-                  final countrySelectedProvider = WorldMap.isSelected(country.name);
-                  return country.shapes
-                      .map(
-                        (shape) => ShapeWidget(
-                          country: country.name,
-                          scale: 4.3,
-                          shape: shape,
-                          color: country.color,
-                          shadow: shadow,
-                          selectedProvider: countrySelectedProvider,
-                          onSelect: onSelect,
-                          onHover: onHover,
-                        ),
-                      )
-                      .toList();
-                })
-                .toList()
-                .expand((item) => item)
-                .toList())
-            .expand((item) => item)
-            .toList(),
+        children: fromCountryList(
+          countryList,
+          shadow: true,
+          onSelect: onSelect,
+          onHover: onHover,
+        ),
       ),
     );
+  }
+
+  static List<ShapeWidget> fromCountryList(
+    List<WorldMapCountry> countryList, {
+    void Function(String country)? onSelect,
+    void Function(String country)? onHover,
+    bool shadow = false,
+    Offset offset = const Offset(0, 0),
+  }) {
+    return [
+      if (shadow) true,
+      false,
+    ]
+        .map((shadowLayer) => countryList
+            .map((country) {
+              log.v('Creating selection providers for ${country.name}');
+              final countrySelectedProvider = WorldMap.isSelected(country.name);
+              return country.shapes
+                  .map(
+                    (shape) => ShapeWidget(
+                      offset: offset,
+                      country: country.name,
+                      scale: 4.3,
+                      shape: shape,
+                      color: country.color,
+                      shadow: shadowLayer,
+                      selectedProvider: countrySelectedProvider,
+                      onSelect: onSelect,
+                      onHover: onHover,
+                    ),
+                  )
+                  .toList();
+            })
+            .expand((item) => item)
+            .toList())
+        .expand((e) => e)
+        .toList();
   }
 }

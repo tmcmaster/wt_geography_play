@@ -5,7 +5,7 @@ class Shape {
   late List<Point<double>> points;
   late Rectangle<double> region;
 
-  Shape(List<Point<double>> globalPoints) {
+  Shape._(List<Point<double>> globalPoints) {
     if (globalPoints.isEmpty) {
       points = const [];
       region = const Rectangle<double>(0, 0, 0, 0);
@@ -36,11 +36,11 @@ class Shape {
 
   factory Shape.fromCoordinates(List<List<double>> coordinates) {
     final points = coordinates.map((c) => Point<double>(c[0], -c[1])).toList();
-    return Shape(points);
+    return Shape._(points);
   }
 
   factory Shape.fromPoints(List<Point<double>> points) {
-    return Shape(points);
+    return Shape._(points);
   }
 
   int compareTo(Shape other) {

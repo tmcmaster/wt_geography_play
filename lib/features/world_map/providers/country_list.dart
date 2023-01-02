@@ -49,7 +49,7 @@ class _CountryListLoader {
     final countryDetailsMap = await _loadCountryDetails();
 
     final countryList = countryGeometryMap.keys.map((country) {
-      final shapes = countryGeometryMap[country]!.map((g) => Shape(g.points)).toList();
+      final shapes = countryGeometryMap[country]!.map((g) => Shape.fromPoints(g.points)).toList();
       final int locationID = (shapes[0].region.top * shapes[0].region.left * 1000).toInt();
       final int colorID = locationID % colors.length;
       final color = colors[colorID] ?? Colors.grey;
