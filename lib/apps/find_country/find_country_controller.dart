@@ -40,9 +40,9 @@ class FindCountryController with WorldMapListener {
   void selectCountry(String country) {
     log.d('Selecting Country : $country');
     final countryToFind = ref.read(state).countryToFind;
+    ref.read(state.notifier).select(country);
     if (country == countryToFind) {
       ref.read(WorldMap.selectedCountries.notifier).select(country, toggle: false);
-      ref.read(state.notifier).select(country);
     }
   }
 

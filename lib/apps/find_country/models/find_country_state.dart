@@ -42,7 +42,8 @@ class FindCountryState with _$FindCountryState {
   int get total => countryList.length;
   int get correct => countriesFound.length - hints;
   int get remaining => total - correct - errors - hints;
-  bool get completed => remaining < 1;
+  int get completed => correct + hints;
+  bool get finished => remaining < 1;
 
   factory FindCountryState.fromJson(Map<String, dynamic> json) => _$FindCountryStateFromJson(json);
 }
