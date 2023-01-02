@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_action_button/utils/logging.dart';
-import 'package:wt_geography_play/features/explore_map/models/explore_map_state.dart';
+import 'package:wt_geography_play/apps/explore_map/models/explore_map_state.dart';
 
 class ExploreMapStateNotifier extends StateNotifier<ExploreMapState> {
   static final log = logger(ExploreMapStateNotifier, level: Level.warning);

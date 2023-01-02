@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:wt_action_button/utils/logging.dart';
-import 'package:wt_geography_play/features/navigate_between/models/navigate_between_state.dart';
+import 'package:wt_geography_play/apps/navigate_between/models/navigate_between_state.dart';
 import 'package:wt_geography_play/features/world_map/models/world_map_country.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 

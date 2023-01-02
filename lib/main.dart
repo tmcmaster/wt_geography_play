@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_app_scaffold/app_scaffolds.dart';
 import 'package:wt_firepod/wt_firepod.dart';
-import 'package:wt_geography_play/features/explore_map/explore_map_app.dart';
-import 'package:wt_geography_play/features/find_country/find_country_app.dart';
-import 'package:wt_geography_play/features/navigate_between/navigate_between_app.dart';
+import 'package:wt_geography_play/apps/explore_map/explore_map_app.dart';
+import 'package:wt_geography_play/apps/find_country/find_country_app.dart';
+import 'package:wt_geography_play/apps/navigate_between/navigate_between_app.dart';
 import 'package:wt_geography_play/firebase_options.dart';
 
 void main() async {
@@ -57,12 +57,6 @@ final appDefinition = Provider<AppDefinition>(
         builder: (context) => const FindCountryApp(),
         primary: true,
       ),
-      // PageDefinition(
-      //   title: 'Navigate Between',
-      //   icon: Icons.map,
-      //   builder: (context) => const NavigateBetween(),
-      //   primary: true,
-      // ),
       PageDefinition(
         title: 'Settings',
         icon: Icons.settings,

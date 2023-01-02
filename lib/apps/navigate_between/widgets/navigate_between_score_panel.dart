@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/features/navigate_between/navigate_between_controller.dart';
+import 'package:wt_geography_play/apps/navigate_between/navigate_between_controller.dart';
 import 'package:wt_geography_play/features/world_map_app/widgets/info_panel.dart';
 
 class NavigateBetweenScorePanel extends ConsumerWidget {

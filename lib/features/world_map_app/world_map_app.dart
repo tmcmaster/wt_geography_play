@@ -15,8 +15,6 @@ class WorldMapApp extends ConsumerWidget {
   final List<Widget> rightFooter;
   final bool zoomControls;
   final bool refreshButton;
-  // final void Function(String country)? onSelect;
-  // final void Function(String country)? onHover;
   final List<Widget> infoPanels;
 
   const WorldMapApp({
@@ -29,8 +27,6 @@ class WorldMapApp extends ConsumerWidget {
     this.rightFooter = const [],
     this.zoomControls = true,
     this.refreshButton = true,
-    // this.onSelect,
-    // this.onHover,
     this.infoPanels = const [],
   });
 

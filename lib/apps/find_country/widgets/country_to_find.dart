@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/features/find_country/find_country_controller.dart';
+import 'package:wt_geography_play/apps/find_country/find_country_controller.dart';
 
 class CountryToFind extends ConsumerWidget {
   final FindCountryController controller;
