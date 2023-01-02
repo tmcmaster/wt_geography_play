@@ -9,9 +9,8 @@ import 'package:wt_geography_play/features/world_map/models/world_map_country.da
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
 import 'package:wt_geography_play/features/world_map_app/widgets/world_map_action.dart';
 import 'package:wt_geography_play/features/world_map_app/widgets/world_map_action_item.dart';
-import 'package:wt_geography_play/features/world_map_app/world_map_listener.dart';
 
-class NavigateBetweenController with WorldMapListener {
+class NavigateBetweenController extends WorldMapController {
   static final log = logger(NavigateBetweenController, level: Level.warning);
   static final random = Random();
 
@@ -62,12 +61,12 @@ class NavigateBetweenController with WorldMapListener {
   void selectCountry(String country) {
     log.d('Selecting Country : $country');
     ref.read(state.notifier).setSelected(country);
-    ref.read(WorldMapController.selectedCountries.notifier).select(country, toggle: false);
+    ref.read(selectedCountries.notifier).select(country, toggle: false);
   }
 
   void resetGame() {
     log.d('Reset game');
-    final mapNotifier = ref.read(WorldMapController.selectedCountries.notifier);
+    final mapNotifier = ref.read(selectedCountries.notifier);
     final stateNotifier = ref.read(state.notifier);
 
     mapNotifier.clear();

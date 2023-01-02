@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:wt_geography_play/apps/explore_map/explore_map_controller.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
 
@@ -41,7 +42,9 @@ class TestShapeWidget extends ConsumerWidget {
     final countryMap = ref.watch(WorldMapController.countryMap);
     final countries = countryMap.values.where((country) => country.name == 'New Zealand').toList();
 
-    final notifier = ref.read(WorldMapController.selectedCountries.notifier);
+    final controller = ref.read(ExploreMapController.provider);
+
+    final notifier = ref.read(controller.selectedCountries.notifier);
 
     final region = WorldMapController.calculateCombinedRegion(countries);
 
@@ -52,7 +55,7 @@ class TestShapeWidget extends ConsumerWidget {
         child: Stack(
           children: countries.isEmpty
               ? []
-              : WorldMapController.fromCountryList(
+              : controller.fromCountryList(
                   countries,
                   shadow: true,
                   onSelect: (country) => notifier.select(country),
@@ -69,11 +72,11 @@ class TestWorldMap extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final controller = ref.read(ExploreMapController.provider);
+
     return FittedBox(
       child: WorldMap(
-        onSelect: (country) {
-          ref.read(WorldMapController.selectedCountries.notifier).select(country);
-        },
+        controller: controller,
       ),
     );
   }

@@ -5,9 +5,8 @@ import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/apps/find_country/find_country_notifier.dart';
 import 'package:wt_geography_play/apps/find_country/models/find_country_state.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
-import 'package:wt_geography_play/features/world_map_app/world_map_listener.dart';
 
-class FindCountryController with WorldMapListener {
+class FindCountryController extends WorldMapController {
   static final log = logger(FindCountryController, level: Level.warning);
   static final random = Random();
 
@@ -42,18 +41,18 @@ class FindCountryController with WorldMapListener {
     final countryToFind = ref.read(state).countryToFind;
     ref.read(state.notifier).select(country);
     if (country == countryToFind) {
-      ref.read(WorldMapController.selectedCountries.notifier).select(country, toggle: false);
+      ref.read(selectedCountries.notifier).select(country, toggle: false);
     }
   }
 
   void requestHelp() {
     final country = ref.read(state).countryToFind;
-    ref.read(WorldMapController.selectedCountries.notifier).select(country);
+    ref.read(selectedCountries.notifier).select(country);
     ref.read(state.notifier).hint();
   }
 
   void resetTheGame() {
-    ref.read(WorldMapController.selectedCountries.notifier).clear();
+    ref.read(selectedCountries.notifier).clear();
     ref.read(state.notifier).reset();
   }
 }

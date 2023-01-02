@@ -5,9 +5,8 @@ import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/apps/explore_map/explore_map_state_notifier.dart';
 import 'package:wt_geography_play/apps/explore_map/models/explore_map_state.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
-import 'package:wt_geography_play/features/world_map_app/world_map_listener.dart';
 
-class ExploreMapController with WorldMapListener {
+class ExploreMapController extends WorldMapController {
   static final log = logger(ExploreMapController, level: Level.warning);
   static final random = Random();
 
@@ -39,11 +38,11 @@ class ExploreMapController with WorldMapListener {
 
   void selectCountry(String country) {
     log.d('Selecting Country : $country');
-    ref.read(WorldMapController.selectedCountries.notifier).select(country);
+    ref.read(selectedCountries.notifier).select(country);
     ref.read(state.notifier).select(country);
   }
 
   void resetTheGame() {
-    ref.read(WorldMapController.selectedCountries.notifier).clear();
+    ref.read(selectedCountries.notifier).clear();
   }
 }

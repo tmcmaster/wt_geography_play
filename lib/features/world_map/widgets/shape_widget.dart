@@ -6,7 +6,7 @@ import 'package:wt_geography_play/features/world_map/widgets/shape_widget/shape_
 import 'package:wt_geography_play/features/world_map/widgets/shape_widget/shape_widget_shadow.dart';
 
 class ShapeWidget extends ConsumerWidget {
-  static final log = logger(ShapeWidget, level: Level.verbose);
+  static final log = logger(ShapeWidget, level: Level.warning);
 
   final String country;
   final Shape shape;

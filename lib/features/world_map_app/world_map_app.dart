@@ -3,12 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_app_scaffold/app_scaffolds.dart';
 import 'package:wt_geography_play/features/scroll_pane/scroll_pane.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
 import 'package:wt_geography_play/features/world_map_app/widgets/world_map_icon_button.dart';
-import 'package:wt_geography_play/features/world_map_app/world_map_listener.dart';
 
 class WorldMapApp extends ConsumerWidget {
   final String appName;
-  final WorldMapListener controller;
+  final WorldMapController controller;
   final List<Widget> leftHeader;
   final List<Widget> rightHeader;
   final List<Widget> leftFooter;
@@ -61,7 +61,7 @@ class WorldMapApp extends ConsumerWidget {
 
 class _MapSection extends ConsumerWidget {
   final String appName;
-  final WorldMapListener controller;
+  final WorldMapController controller;
   final List<Widget> infoPanels;
 
   const _MapSection({
@@ -109,8 +109,7 @@ class _MapSection extends ConsumerWidget {
         ),
         ScrollPane(
           child: WorldMap(
-            onSelect: controller.onSelect,
-            onHover: controller.onHover,
+            controller: controller,
           ),
         ),
         ...infoPanels,
@@ -174,7 +173,7 @@ class _TopToolbar extends ConsumerWidget {
   final List<Widget> leftHeader;
   final List<Widget> rightHeader;
   final bool refreshButton;
-  final WorldMapListener controller;
+  final WorldMapController controller;
   const _TopToolbar({
     Key? key,
     required this.controller,
@@ -237,7 +236,7 @@ class _TopToolbar extends ConsumerWidget {
 }
 
 class _ZoomControls extends ConsumerWidget {
-  const _ZoomControls({super.key});
+  const _ZoomControls();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

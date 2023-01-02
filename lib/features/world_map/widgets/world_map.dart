@@ -8,13 +8,11 @@ import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map
 class WorldMap extends ConsumerWidget {
   static final log = logger(WorldMap, level: Level.warning);
 
-  final void Function(String country)? onSelect;
-  final void Function(String country)? onHover;
+  final WorldMapController controller;
 
   const WorldMap({
     super.key,
-    this.onSelect,
-    this.onHover,
+    required this.controller,
   });
 
   @override
@@ -24,11 +22,11 @@ class WorldMap extends ConsumerWidget {
     List<WorldMapCountry> countryList = ref.read(WorldMapController.countryMap).values.toList();
     return FittedBox(
       child: WorldMapCanvas(
-        children: WorldMapController.fromCountryList(
+        children: controller.fromCountryList(
           countryList,
           shadow: true,
-          onSelect: onSelect,
-          onHover: onHover,
+          onSelect: controller.onSelect,
+          onHover: controller.onHover,
         ),
       ),
     );

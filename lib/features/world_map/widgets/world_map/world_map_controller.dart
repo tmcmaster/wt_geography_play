@@ -9,7 +9,7 @@ import 'package:wt_geography_play/features/world_map/providers/hover_country.dar
 import 'package:wt_geography_play/features/world_map/providers/selected_countries.dart';
 import 'package:wt_geography_play/features/world_map/widgets/shape_widget.dart';
 
-class WorldMapController {
+abstract class WorldMapController {
   static final log = logger(WorldMapController, level: Level.warning);
 
   static final countryCount = Provider(
@@ -23,33 +23,36 @@ class WorldMapController {
     (ref) => CountryListNotifier(),
   );
 
-  static final isSelected = Provider.autoDispose.family<bool, String>(
-    name: 'Is Country Selected family',
-    (ref, country) {
-      return ref.watch(WorldMapController.selectedCountries).contains(country);
-    },
-  );
+  late AutoDisposeProviderFamily<bool, String> isSelected;
 
-  static final selectedCountries = StateNotifierProvider<SelectedCountriesNotifier, Set<String>>(
-    name: 'Selected Countries',
-    (ref) => SelectedCountriesNotifier(),
-  );
+  late StateNotifierProvider<SelectedCountriesNotifier, Set<String>> selectedCountries;
 
   static final hoverCountry = StateNotifierProvider<HoverCountryNotifier, String>(
     name: 'Hover Country',
     (ref) => HoverCountryNotifier(),
   );
 
-  static List<ShapeWidget> fromCountryList(
+  WorldMapController() {
+    selectedCountries = StateNotifierProvider<SelectedCountriesNotifier, Set<String>>(
+      name: 'Selected Countries',
+      (ref) => SelectedCountriesNotifier(),
+    );
+
+    isSelected = Provider.autoDispose.family<bool, String>(
+      name: 'Is Country Selected family',
+      (ref, country) {
+        return ref.watch(selectedCountries).contains(country);
+      },
+    );
+  }
+
+  List<ShapeWidget> fromCountryList(
     List<WorldMapCountry> countryList, {
     void Function(String country)? onSelect,
     void Function(String country)? onHover,
     bool shadow = false,
-    // AutoLayout autoLayout = AutoLayout.none,
     Offset offset = const Offset(0, 0),
   }) {
-    // final adjustment = _calculateLayoutAdjustment(countryList, autoLayout);
-
     return [
       if (shadow) true,
       false,
@@ -57,7 +60,7 @@ class WorldMapController {
         .map((shadowLayer) => countryList
             .map((country) {
               log.v('Creating selection providers for ${country.name}');
-              final countrySelectedProvider = WorldMapController.isSelected(country.name);
+              final countrySelectedProvider = isSelected(country.name);
               return country.shapes
                   .map(
                     (shape) => ShapeWidget(
@@ -112,4 +115,8 @@ class WorldMapController {
     }
     return Rectangle(left, top, right - left, bottom - top);
   }
+
+  void onSelect(String country);
+  void onHover(String country);
+  void onClear();
 }
