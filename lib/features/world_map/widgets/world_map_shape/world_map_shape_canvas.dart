@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_action_button/utils/logging.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_clipper.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_painter.dart';
 
-class ShapeWidgetContainer extends StatelessWidget {
-  static final log = logger(ShapeWidgetContainer, level: Level.verbose);
+class WorldMapShapeCanvas extends StatelessWidget {
+  static final log = logger(WorldMapShapeCanvas, level: Level.verbose);
 
-  const ShapeWidgetContainer({
+  const WorldMapShapeCanvas({
     super.key,
+    required this.clipper,
     required this.country,
     required this.color,
     required this.selectedProvider,
   });
 
+  final WorldMapShapeClipper clipper;
   final String country;
   final Color color;
   final AutoDisposeProvider<bool> selectedProvider;
@@ -23,12 +27,13 @@ class ShapeWidgetContainer extends StatelessWidget {
     return Stack(
       children: [
         _SelectionDrivenColor(
+          clipper: clipper,
           selectedProvider: selectedProvider,
           color: color,
         ),
-        Container(
-          color: Colors.white.withOpacity(0.5),
-        )
+        // Container(
+        //   color: Colors.white.withOpacity(0.5),
+        // ),
       ],
     );
   }
@@ -39,8 +44,9 @@ class _SelectionDrivenColor extends ConsumerWidget {
 
   final AutoDisposeProvider<bool> selectedProvider;
   final Color color;
-
+  final WorldMapShapeClipper clipper;
   const _SelectionDrivenColor({
+    required this.clipper,
     required this.color,
     required this.selectedProvider,
   });
@@ -50,9 +56,18 @@ class _SelectionDrivenColor extends ConsumerWidget {
     log.v('Building Widget');
 
     final selected = ref.watch(selectedProvider);
-    return Container(
-      // color: selected ? color : Colors.grey.shade300,
-      color: selected ? color : Colors.white,
+    return CustomPaint(
+      painter: WorldMapShapePainter(
+        clipper: clipper,
+        selected: selected,
+        color: color,
+      ),
+      child: ClipPath(
+        clipper: clipper,
+        child: Container(
+          color: Colors.transparent,
+        ),
+      ),
     );
   }
 }

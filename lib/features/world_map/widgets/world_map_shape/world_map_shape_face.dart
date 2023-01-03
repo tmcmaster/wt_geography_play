@@ -1,43 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_action_button/utils/logging.dart';
-import 'package:wt_geography_play/features/world_map/widgets/shape_widget/shape_widget_clip_shadow_path.dart';
-import 'package:wt_geography_play/features/world_map/widgets/shape_widget/shape_widget_container.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_canvas.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_clipper.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_outline.dart';
 
-class ShapeWidgetFace extends StatelessWidget {
+class WorldMapShapeFace extends StatelessWidget {
   static String? hovering;
-
-  final void Function(String country)? onHover;
 
   final Logger log;
   final String country;
-  final void Function(String country)? onSelect;
   final Color color;
-  final AutoDisposeProvider<bool> selectedProvider;
-  final CustomClipper<Path> clipper;
+  final WorldMapShapeClipper clipper;
   final double scale;
+  final WorldMapController controller;
 
-  const ShapeWidgetFace({
+  const WorldMapShapeFace({
     super.key,
     required this.clipper,
     required this.log,
     required this.country,
-    required this.onSelect,
     required this.color,
     required this.scale,
-    required this.selectedProvider,
-    this.onHover,
+    required this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ShapeWidgetClipShadowPath(
+    return WorldMapShapeOutline(
       clipper: clipper,
-      shadow: Shadow(
-        color: Colors.blueGrey.shade300,
-        offset: const Offset(0, 0),
-        blurRadius: 0.2 * scale,
-      ),
       child: Listener(
         // onPointerPanZoomUpdate: (event) {
         //   log.v('Zoom : $country');
@@ -46,19 +37,20 @@ class ShapeWidgetFace extends StatelessWidget {
           if (hovering != country) {
             log.v('Hover : $country');
             hovering = country;
-            onHover?.call(country);
+            controller.onHover(country);
           }
         },
         child: GestureDetector(
           onTap: () {
             log.v('Tap : $country');
             // notifier.select(country);
-            onSelect?.call(country);
+            controller.onSelect(country);
           },
-          child: ShapeWidgetContainer(
+          child: WorldMapShapeCanvas(
+            clipper: clipper,
             country: country,
             color: color,
-            selectedProvider: selectedProvider,
+            selectedProvider: controller.isSelected(country),
           ),
         ),
       ),

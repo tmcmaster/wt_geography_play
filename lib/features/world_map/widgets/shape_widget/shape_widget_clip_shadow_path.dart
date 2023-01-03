@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wt_geography_play/features/world_map/widgets/shape_widget/shape_widget_clip_shadow_shadow_painter.dart';
+import 'package:wt_geography_play/features/world_map/widgets/shape_widget/shape_widget_clip_shadow_painter.dart';
 
 class ShapeWidgetClipShadowPath extends StatelessWidget {
   final Shadow shadow;
@@ -16,7 +16,7 @@ class ShapeWidgetClipShadowPath extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: ShapeWidgetClipShadowShadowPainter(
+      painter: ShapeWidgetClipShadowPainter(
         clipper: clipper,
         shadow: shadow,
       ),

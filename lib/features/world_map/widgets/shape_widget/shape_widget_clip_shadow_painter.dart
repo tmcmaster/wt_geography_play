@@ -1,16 +1,21 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:wt_action_button/utils/logging.dart';
 
-class ShapeWidgetClipShadowShadowPainter extends CustomPainter {
+class ShapeWidgetClipShadowPainter extends CustomPainter {
+  static final log = logger(ShapeWidgetClipShadowPainter, level: Level.warning);
+
   final Shadow shadow;
   final CustomClipper<Path> clipper;
 
-  ShapeWidgetClipShadowShadowPainter({required this.shadow, required this.clipper});
+  ShapeWidgetClipShadowPainter({required this.shadow, required this.clipper});
 
   @override
   void paint(Canvas canvas, Size size) {
-    var paint = shadow.toPaint();
+    log.v('painting');
+    var paint = shadow.scale(2).toPaint();
+    // paint = Paint()..color = Colors.black;
     var clipPath = clipper.getClip(size).shift(shadow.offset);
     canvas.drawPath(clipPath, paint);
   }
@@ -19,13 +24,11 @@ class ShapeWidgetClipShadowShadowPainter extends CustomPainter {
   bool hitTest(Offset position) {
     // TODO: need to review always making this false.
     return false;
-    // Path path = Path();
-    // path.close();
-    // return path.contains(position);
   }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
+    // TODO: need to review if this can always be false;
+    return false;
   }
 }
