@@ -18,7 +18,7 @@ class OceanBackground extends StatelessWidget {
         WorldMapShapeFace.hovering = null;
       },
       child: Opacity(
-        opacity: 0.2,
+        opacity: 0.3,
         child: Container(
           width: double.infinity,
           height: double.infinity,

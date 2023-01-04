@@ -35,6 +35,9 @@ dependencies:
       url: https://github.com/tmcmaster/wt_app_scaffold.git
   point_in_polygon: ^1.0.0
   font_awesome_flutter:
+  csv: ^5.0.1
+  url_launcher: ^6.1.7
+  webview_flutter: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -51,9 +54,11 @@ flutter:
     - assets/
     - assets/data/
 
-#dependency_overrides:
+dependency_overrides:
 #  wt_app_scaffold:
 #    path: ../wt_app_scaffold
+#  wt_models:
+#    path: ../wt_models
 
 flutter_icons:
   image_path: assets/wt_logo.png

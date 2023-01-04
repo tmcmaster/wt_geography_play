@@ -12,14 +12,12 @@ class FindCountryController extends WorldMapController {
 
   static final provider = Provider((ref) => FindCountryController._(ref));
 
-  final Ref ref;
-
   final state = StateNotifierProvider<FindCountryStateNotifier, FindCountryState>(
     name: 'Find Country State',
     (ref) => FindCountryStateNotifier(ref),
   );
 
-  FindCountryController._(this.ref);
+  FindCountryController._(super.ref);
 
   @override
   void onClear() {

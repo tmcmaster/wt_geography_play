@@ -5,7 +5,7 @@ import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/wor
 import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_painter.dart';
 
 class WorldMapShapeCanvas extends StatelessWidget {
-  static final log = logger(WorldMapShapeCanvas, level: Level.verbose);
+  static final log = logger(WorldMapShapeCanvas, level: Level.warning);
 
   const WorldMapShapeCanvas({
     super.key,
@@ -41,7 +41,7 @@ class WorldMapShapeCanvas extends StatelessWidget {
 
 // TODO: need to merge this into the class above
 class _SelectionDrivenColor extends ConsumerWidget {
-  static final log = logger(_SelectionDrivenColor, level: Level.verbose);
+  static final log = logger(_SelectionDrivenColor, level: Level.warning);
 
   final AutoDisposeProvider<bool> selectedProvider;
   final Color color;

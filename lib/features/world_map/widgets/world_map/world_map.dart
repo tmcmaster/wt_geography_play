@@ -32,8 +32,6 @@ class WorldMap extends ConsumerWidget {
       region.height * scale + shadowOffset.dy,
     );
 
-    print('AAAAA Size: $size, Scale: $scale');
-
     return FittedBox(
       child: WorldMapCanvas(
         size: size,

@@ -26,6 +26,8 @@ abstract class WorldMapController {
     (ref) => CountryListNotifier(),
   );
 
+  final Ref ref;
+
   late AutoDisposeProviderFamily<bool, String> isSelected;
 
   late StateNotifierProvider<SelectedCountriesNotifier, Set<String>> selectedCountries;
@@ -35,7 +37,7 @@ abstract class WorldMapController {
     (ref) => HoverCountryNotifier(),
   );
 
-  WorldMapController() {
+  WorldMapController(this.ref) {
     selectedCountries = StateNotifierProvider<SelectedCountriesNotifier, Set<String>>(
       name: 'Selected Countries',
       (ref) => SelectedCountriesNotifier(),
@@ -113,11 +115,11 @@ abstract class WorldMapController {
 
   static Path shapesToPath(List<Shape> shapes, {double scale = 4.3}) {
     final region = regionsToRegion(shapes.map((s) => s.region).toList());
-    print('Converting ${shapes.length} into a path');
+    log.v('Converting ${shapes.length} into a path');
     Path path = Path();
     for (Shape shape in shapes) {
       if (shape.points.isNotEmpty) {
-        print('Moving to point(${shape.points[0].x * scale}, ${shape.points[0].y * scale})');
+        log.v('Moving to point(${shape.points[0].x * scale}, ${shape.points[0].y * scale})');
 
         final point = Point(
           (shape.points[0].x + shape.region.left - region.left) * scale,

@@ -17,6 +17,7 @@ class CountryListNotifier extends StateNotifier<Map<String, WorldMapCountry>> {
     Colors.orangeAccent,
   ]
       .map((color) =>
+          // TODO: need to update: HSLColor.fromColor(color).withLightness(0.1);
           [for (var i = 100; i < 1000; i += 100) i].map((shade) => color[shade]).toList())
       .expand((element) => element)
       .where((color) => color != null)

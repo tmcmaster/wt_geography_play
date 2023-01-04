@@ -16,8 +16,6 @@ class NavigateBetweenController extends WorldMapController {
 
   static final provider = Provider((ref) => NavigateBetweenController._(ref));
 
-  final Ref ref;
-
   late WorldMapAppAction reset;
   late WorldMapAppActionItem<String> select;
 
@@ -30,7 +28,7 @@ class NavigateBetweenController extends WorldMapController {
     return ref.read(WorldMapController.countryMap)[name];
   });
 
-  NavigateBetweenController._(this.ref) {
+  NavigateBetweenController._(super.ref) {
     reset = WorldMapAppAction(
       icon: Icons.refresh,
       onPressed: resetGame,

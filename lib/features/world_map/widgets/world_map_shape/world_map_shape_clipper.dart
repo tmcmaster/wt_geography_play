@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/features/world_map/models/shape.dart';
 
 class WorldMapShapeClipper extends CustomClipper<Path> {
+  static final log = logger(WorldMapShapeClipper, level: Level.warning);
   final Shape shape;
   final double scale;
   late Path path;
@@ -9,7 +11,7 @@ class WorldMapShapeClipper extends CustomClipper<Path> {
     required this.shape,
     this.scale = 1,
   }) {
-    print('Creating ShadowWidgetCustomClipPath');
+    log.v('Creating ShadowWidgetCustomClipPath');
     path = Path();
     path.moveTo(shape.points[0].x * scale, shape.points[0].y * scale);
     for (var i = 1; i < shape.points.length; i++) {

@@ -12,14 +12,12 @@ class ExploreMapController extends WorldMapController {
 
   static final provider = Provider((ref) => ExploreMapController._(ref));
 
-  final Ref ref;
-
   final state = StateNotifierProvider<ExploreMapStateNotifier, ExploreMapState>(
     name: 'Explore Map State',
     (ref) => ExploreMapStateNotifier(ref),
   );
 
-  ExploreMapController._(this.ref);
+  ExploreMapController._(super.ref);
 
   @override
   void onClear() {

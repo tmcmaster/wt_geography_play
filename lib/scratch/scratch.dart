@@ -50,7 +50,7 @@ class WorldMapTestWidget extends ConsumerWidget {
         // .where((country) => country.continent.isNotEmpty)
         // .where((c) => c.continent == 'South America')
         // .where((c) => c.continent == 'Africa')
-        // .where((c) => c.name == 'Australia')
+        .where((c) => c.name == 'Australia')
         // .where((c) => c.name == 'Brazil')
         .toList();
 
@@ -67,8 +67,6 @@ class WorldMapTestWidget extends ConsumerWidget {
       region.width * scale + shadowOffset.dx,
       region.height * scale + shadowOffset.dy,
     );
-
-    print('AAAAA Size: $size, Scale: $scale');
 
     return FittedBox(
       child: WorldMapCanvas(
