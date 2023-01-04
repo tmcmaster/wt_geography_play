@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class WorldMapTextButton extends StatelessWidget {
+class WorldMapAppTextButton extends StatelessWidget {
   final String label;
   final void Function() onPressed;
 
-  const WorldMapTextButton({
+  const WorldMapAppTextButton({
     super.key,
     required this.label,
     required this.onPressed,

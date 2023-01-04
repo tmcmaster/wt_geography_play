@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:wt_geography_play/features/world_map_app/widgets/world_map_icon_button.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_app/world_map_app_icon_button.dart';
 
-class WorldMapAction {
+class WorldMapAppAction {
   final IconData icon;
   final void Function() onPressed;
-  WorldMapAction({
+  WorldMapAppAction({
     required this.icon,
     required this.onPressed,
   });
 
   Widget button() {
-    return WorldMapIconButton(
+    return WorldMapAppIconButton(
       icon: icon,
       onPressed: onPressed,
     );

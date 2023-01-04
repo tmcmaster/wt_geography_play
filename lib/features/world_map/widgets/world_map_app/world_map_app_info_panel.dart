@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class InfoPanel extends StatefulWidget {
+class WorldMapAppInfoPanel extends StatefulWidget {
   final Alignment alignment;
   final List<Widget> children;
   final Size size;
@@ -8,7 +8,7 @@ class InfoPanel extends StatefulWidget {
   final String title;
   final bool open;
   final bool canToggle;
-  const InfoPanel({
+  const WorldMapAppInfoPanel({
     super.key,
     required this.alignment,
     required this.children,
@@ -20,10 +20,10 @@ class InfoPanel extends StatefulWidget {
   });
 
   @override
-  State<InfoPanel> createState() => _InfoPanelState();
+  State<WorldMapAppInfoPanel> createState() => _WorldMapAppInfoPanelState();
 }
 
-class _InfoPanelState extends State<InfoPanel> {
+class _WorldMapAppInfoPanelState extends State<WorldMapAppInfoPanel> {
   bool _visible = false;
 
   @override

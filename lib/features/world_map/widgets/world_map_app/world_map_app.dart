@@ -4,7 +4,7 @@ import 'package:wt_app_scaffold/app_scaffolds.dart';
 import 'package:wt_geography_play/features/scroll_pane/scroll_pane.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
-import 'package:wt_geography_play/features/world_map_app/widgets/world_map_icon_button.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_app/world_map_app_icon_button.dart';
 
 class WorldMapApp extends ConsumerWidget {
   final String appName;
@@ -223,7 +223,7 @@ class _TopToolbar extends ConsumerWidget {
             children: [
               ...rightHeader,
               if (refreshButton)
-                WorldMapIconButton(
+                WorldMapAppIconButton(
                   icon: Icons.refresh,
                   onPressed: controller.onClear,
                 ),

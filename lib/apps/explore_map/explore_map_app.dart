@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_geography_play/apps/explore_map/explore_map_controller.dart';
 import 'package:wt_geography_play/apps/find_country/widgets/hover_country.dart';
-import 'package:wt_geography_play/features/world_map_app/world_map_app.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_app/world_map_app.dart';
 
 class ExploreMapApp extends ConsumerWidget {
   const ExploreMapApp({
@@ -17,12 +17,9 @@ class ExploreMapApp extends ConsumerWidget {
       appName: 'Explore Map',
       controller: controller,
       zoomControls: true,
-      leftHeader: const [],
-      rightHeader: const [],
       leftFooter: const [
         HoverCountry(),
       ],
-      rightFooter: [],
     );
   }
 }

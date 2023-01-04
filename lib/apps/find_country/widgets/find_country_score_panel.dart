@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_geography_play/apps/find_country/find_country_controller.dart';
-import 'package:wt_geography_play/features/world_map_app/widgets/info_panel.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_app/world_map_app_info_panel.dart';
 
 class FindCountryScorePanel extends ConsumerWidget {
   final FindCountryController controller;
@@ -23,7 +23,7 @@ class FindCountryScorePanel extends ConsumerWidget {
     final progressString = '${state.completed} of ${state.total} ($progress%)';
     final percentageString = '${state.correct} of ${state.total} ($percentage%)';
 
-    return InfoPanel(
+    return WorldMapAppInfoPanel(
       title: 'SCORES',
       alignment: alignment,
       size: const Size(400, 130),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class WorldMapIconButton extends StatelessWidget {
+class WorldMapAppIconButton extends StatelessWidget {
   final IconData icon;
   final void Function() onPressed;
 
-  const WorldMapIconButton({
+  const WorldMapAppIconButton({
     super.key,
     required this.icon,
     required this.onPressed,

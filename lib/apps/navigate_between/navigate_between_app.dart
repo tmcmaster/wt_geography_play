@@ -6,7 +6,7 @@ import 'package:wt_geography_play/apps/navigate_between/navigate_between_control
 import 'package:wt_geography_play/apps/navigate_between/widgets/country_neighbours_buttons.dart';
 import 'package:wt_geography_play/apps/navigate_between/widgets/navigate_between_objective.dart';
 import 'package:wt_geography_play/apps/navigate_between/widgets/navigate_between_score_panel.dart';
-import 'package:wt_geography_play/features/world_map_app/world_map_app.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_app/world_map_app.dart';
 
 class NavigateBetweenApp extends ConsumerWidget {
   static final log = logger(NavigateBetweenApp, level: Level.warning);
@@ -37,7 +37,6 @@ class NavigateBetweenApp extends ConsumerWidget {
           controller: controller,
         ),
       ],
-      rightFooter: const [],
       infoPanels: [
         NavigateBetweenScorePanel(
           controller: controller,

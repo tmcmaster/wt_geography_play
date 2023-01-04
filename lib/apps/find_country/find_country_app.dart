@@ -5,8 +5,8 @@ import 'package:wt_geography_play/apps/find_country/find_country_controller.dart
 import 'package:wt_geography_play/apps/find_country/widgets/country_to_find.dart';
 import 'package:wt_geography_play/apps/find_country/widgets/find_country_score_panel.dart';
 import 'package:wt_geography_play/apps/find_country/widgets/hover_country.dart';
-import 'package:wt_geography_play/features/world_map_app/widgets/world_map_icon_button.dart';
-import 'package:wt_geography_play/features/world_map_app/world_map_app.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_app/world_map_app.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_app/world_map_app_icon_button.dart';
 
 class FindCountryApp extends ConsumerWidget {
   static final log = logger(FindCountryApp, level: Level.verbose);
@@ -28,7 +28,7 @@ class FindCountryApp extends ConsumerWidget {
         ),
       ],
       rightHeader: [
-        WorldMapIconButton(
+        WorldMapAppIconButton(
           icon: Icons.question_mark_outlined,
           onPressed: () => controller.requestHelp(),
         ),
@@ -36,7 +36,6 @@ class FindCountryApp extends ConsumerWidget {
       leftFooter: const [
         HoverCountry(),
       ],
-      rightFooter: [],
       infoPanels: [
         FindCountryScorePanel(
           controller: controller,

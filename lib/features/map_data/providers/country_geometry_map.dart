@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_geography_play/features/world_map/models/geometry.dart';
+import 'package:wt_geography_play/features/map_data/models/geometry.dart';
 
 final countryGeometryMapFutureProvider = FutureProvider<Map<String, List<Geometry>>>(
   (ref) async {

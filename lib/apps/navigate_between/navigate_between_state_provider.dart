@@ -25,6 +25,7 @@ class NavigateBetweenStateNotifier extends StateNotifier<NavigateBetweenState> {
     );
   }
 
+  // TODO: may want to move this into the abstract controller
   double _calculateDistance(String from, String to) {
     final WorldMapCountry? fromCountry = ref.read(WorldMapController.countryMap)[from];
     final WorldMapCountry? toCountry = ref.read(WorldMapController.countryMap)[to];

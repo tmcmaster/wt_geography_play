@@ -7,8 +7,8 @@ import 'package:wt_geography_play/apps/navigate_between/models/navigate_between_
 import 'package:wt_geography_play/apps/navigate_between/navigate_between_state_provider.dart';
 import 'package:wt_geography_play/features/world_map/models/world_map_country.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
-import 'package:wt_geography_play/features/world_map_app/widgets/world_map_action.dart';
-import 'package:wt_geography_play/features/world_map_app/widgets/world_map_action_item.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_app/world_map_app_action.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_app/world_map_app_action_item.dart';
 
 class NavigateBetweenController extends WorldMapController {
   static final log = logger(NavigateBetweenController, level: Level.warning);
@@ -18,8 +18,8 @@ class NavigateBetweenController extends WorldMapController {
 
   final Ref ref;
 
-  late WorldMapAction reset;
-  late WorldMapActionItem<String> select;
+  late WorldMapAppAction reset;
+  late WorldMapAppActionItem<String> select;
 
   final state = StateNotifierProvider<NavigateBetweenStateNotifier, NavigateBetweenState>(
     name: 'Navigate Between State',
@@ -31,11 +31,11 @@ class NavigateBetweenController extends WorldMapController {
   });
 
   NavigateBetweenController._(this.ref) {
-    reset = WorldMapAction(
+    reset = WorldMapAppAction(
       icon: Icons.refresh,
       onPressed: resetGame,
     );
-    select = WorldMapActionItem<String>(
+    select = WorldMapAppActionItem<String>(
       onPressed: (country) => selectCountry(country),
       getLabel: (value) => value,
     );
