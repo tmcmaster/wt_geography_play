@@ -66,6 +66,13 @@ final appDefinition = Provider<AppDefinition>(
         builder: (context) => const FindCountryApp(),
         primary: true,
       ),
+      // TODO: Need to implement this game.
+      PageDefinition(
+        title: 'Guess Country',
+        icon: Icons.find_in_page,
+        builder: (context) => const ExploreMapApp(),
+        primary: true,
+      ),
       PageDefinition(
         title: 'Settings',
         icon: Icons.settings,

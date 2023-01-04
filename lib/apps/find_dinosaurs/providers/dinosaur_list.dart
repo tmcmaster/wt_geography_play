@@ -5,6 +5,12 @@ import 'package:wt_geography_play/apps/find_dinosaurs/models/dinosaur.dart';
 class DinosaurListNotifier extends StateNotifier<Map<String, Dinosaur>> {
   DinosaurListNotifier() : super({}) {
     _DinosaurLoader().load().then((dinosaurs) {
+      if (dinosaurs.containsKey('stegosaurus')) {
+        dinosaurs['stegosaurus'] = dinosaurs['stegosaurus']!.copyWith(
+          link: 'https://sites.google.com/mcmaster.id.au/infosaurus/stegosaurus',
+        );
+      }
+
       state = dinosaurs;
     });
   }

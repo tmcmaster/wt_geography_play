@@ -9,10 +9,11 @@ class WorldMapAppActionItem<T> {
     required this.getLabel,
   });
 
-  Widget button(T value) {
+  Widget button(T value, {TextStyle? style}) {
     return WorldMapAppTextButton(
       label: getLabel(value),
       onPressed: () => onPressed(value),
+      style: style,
     );
   }
 }
