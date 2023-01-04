@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wt_geography_play/apps/explore_map/explore_map_controller.dart';
 import 'package:wt_geography_play/features/world_map/models/world_map_country.dart';
-import 'package:wt_geography_play/features/world_map/providers/selected_countries.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_canvas.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
@@ -45,16 +42,19 @@ class WorldMapTestWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(WorldMapController.countryCount);
     final controller = ref.read(ExploreMapController.provider);
     final countries = ref
         .read(WorldMapController.countryMap)
         .values
-        .where((country) => country.continent.isNotEmpty)
+        // .where((country) => country.continent.isNotEmpty)
         // .where((c) => c.continent == 'South America')
         // .where((c) => c.continent == 'Africa')
-        .where((c) => c.name == 'Australia')
+        // .where((c) => c.name == 'Australia')
+        // .where((c) => c.name == 'Brazil')
         .toList();
 
+    print('Number of Countries: ${countries.length}');
     if (countries.isEmpty) {
       return Container();
     }
@@ -119,17 +119,17 @@ class TestShapeWidget extends ConsumerWidget {
     );
   }
 
-  List<Widget> testShapeWidget(List<WorldMapCountry> countries, ExploreMapController controller,
-      SelectedCountriesNotifier notifier, Rectangle<double> region) {
-    return countries.isEmpty
-        ? []
-        : controller.fromCountryList(
-            countries,
-            shadow: true,
-            onSelect: (country) => notifier.select(country),
-            offset: Offset(-region.left, -region.top),
-          );
-  }
+  // List<Widget> testShapeWidget(List<WorldMapCountry> countries, ExploreMapController controller,
+  //     SelectedCountriesNotifier notifier, Rectangle<double> region) {
+  //   return countries.isEmpty
+  //       ? []
+  //       : controller.fromCountryList(
+  //           countries,
+  //           shadow: true,
+  //           onSelect: (country) => notifier.select(country),
+  //           offset: Offset(-region.left, -region.top),
+  //         );
+  // }
 
   List<Widget> testWorldMapShadow(List<WorldMapCountry> countries) {
     return [
@@ -145,7 +145,7 @@ class TestShapeWidget extends ConsumerWidget {
     List<WorldMapCountry> countries,
     ExploreMapController controller,
   ) {
-    final countryWidgets = controller.fromCountryList(countries, shadow: false);
+    final countryWidgets = controller.fromCountryList(countries);
     return [
       WorldMapShadow(
         countries: countries,

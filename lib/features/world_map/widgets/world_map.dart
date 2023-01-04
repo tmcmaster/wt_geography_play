@@ -24,9 +24,6 @@ class WorldMap extends ConsumerWidget {
       child: WorldMapCanvas(
         children: controller.fromCountryList(
           countryList,
-          shadow: true,
-          onSelect: controller.onSelect,
-          onHover: controller.onHover,
         ),
       ),
     );

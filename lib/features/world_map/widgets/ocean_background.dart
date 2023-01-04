@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wt_action_button/utils/logging.dart';
-import 'package:wt_geography_play/features/world_map/widgets/shape_widget/shape_widget_face.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_face.dart';
 
 class OceanBackground extends StatelessWidget {
   static final log = logger(OceanBackground, level: Level.verbose);
@@ -15,7 +15,7 @@ class OceanBackground extends StatelessWidget {
 
     return Listener(
       onPointerHover: (event) {
-        ShapeWidgetFace.hovering = null;
+        WorldMapShapeFace.hovering = null;
       },
       child: Opacity(
         opacity: 0.2,

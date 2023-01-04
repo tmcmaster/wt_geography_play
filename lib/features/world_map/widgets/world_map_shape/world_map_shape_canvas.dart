@@ -39,6 +39,7 @@ class WorldMapShapeCanvas extends StatelessWidget {
   }
 }
 
+// TODO: need to merge this into the class above
 class _SelectionDrivenColor extends ConsumerWidget {
   static final log = logger(_SelectionDrivenColor, level: Level.verbose);
 

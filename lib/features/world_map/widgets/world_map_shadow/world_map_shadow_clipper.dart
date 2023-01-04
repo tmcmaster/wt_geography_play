@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
-class WorldMapClipper extends CustomClipper<Path> {
+class WorldMapShadowClipper extends CustomClipper<Path> {
   final Path path;
 
-  WorldMapClipper({
+  WorldMapShadowClipper({
     required this.path,
   });
 

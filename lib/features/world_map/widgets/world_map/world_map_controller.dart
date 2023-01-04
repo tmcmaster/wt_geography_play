@@ -9,7 +9,6 @@ import 'package:wt_geography_play/features/world_map/models/world_map_country.da
 import 'package:wt_geography_play/features/world_map/providers/country_list.dart';
 import 'package:wt_geography_play/features/world_map/providers/hover_country.dart';
 import 'package:wt_geography_play/features/world_map/providers/selected_countries.dart';
-import 'package:wt_geography_play/features/world_map/widgets/shape_widget.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map_shadow/world_map_shadow.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape..dart';
 
@@ -50,43 +49,19 @@ abstract class WorldMapController {
     );
   }
 
-  List<ShapeWidget> fromCountryList(
-    List<WorldMapCountry> countryList, {
-    void Function(String country)? onSelect,
-    void Function(String country)? onHover,
-    bool shadow = false,
-    Offset offset = const Offset(0, 0),
-    double scale = 4.3,
-    bool includeShadow = false,
-  }) {
-    return [
-      if (shadow) true,
-      false,
-    ]
-        .map((shadowLayer) => countryList
-            .map((country) {
-              log.v('Creating selection providers for ${country.name}');
-              final countrySelectedProvider = isSelected(country.name);
-              return country.shapes
-                  .map(
-                    (shape) => ShapeWidget(
-                      offset: offset,
-                      country: country.name,
-                      scale: scale,
-                      shape: shape,
-                      color: country.color,
-                      shadow: shadowLayer,
-                      selectedProvider: countrySelectedProvider,
-                      onSelect: onSelect,
-                      onHover: onHover,
-                    ),
-                  )
-                  .toList();
-            })
-            .expand((item) => item)
+  List<WorldMapShape> fromCountryList(List<WorldMapCountry> countryList) {
+    final countryWidgets = countryList
+        .map((country) => country.shapes
+            .map((shape) => WorldMapShape(
+                  country: country.name,
+                  shape: shape,
+                  controller: this,
+                ))
             .toList())
-        .expand((e) => e)
+        .expand((element) => element)
         .toList();
+
+    return countryWidgets;
   }
 
   List<Widget> countriesToWidgets(

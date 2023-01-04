@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wt_geography_play/features/world_map/models/world_map_country.dart';
-import 'package:wt_geography_play/features/world_map/widgets/shape_widget/shape_widget_shadow.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
-import 'package:wt_geography_play/features/world_map/widgets/world_map_shadow/world_map_clipper.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_shadow/world_map_shadow_clipper.dart';
+import 'package:wt_geography_play/features/world_map/widgets/world_map_shadow/world_map_shadow_face.dart';
 
 class WorldMapShadow extends StatelessWidget {
   static const defaultColor = Colors.red;
@@ -23,7 +23,6 @@ class WorldMapShadow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final region = WorldMapController.countiesToRegion(countries);
-    // final offset = Offset(-region.left, -region.top);
     final path = WorldMapController.countriesToPath(
       countries,
       scale: scale,
@@ -34,8 +33,10 @@ class WorldMapShadow extends StatelessWidget {
       top: offset.dy,
       width: region.width * scale,
       height: region.height * scale,
-      child: ShapeWidgetShadow(
-        clipper: WorldMapClipper(path: path),
+      // TODO: need to move and rename deprecated class from the shape_widget package into the world_map_shadow package and clear out ant old code.
+      child: WorldMapShadowFace(
+        offset: Offset(scale, scale),
+        clipper: WorldMapShadowClipper(path: path),
         color: color,
       ),
     );
