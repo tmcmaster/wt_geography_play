@@ -1489,7 +1489,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: eea6057758d2c889e6da33021da621e627543fea
+      resolved-ref: "2f340b900a18e33d6774992deb0958717f1a0f2a"
       url: "https://github.com/tmcmaster/wt_app_scaffold.git"
     source: git
     version: "0.0.5"
