@@ -16,7 +16,7 @@ void main() async {
         appDetails: appDetails,
         appDefinition: appDefinition,
         loginSupport: const LoginSupport(
-          // googleEnabled: true,
+          googleEnabled: false,
           emailEnabled: true,
         ),
       ),
