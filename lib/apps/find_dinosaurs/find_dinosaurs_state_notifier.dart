@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/apps/find_dinosaurs/models/find_dinosaurs_state.dart';
+import 'package:wt_logging/wt_logging.dart';
 
 class FindDinosaursStateNotifier extends StateNotifier<FindDinosaursState> {
   static final log = logger(FindDinosaursStateNotifier, level: Level.warning);

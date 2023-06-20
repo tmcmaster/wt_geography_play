@@ -2,13 +2,13 @@ import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/apps/find_dinosaurs/find_dinosaurs_state_notifier.dart';
 import 'package:wt_geography_play/apps/find_dinosaurs/models/dinosaur.dart';
 import 'package:wt_geography_play/apps/find_dinosaurs/models/find_dinosaurs_state.dart';
 import 'package:wt_geography_play/apps/find_dinosaurs/providers/dinosaur_list.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map_app/world_map_app_action_item.dart';
+import 'package:wt_logging/wt_logging.dart';
 
 class FindDinosaursController extends WorldMapController {
   static final log = logger(FindDinosaursController, level: Level.verbose);

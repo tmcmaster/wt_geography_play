@@ -1,7 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:wt_action_button/utils/logging.dart';
+import 'package:wt_logging/wt_logging.dart';
 
 class WorldMapShadowPainter extends CustomPainter {
   static final log = logger(WorldMapShadowPainter, level: Level.warning);

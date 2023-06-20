@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_clipper.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_painter.dart';
+import 'package:wt_logging/wt_logging.dart';
 
 class WorldMapShapeCanvas extends StatelessWidget {
   static final log = logger(WorldMapShapeCanvas, level: Level.warning);

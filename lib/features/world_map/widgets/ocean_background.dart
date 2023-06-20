@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_face.dart';
+import 'package:wt_logging/wt_logging.dart';
 
 class OceanBackground extends StatelessWidget {
   static final log = logger(OceanBackground, level: Level.verbose);

@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_action_button/utils/logging.dart';
+import 'package:wt_logging/wt_logging.dart';
 
 class SelectedCountriesNotifier extends StateNotifier<Set<String>> {
   static final log = logger(SelectedCountriesNotifier, level: Level.warning);

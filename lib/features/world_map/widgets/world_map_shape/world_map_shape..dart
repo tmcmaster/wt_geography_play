@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/features/world_map/models/shape.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_clipper.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map_shape/world_map_shape_face.dart';
+import 'package:wt_logging/wt_logging.dart';
 
 class WorldMapShape extends ConsumerWidget {
   static final log = logger(WorldMapShape, level: Level.warning);

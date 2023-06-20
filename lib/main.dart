@@ -13,12 +13,13 @@ void main() async {
   runMyApp(
     withFirebase(
       andAppScaffold(
-          appDetails: appDetails,
-          appDefinition: appDefinition,
-          loginSupport: const LoginSupport(
-            googleEnabled: true,
-            emailEnabled: true,
-          )),
+        appDetails: appDetails,
+        appDefinition: appDefinition,
+        loginSupport: const LoginSupport(
+          // googleEnabled: true,
+          emailEnabled: true,
+        ),
+      ),
       appName: 'wt-geography-play',
       firebaseOptions: DefaultFirebaseOptions.currentPlatform,
     ),

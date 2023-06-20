@@ -8,7 +8,7 @@ dependencies:
   flutter:
     sdk: flutter
   vector_map:
-  flutter_riverpod:
+  flutter_riverpod: ^2.3.6
   freezed: ^2.3.0
   freezed_annotation: ^2.2.0
   geolocator: ^9.0.2
@@ -22,3 +22,9 @@ dependencies:
   wt_settings:
     git:
       url: git@github.com:tmcmaster/wt_settings.git
+  wt_logging:
+    git:
+      url: git@github.com:tmcmaster/wt_logging.git
+  date_time_picker:
+    git:
+      url: https://github.com/tmcmaster/date_time_picker.git

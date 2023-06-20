@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/apps/explore_map/explore_map_state_notifier.dart';
 import 'package:wt_geography_play/apps/explore_map/models/explore_map_state.dart';
 import 'package:wt_geography_play/features/world_map/widgets/world_map/world_map_controller.dart';
+import 'package:wt_logging/wt_logging.dart';
 
 class ExploreMapController extends WorldMapController {
   static final log = logger(ExploreMapController, level: Level.warning);

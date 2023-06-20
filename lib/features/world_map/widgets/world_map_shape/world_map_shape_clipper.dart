@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:wt_action_button/utils/logging.dart';
 import 'package:wt_geography_play/features/world_map/models/shape.dart';
+import 'package:wt_logging/wt_logging.dart';
 
 class WorldMapShapeClipper extends CustomClipper<Path> {
   static final log = logger(WorldMapShapeClipper, level: Level.warning);

@@ -1,8 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wt_action_button/utils/logging.dart';
+import 'package:wt_logging/wt_logging.dart';
 
 part 'scroll_pane_canvas.dart';
 part 'scroll_pane_notifier.dart';
