@@ -1,0 +1,29 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "v1" : {
+      ".read": "(root.child('auth').child(auth.uid).val() == true)",
+      "users": {
+        "$uid": {
+          ".read": "($uid === auth.uid && root.child('auth').child(auth.uid).val() == true)",
+          ".write": "($uid === auth.uid && root.child('auth').child(auth.uid).val() == true)"
+        }
+      }
+    },
+    "figma": {
+      ".read": true,
+      ".write": true
+    },
+    "v2": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "users": {
+        "$uid": {
+          ".read": "auth != null && auth.uid == $uid",
+          ".write": "auth != null && auth.uid == $uid"
+        }
+      }
+    }
+  }
+}

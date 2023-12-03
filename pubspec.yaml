@@ -5,6 +5,16 @@ version: 1.0.1+2
 
 environment:
   sdk: '>=2.18.5 <3.0.0'
+
+scripts:
+  macos:
+    init: flutter create --platforms=macos .
+    build: flutter build macos --release
+    run: flutter run -t lib/main_widgetbook.dart -d MacOS
+    configure: open macos/Runner.xcworkspace
+    fix: (cd macos; rm Podfile.lock; gem pristine ffi --version 1.15.5; pod install --repo-update)
+
+
 dependencies:
   flutter:
     sdk: flutter
@@ -17,19 +27,19 @@ dependencies:
   firebase_database: ^10.0.7
   wt_action_button:
     git:
-      url: git@github.com:tmcmaster/wt_action_button.git
+      url: https://github.com/tmcmaster/wt_action_button.git
   wt_models:
     git:
-      url: git@github.com:tmcmaster/wt_models.git
+      url: https://github.com/tmcmaster/wt_models.git
   wt_settings:
     git:
-      url: git@github.com:tmcmaster/wt_settings.git
+      url: https://github.com/tmcmaster/wt_settings.git
   wt_firepod:
     git:
-      url: git@github.com:tmcmaster/wt_firepod.git
+      url: https://github.com/tmcmaster/wt_firepod.git
   wt_logging:
     git:
-      url: git@github.com:tmcmaster/wt_logging.git
+      url: https://github.com/tmcmaster/wt_logging.git
   wt_app_scaffold:
     git:
       url: https://github.com/tmcmaster/wt_app_scaffold.git
