@@ -1,0 +1,7 @@
+scripts:
+  macos:
+    init: flutter create --platforms=macos .
+    build: flutter build macos --release
+    run: flutter run -t lib/main.dart -d MacOS
+    configure: open macos/Runner.xcworkspace
+    fix: (cd macos; rm Podfile.lock; gem pristine ffi --version 1.15.5; pod install --repo-update)

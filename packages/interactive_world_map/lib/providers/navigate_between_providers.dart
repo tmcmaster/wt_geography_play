@@ -88,15 +88,14 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
     required Set<Country> traversedCountries,
     bool randomSelection = false,
   }) {
-    final countryList = ref.read(countryListProvider);
+    // final countryList = ref.read(countryListProvider);
     final nameToCountryMap = ref.read(nameToCountryMapProvider);
     final neighbourMap = ref.read(countryNeighboursProvider);
 
     if (randomSelection) {
       final options = <Country>{};
 
-      final List<Country> neighbours =
-          _getNeighbours(currentCountry, neighbourMap, nameToCountryMap);
+      final List<Country> neighbours = _getNeighbours(currentCountry, neighbourMap, nameToCountryMap);
 
       // debugPrint('currentCountry: $currentCountry');
       // debugPrint(neighbours.toString());
@@ -122,8 +121,8 @@ class NavigateBetweenNotifier extends StateNotifier<NavigateBetween> {
     }
   }
 
-  List<Country> _getNeighbours(Country country, Map<String, List<String>> neighbourMap,
-      Map<String, Country> nameToCountryMap) {
+  List<Country> _getNeighbours(
+      Country country, Map<String, List<String>> neighbourMap, Map<String, Country> nameToCountryMap) {
     final neighbourNames = neighbourMap[country.name] ?? [];
 
     return neighbourNames.map((name) => nameToCountryMap[name]).whereType<Country>().toList();

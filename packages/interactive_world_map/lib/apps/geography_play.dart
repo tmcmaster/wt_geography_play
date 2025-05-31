@@ -43,7 +43,7 @@ class GeographyPlay extends ConsumerWidget {
 }
 
 class _ControlPanel extends ConsumerWidget {
-  const _ControlPanel({super.key});
+  const _ControlPanel();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -89,7 +89,7 @@ class _ControlPanel extends ConsumerWidget {
 }
 
 class _HoverCountry extends ConsumerWidget {
-  const _HoverCountry({super.key});
+  const _HoverCountry();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

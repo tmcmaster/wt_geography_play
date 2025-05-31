@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:wt_app_scaffold/app_platform/scaffold_app_dsl.dart';
 import 'package:wt_app_scaffold/app_scaffolds.dart';
+import 'package:wt_app_scaffold/models/page_info.dart';
 import 'package:wt_firepod/wt_firepod.dart';
 import 'package:wt_geography_play/apps/explore_map/explore_map_app.dart';
 import 'package:wt_geography_play/apps/find_country/find_country_app.dart';
@@ -40,40 +41,59 @@ final appDefinition = AppDefinition.from(
   swipeEnabled: false,
   pages: [
     PageDefinition(
-      title: 'Find Dinosaurs',
-      icon: FontAwesomeIcons.magnifyingGlass,
-      builder: (context) => const FindDinosaursApp(),
+      pageInfo: const PageInfo(
+        name: 'findDinosaur',
+        title: 'Find Dinosaurs',
+        tabTitle: 'Find Dinosaurs',
+        icon: FontAwesomeIcons.magnifyingGlass,
+      ),
+      pageBuilder: (context) => const FindDinosaursApp(),
       primary: true,
     ),
     PageDefinition(
-      title: 'Explore Map',
-      icon: Icons.explore,
-      builder: (context) => const ExploreMapApp(),
+      pageInfo: const PageInfo(
+        name: 'exploreMap',
+        title: 'Explore Map',
+        icon: Icons.explore,
+      ),
+      pageBuilder: (context) => const ExploreMapApp(),
       primary: true,
     ),
     PageDefinition(
-      title: 'Navigate Between',
-      icon: Icons.navigation_rounded,
-      builder: (context) => const NavigateBetweenApp(),
+      pageInfo: const PageInfo(
+        name: 'navigateBetween',
+        title: 'Navigate Between',
+        icon: Icons.navigation_rounded,
+      ),
+      pageBuilder: (context) => const NavigateBetweenApp(),
       primary: true,
     ),
     PageDefinition(
-      title: 'Find Country',
-      icon: Icons.find_in_page,
-      builder: (context) => const FindCountryApp(),
+      pageInfo: const PageInfo(
+        name: 'findCountry',
+        title: 'Find Country',
+        icon: Icons.find_in_page,
+      ),
+      pageBuilder: (context) => const FindCountryApp(),
       primary: true,
     ),
     // TODO: Need to implement this game.
     PageDefinition(
-      title: 'Guess Country',
-      icon: Icons.find_in_page,
-      builder: (context) => const ExploreMapApp(),
+      pageInfo: const PageInfo(
+        name: 'guessCountry',
+        title: 'Guess Country',
+        icon: Icons.find_in_page,
+      ),
+      pageBuilder: (context) => const ExploreMapApp(),
       primary: true,
     ),
     PageDefinition(
-      title: 'Settings',
-      icon: Icons.settings,
-      builder: (context) => const SettingsPage(),
+      pageInfo: const PageInfo(
+        name: 'settings',
+        title: 'Settings',
+        icon: Icons.settings,
+      ),
+      pageBuilder: (context) => const SettingsPage(),
       primary: true,
     ),
   ],

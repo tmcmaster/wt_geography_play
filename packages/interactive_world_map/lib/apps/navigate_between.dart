@@ -73,8 +73,8 @@ class _ScoresPanel extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final style = Theme.of(context)
         .textTheme
-        .headline6!
-        .copyWith(color: Colors.white, fontSize: MediaQuery.of(context).size.height / 50);
+        .headlineSmall
+        ?.copyWith(color: Colors.white, fontSize: MediaQuery.of(context).size.height / 50);
 
     final distance = ref.watch(distanceNotifierProvider);
     final visitedCountries = ref.watch(InteractiveWorldMap.selected).length;
@@ -82,13 +82,13 @@ class _ScoresPanel extends ConsumerWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.black.withOpacity(0.2),
+          color: Colors.black.withAlpha(51),
         ),
         borderRadius: const BorderRadius.only(
           topRight: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
-        color: Colors.black.withOpacity(0.1),
+        color: Colors.black.withAlpha(26),
       ),
       padding: const EdgeInsets.all(8),
       child: Column(
@@ -119,7 +119,7 @@ class _CountrySelection extends ConsumerWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.1),
+        color: Colors.black.withAlpha(26),
       ),
       padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20),
       child: ListView(
@@ -154,11 +154,11 @@ class _InfoPanel extends ConsumerWidget {
     final hoverCountry = ref.watch(InteractiveWorldMap.hover);
     final navigateBetween = ref.watch(navigateBetweenProvider);
 
-    final style = Theme.of(context).textTheme.headline5!.copyWith(color: Colors.white);
+    final style = Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.white);
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.1),
+        color: Colors.black.withAlpha(26),
       ),
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
       child: Row(
@@ -187,10 +187,9 @@ class _HeaderPanel extends ConsumerWidget {
     final navigateBetweenNotifier = ref.read(navigateBetweenProvider.notifier);
     final navigateBetween = ref.watch(navigateBetweenProvider);
 
-    final style = Theme.of(context).textTheme.headline5!.copyWith(color: Colors.white);
+    final style = Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.white);
 
-    final isHiddenDraw =
-        ref.read(ApplicationSettings.applicationType.value) == ApplicationType.hiddenDrawer;
+    final isHiddenDraw = ref.read(ApplicationSettings.applicationType.value) == ApplicationType.hiddenDrawer;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),

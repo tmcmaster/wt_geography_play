@@ -4,45 +4,54 @@ publish_to: 'none'
 version: 1.0.1+2
 
 environment:
-  sdk: '>=2.18.5 <3.0.0'
+  sdk: '>=3.1.0 <4.0.0'
+  flutter: '>=3.29.2'
 
-scripts:
-  macos:
-    init: flutter create --platforms=macos .
-    build: flutter build macos --release
-    run: flutter run -t lib/main_widgetbook.dart -d MacOS
-    configure: open macos/Runner.xcworkspace
-    fix: (cd macos; rm Podfile.lock; gem pristine ffi --version 1.15.5; pod install --repo-update)
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/data/
 
+flutter_icons:
+  image_path: assets/wt_logo.png
+  android: true
+  ios: true
+
+flutter_native_splash:
+  color: "#9E9E9E"
+  image: assets/wt_logo.png
+  android_12:
+  web_image_mode: center
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
   flutter_riverpod:
-  freezed: ^2.3.0
-  freezed_annotation: ^2.2.0
+  freezed: ^2.5.8
+  freezed_annotation: ^2.4.4
   geolocator: ^9.0.2
-  firebase_core: ^2.4.0
-  firebase_database: ^10.0.7
+  firebase_core: ^3.13.0
+  firebase_database: ^11.1.4
   wt_action_button:
     git:
       url: https://github.com/tmcmaster/wt_action_button.git
-  wt_models:
+  wt_app_scaffold:
     git:
-      url: https://github.com/tmcmaster/wt_models.git
-  wt_settings:
-    git:
-      url: https://github.com/tmcmaster/wt_settings.git
+      url: https://github.com/tmcmaster/wt_app_scaffold.git
   wt_firepod:
     git:
       url: https://github.com/tmcmaster/wt_firepod.git
   wt_logging:
     git:
       url: https://github.com/tmcmaster/wt_logging.git
-  wt_app_scaffold:
+  wt_models:
     git:
-      url: https://github.com/tmcmaster/wt_app_scaffold.git
+      url: https://github.com/tmcmaster/wt_models.git
+  wt_settings:
+    git:
+      url: https://github.com/tmcmaster/wt_settings.git
   point_in_polygon: ^1.0.0
   font_awesome_flutter:
   csv: ^5.0.1
@@ -57,26 +66,18 @@ dev_dependencies:
   flutter_native_splash: ^2.2.16
   flutter_launcher_icons: ^0.11.0
   json_serializable: ^6.5.4
-
-flutter:
-  uses-material-design: true
-  assets:
-    - assets/
-    - assets/data/
+  desktop_webview_auth: ^0.0.15
 
 dependency_overrides:
-#  wt_app_scaffold:
-#    path: ../wt_app_scaffold
-#  wt_models:
-#    path: ../wt_models
-
-flutter_icons:
-  image_path: assets/wt_logo.png
-  android: true
-  ios: true
-
-flutter_native_splash:
-  color: "#9E9E9E"
-  image: assets/wt_logo.png
-  android_12:
-  web_image_mode: center
+  wt_action_button:
+    path: ../../libraries/wt_action_button
+  wt_app_scaffold:
+    path: ../../libraries/wt_app_scaffold
+  wt_firepod:
+    path: ../../libraries/wt_firepod
+  wt_logging:
+    path: ../../libraries/wt_logging
+  wt_models:
+    path: ../../libraries/wt_models
+  wt_settings:
+    path: ../../libraries/wt_settings

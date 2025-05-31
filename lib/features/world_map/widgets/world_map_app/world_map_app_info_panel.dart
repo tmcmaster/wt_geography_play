@@ -38,11 +38,9 @@ class _WorldMapAppInfoPanelState extends State<WorldMapAppInfoPanel> {
   Widget build(BuildContext context) {
     final visible = widget.open || (widget.canToggle ? _visible : true);
 
-    final style =
-        Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white, fontSize: 16);
+    final style = Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.white, fontSize: 16);
 
-    final verticalHide =
-        widget.alignment == Alignment.topCenter || widget.alignment == Alignment.bottomCenter;
+    final verticalHide = widget.alignment == Alignment.topCenter || widget.alignment == Alignment.bottomCenter;
 
     final leftHide = widget.alignment == Alignment.bottomLeft ||
         widget.alignment == Alignment.centerLeft ||
@@ -144,7 +142,7 @@ class _WorldMapAppInfoPanelState extends State<WorldMapAppInfoPanel> {
   BoxDecoration _createBoxDecoration() {
     return BoxDecoration(
       border: Border.all(
-        color: Colors.black.withOpacity(0.2),
+        color: Colors.black.withAlpha(51),
       ),
       borderRadius: BorderRadius.only(
         topRight: widget.alignment == Alignment.centerLeft ||
@@ -172,7 +170,7 @@ class _WorldMapAppInfoPanelState extends State<WorldMapAppInfoPanel> {
             ? const Radius.circular(20)
             : Radius.zero,
       ),
-      color: Colors.blueGrey.withOpacity(0.4),
+      color: Colors.blueGrey.withValues(alpha: 102),
     );
   }
 }
